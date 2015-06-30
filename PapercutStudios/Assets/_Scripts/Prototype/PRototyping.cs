@@ -5,6 +5,7 @@ using System.Collections;
 [System.Serializable]
 public class Player
 {
+	public int iPlayerNum;
 	public string[] Activities;
 	public string[] Availabilities;
 	public string[] Items;
@@ -26,7 +27,9 @@ public class PRototyping : MonoBehaviour {
 	public GameObject PlayerInfo;
 	public GameObject EndScreen;
 	public GameObject PlayButton;
-	
+
+	public AudioClip Ring;
+
 	public Text Game1ButtonText;
 	public Text Game2ButtonText;
 
@@ -42,13 +45,16 @@ public class PRototyping : MonoBehaviour {
 	private Player SelectedPlayer;
 	private Game ActiveGame;
 	private int iCurrentRules = 0;
-	private Text PlayButtonText;
+	public Text PlayButtonText;
 
 	void Awake () {
-		PlayButtonText = PlayButton.GetComponentInChildren<Text>();
+//		PlayButtonText = PlayButton.GetComponentInChildren<Text>();
 	}
 
 	void Start () {
+		MainMenu.SetActive(true);
+		PlayerInfo.SetActive(false);
+		EndScreen.SetActive(false);
 		PlayButton.SetActive(false);
 		Game2.Player1.Rules = Game1.Player1.Rules;
 		Game2.Player2.Rules = Game1.Player2.Rules;
@@ -77,6 +83,7 @@ public class PRototyping : MonoBehaviour {
 			ActiveGame = Game1;
 		}
 		SelectedPlayer = ActiveGame.Player1;
+		ActiveGame.Player1.iPlayerNum = 1;
 		PlayButtonText.text = "Play as Player 1!";
 		PlayButton.SetActive(true);
 
@@ -87,6 +94,7 @@ public class PRototyping : MonoBehaviour {
 			ActiveGame = Game1;
 		}
 		SelectedPlayer = ActiveGame.Player2;
+		ActiveGame.Player1.iPlayerNum = 2;
 		PlayButtonText.text = "Play as Player 2!";
 		PlayButton.SetActive(true);
 	}
@@ -96,6 +104,8 @@ public class PRototyping : MonoBehaviour {
 			ActiveGame = Game1;
 		}
 		SelectedPlayer = ActiveGame.Player3;
+		ActiveGame.Player1.iPlayerNum = 3;
+
 		PlayButtonText.text = "Play as Player 3!";
 		PlayButton.SetActive(true);
 	}
@@ -105,6 +115,8 @@ public class PRototyping : MonoBehaviour {
 			ActiveGame = Game1;
 		}
 		SelectedPlayer = ActiveGame.Player4;
+		ActiveGame.Player1.iPlayerNum = 4;
+
 		PlayButtonText.text = "Play as Player 4!";
 		PlayButton.SetActive(true);
 	}
@@ -130,6 +142,8 @@ public class PRototyping : MonoBehaviour {
 
 	public void ShowNextRule() {
 		iCurrentRules++;
+		Handheld.Vibrate();
+		AudioSource.PlayClipAtPoint(Ring, transform.position);
 		Rules[iCurrentRules].text = SelectedPlayer.Rules[iCurrentRules];
 	}
 

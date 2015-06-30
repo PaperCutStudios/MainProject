@@ -30,8 +30,8 @@ public class Timer : MonoBehaviour {
 		if(bTimerRunning) {
 			fCountDownTimer -= Time.deltaTime;
 			
-			float minutes = fCountDownTimer / 60;
-			float seconds = fCountDownTimer % 60;
+			int minutes = Mathf.FloorToInt( fCountDownTimer / 60);
+			int seconds = Mathf.FloorToInt (fCountDownTimer % 60);
 			//var fraction = (CountDownTime * 100) % 100;
 
 			timerLabel.text = string.Format ("{0:00} : {1:00}", minutes, seconds);
@@ -49,11 +49,13 @@ public class Timer : MonoBehaviour {
 			if (fCountDownTimer <= 0.0f) 
 			{
 				UICommands.EndGame();
+				bTimerRunning = false;
 			}
 		}
 	}
 
 	public void StopTimer () {
 		bTimerRunning = false;
+		timerLabel.gameObject.SetActive(false);
 	}
 }
