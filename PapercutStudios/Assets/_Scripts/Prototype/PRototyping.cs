@@ -151,4 +151,8 @@ public class PRototyping : MonoBehaviour {
 		PlayerInfo.SetActive(false);
 		EndScreen.SetActive(true);
 	}
+
+	public void quit () {
+		Application.Quit ();
+	}
 }
