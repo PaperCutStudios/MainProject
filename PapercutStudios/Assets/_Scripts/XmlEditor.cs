@@ -27,9 +27,9 @@ public class XmlEditor : MonoBehaviour {
 
 		foreach(XmlNode PlayerInfo in PlayerList)
 		{
-			XmlNodeList playercontent = PlayerInfo.ChildNodes;
+			XmlNodeList player1info = PlayerInfo.ChildNodes;
 
-			foreach(XmlNode PlayerActivity in playercontent)
+			foreach(XmlNode PlayerActivity in player1info)
 			{
 
 				if (PlayerActivity.Name == "Activity")
