@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.IO;
+using UnityEngine.UI;
 
 public class XmlEditor : MonoBehaviour {
 
 	//public TextAsset taGameAsset;
-
+	public Text XmlText;
 	
 	void Start()
 	{
@@ -24,33 +25,18 @@ public class XmlEditor : MonoBehaviour {
 		XmlNodeList PlayerList = xml.GetElementsByTagName("Player");
 
 
-		foreach (XmlNode PlayerInfo in PlayerList)
+		XmlNode root = xml.ChildNodes;
+		foreach(XmlNode node in root.ChildNodes)
 		{
-			XmlNodeList PlayerContents = PlayerInfo.ChildNodes;
-
-			foreach (XmlNode PlayerItems in PlayerContents) // levels itens nodes.
+			if (node.FirstChild.Name == "Activity")
 			{
-				if(PlayerItems.Name == "Player")
-				{
+				XmlText.text = node.InnerText;
+				//XmlText.text = (node.InnerText);
 
-				}
-				
-				if(PlayerItems.Name == "Player1")
-				{
-
-				}
-
+				Debug.Log(node.InnerText);
 			}
 
 		}
-//		XmlNode root = xmlDoc.FirstChild;
-//		foreach(XmlNode node in root.ChildNodes)
-//		{
-//			if (node.FirstChild.NodeType == XmlNodeType.Text)
-//			{
-//				Debug.Log(node.InnerText);
-//				Debug.Log("Works");
-//			}
-//		}
+//		
 	}
 }
