@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='us-ascii'?> 
+<Information>
+	<Activities>
+		<Activity id = "0" name = "Cinema"/>
+		<Activity id = "1" name = "Paint ball"/>
+		<Activity id = "2" name = "Beach"/>
+		<Activity id = "3" name = "Night Club"/>
+		<Activity id = "4" name = "Theme Park"/>
+		<Activity id = "5" name = "Pub"/>
+		<Activity id = "6" name = "Laser Tag"/>
+		<Activity id = "7" name = "Cinema"/>
+	</Activities>
+	<Days>
+		<Day id = '0' name = "Saturday"/>
+		<Day id = '1' name = "Monday"/>
+		<Day id = '2' name = "Thursday"/>
+		<Day id = '3' name = "Sunday"/>
+		<Day id = '4' name = "Tuesday"/>
+		<Day id = '5' name = "Wednesday"/>
+		<Day id = '6' name = "Friday"/>
+	</Days>
+	<Times>
+		<Time id = "0" root = "03"/>
+		<Time id = "1" root = "04"/>
+		<Time id = "2" root = "05"/>
+		<Time id = "3" root = "06"/>
+		<Time id = "4" root = "07"/>
+		<Time id = "5" root = "08"/>
+		<Time id = "6" root = "09"/>
+		<Time id = "7" root = "10"/>
+		<Time id = "8" root = "11"/>
+		<Time id = "9" root = "12"/>
+		<Time id = "9" root = "13"/>
+		<Time id = "9" root = "14"/>
+		<Time id = "9" root = "15"/>
+		<Time id = "9" root = "16"/>
+		<Time id = "9" root = "17"/>
+		<Time id = "9" root = "18"/>
+		<Time id = "9" root = "19"/>
+		<Time id = "9" root = "20"/>
+	</Times>
+</Information>
