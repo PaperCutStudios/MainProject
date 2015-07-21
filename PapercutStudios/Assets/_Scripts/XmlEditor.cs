@@ -16,24 +16,29 @@ public class XmlEditor : MonoBehaviour {
 		GetInformation ();
 	}
 
-	void GetInformation()
+	public void GetInformation()
 	{
 		TextAsset textXML = (TextAsset)Resources.Load("GameDataXml.xml", typeof(TextAsset));
 		XmlDocument xml = new XmlDocument();
 		xml.LoadXml(textXML.text);
 
-		XmlNodeList PlayerList = xml.GetElementsByTagName("Player");
 
+		XmlNodeList PlayerList = xml.GetElementsByTagName("Player1");
 
-		XmlNode root = xml.ChildNodes;
-		foreach(XmlNode node in root.ChildNodes)
+		foreach(XmlNode PlayerInfo in PlayerList)
 		{
-			if (node.FirstChild.Name == "Activity")
-			{
-				XmlText.text = node.InnerText;
-				//XmlText.text = (node.InnerText);
+			XmlNodeList playercontent = PlayerInfo.ChildNodes;
 
-				Debug.Log(node.InnerText);
+			foreach(XmlNode PlayerActivity in playercontent)
+			{
+
+				if (PlayerActivity.Name == "Activity")
+				{
+					XmlText.text = PlayerActivity.InnerText;
+					//XmlText.text = (node.InnerText);
+
+					Debug.Log(PlayerInfo.InnerText);
+				}
 			}
 
 		}
