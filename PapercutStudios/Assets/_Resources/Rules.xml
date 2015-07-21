@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='us-ascii'?> 
+<Rules>
+	<Rule 	id = "0"
+			text = "This is a rule, do things">
+		<Conjoined id = "5"/>
+		<Clashes>
+			<Clash id = "1"/>
+			<Clash id = "2"/>
+			<Clash id = "3"/>
+		</Clashes>
+	</Rule>
+	<Rule 	id = "0"
+			text = "This is a rule, do things">
+		<Conjoined id = "5"/>
+		<Clashes>
+			<Clash id = "1"/>
+			<Clash id = "2"/>
+			<Clash id = "3"/>
+		</Clashes>
+	</Rule>
+</Rules>
