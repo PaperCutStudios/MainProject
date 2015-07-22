@@ -15,13 +15,14 @@ public class XMLInformationReader : MonoBehaviour {
 
 	public string GetActivityPiece(int i) {
 		//compare int i to activities in information xml
+		return "Activity";
 	}
 
 	public string GetDayPiece(int i) {
-
+		return "Day";
 	}
 
 	public string GetTimePiece(int i) {
-
+		return "15";
 	}
 }

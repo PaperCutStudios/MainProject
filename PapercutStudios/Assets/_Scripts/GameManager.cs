@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using System;
+
 
 public class GameManager : MonoBehaviour {
 
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 	public Text[] Items;
 	public Text[] Rules;
 
-	XMLInformationReader xmlInformationReader;
+	XMLInformationReader xmlInformationReader = new XMLInformationReader();
 
 	// Use this for initialization
 	void Start () {
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour {
 
 
 		for (int i = 0; i<activeTable.ActivityInfo.GetLength(1); i++) {
-			if(activeTable.ActivityInfo[0,i] = 0) {
+			if(activeTable.ActivityInfo[0,i] == 0) {
 				Activities[i].text = xmlInformationReader.GetActivityPiece(activeTable.ActivityInfo[0,i]) + " " +
 								xmlInformationReader.GetDayPiece(activeTable.ActivityInfo[1,i]) + " " +
 								xmlInformationReader.GetDayPiece(activeTable.ActivityInfo[2,i]) + " " +
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour {
 		}
 		for (int i = 0; i<activeTable.AvailabilityInfo.GetLength(1); i++) {
 			Availabilities[i].text = xmlInformationReader.GetDayPiece(activeTable.AvailabilityInfo[0,i]) + " " +
-									CalculateAvailabilityHours(xmlInformationReader.GetTimePiece(activeTable.AvailabilityInfo[1,i]));
+									CalculateAvailabilityHours(xmlInformationReader.GetTimePiece(activeTable.AvailabilityInfo[1,i]), iBracketTime);
 		}
 
 	}
@@ -83,16 +83,22 @@ public class GameManager : MonoBehaviour {
 	
 	}
 
-	string CalculateAvailabilityHours(string input) {
+	string CalculateAvailabilityHours(string input, int bracket) {
 		string sOutputString;
 		int iRootNum;
 		int iBegin;
 		int iEnd;
-		Random rand = new Random();
-
-		iEnd = rand.Next(iRootNum, iRootNum + iBracketTime);
-		iBegin = iEnd-iBracketTime;
-		sOutputString = iBegin.ToString() + " til " + iEnd.ToString()
+		//Random rand = new Random();
+		if(int.TryParse(input, out iRootNum)) {
+			iEnd = Random.Range(iRootNum, iRootNum + bracket);
+			iBegin = iEnd-bracket;
+			sOutputString = iBegin.ToString() + " til " + iEnd.ToString();
+		}
+		else {
+			sOutputString = "ERROR: Couldn't Parse Availability Hours";
+			Debug.Log ("Could not parse Availability hours");
+		}
+		return sOutputString;
 	}
 
 	string CalculateOpenHours(string input, bool IsAnswer) {
