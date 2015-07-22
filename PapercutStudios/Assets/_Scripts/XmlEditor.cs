@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -9,8 +9,9 @@ using UnityEngine.UI;
 public class XmlEditor : MonoBehaviour {
 
 	//public TextAsset taGameAsset;
-	public Text XmlText;
-	
+	//public Text XmlText;
+	//string XmlPath = "Assets/Resources/_Resources/GameDataXml.xml";
+
 	void Start()
 	{
 		GetInformation ();
@@ -18,9 +19,13 @@ public class XmlEditor : MonoBehaviour {
 
 	public void GetInformation()
 	{
-		TextAsset textXML = (TextAsset)Resources.Load("GameDataXml.xml", typeof(TextAsset));
+
+		//TextAsset textXML = (TextAsset)Resources.LoadAssetAtPath(XmlPath, typeof(TextAsset));
+
 		XmlDocument xml = new XmlDocument();
-		xml.LoadXml(textXML.text);
+		xml.Load (Application.dataPath + "/Resources/GameDataXml.xml");
+
+		//xml.LoadXml(textXML.text);
 
 
 		XmlNodeList PlayerList = xml.GetElementsByTagName("Player1");
@@ -34,7 +39,7 @@ public class XmlEditor : MonoBehaviour {
 
 				if (PlayerActivity.Name == "Activity")
 				{
-					XmlText.text = PlayerActivity.InnerText;
+					//XmlText.text = PlayerActivity.InnerText;
 					//XmlText.text = (node.InnerText);
 
 					Debug.Log(PlayerInfo.InnerText);
