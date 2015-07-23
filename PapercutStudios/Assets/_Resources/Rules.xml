@@ -4,36 +4,76 @@
 			text = "Can only speak when someone else is speaking">
 		<Conjoined id = "5"/>
 		<Clashes>
-			<Clash id = "1"/>
 			<Clash id = "2"/>
-			<Clash id = "3"/>
+			<Clash id = "6"/>
+			<Clash id = "10"/>
+			<Clash id = "12"/>
+			<Clash id = "16"/>
+			<Clash id = "19"/>
+			<Clash id = "21"/>
+			<Clash id = "22"/>
+			<Clash id = "25"/>
+			<Clash id = "30"/>
+			<Clash id = "31"/>
+			<Clash id = "33"/>
+			<Clash id = "37"/>
+			<Clash id = "40"/>
+			<Clash id = "44"/>
 		</Clashes>
 	</Rule>
 	<Rule 	id = "1"
 			text = "Must smile and giggle whenever you speak">
 		<Conjoined id = "5"/>
 		<Clashes>
-			<Clash id = "1"/>
-			<Clash id = "2"/>
-			<Clash id = "3"/>
+			<Clash id = "16"/>
+			<Clash id = ""/>
+			<Clash id = ""/>
 		</Clashes>
 	</Rule>
 		<Rule 	id = "2"
 			text = "Mimic anybody who tries to speak to you">
 		<Conjoined id = "5"/>
 		<Clashes>
-			<Clash id = "1"/>
-			<Clash id = "2"/>
+			<Clash id = "0"/>
 			<Clash id = "3"/>
+			<Clash id = "4"/>
+			<Clash id = "5"/>
+			<Clash id = "7"/>
+			<Clash id = "10"/>
+			<Clash id = "11"/>
+			<Clash id = "12"/>
+			<Clash id = "13"/>
+			<Clash id = "14"/>
+			<Clash id = "16"/>
+			<Clash id = "21"/>
+			<Clash id = "22"/>
+			<Clash id = "24"/>
+			<Clash id = "25"/>
+			<Clash id = "28"/>
+			<Clash id = "30"/>
+			<Clash id = "33"/>
+			<Clash id = "35"/>
+			<Clash id = "37"/>
+			<Clash id = "39"/>
+			<Clash id = "40"/>
+			<Clash id = "42"/>
 		</Clashes>
 	</Rule>
 		<Rule 	id = "3"
 			text = "Never respond to any questions directed to you">
 		<Conjoined id = "5"/>
 		<Clashes>
-			<Clash id = "1"/>
 			<Clash id = "2"/>
-			<Clash id = "3"/>
+			<Clash id = "6"/>
+			<Clash id = "8"/>
+			<Clash id = "9"/>
+			<Clash id = "10"/>
+			<Clash id = "21"/>
+			<Clash id = "22"/>
+			<Clash id = "31"/>
+			<Clash id = "33"/>
+			<Clash id = "37"/>
+			<Clash id = "39"/>
 		</Clashes>
 	</Rule>
 		<Rule 	id = "4"
@@ -352,7 +392,7 @@
 		</Clashes>
 	</Rule>
 		<Rule 	id = "39"
-			text = "Pick an activity & day and continuously suggest both as a preference">
+.			text = "Pick an activity & day and continuously suggest both as a preference">
 		<Conjoined id = "5"/>
 		<Clashes>
 			<Clash id = "1"/>
