@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using XMLEditorC;
 
 
 public class GameManager : MonoBehaviour {
@@ -23,20 +24,29 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Debug.Log( XmlManager.Instance.name);
+		initialiseEverything();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	}
 
+	void initialiseEverything () {
+		
 		//yes, its very hard-coded at this point, but it would be fairly simple to write a tool to edit these values or even read them from XML/CSV, they're currently based on what was written in TestAnswer.sheet on the PapercutStudios Google Drive
 		ptPlayer1 = new PlayerTable(WriteActivityInfo (2,0,3,1,0,1,5,0,6,3,6,14,8,2,3,10,1,1,4,0),
 		                            WriteAvailabilityInfo (5,11,2,4,0,0,4,17,1,1),
 		                            iBracketTime);
-
+		
 		ptPlayer2 = new PlayerTable(WriteActivityInfo (1,1,4,0,2,0,3,1,0,1,5,0,4,5,6,16,8,0,4,9),
 		                            WriteAvailabilityInfo (0,0,5,12,2,5,1,1,6,3),
 		                            iBracketTime);
-
+		
 		ptPlayer3 = new PlayerTable(WriteActivityInfo (0,1,5,0,5,0,6,8,1,1,4,0,2,0,3,1,3,2,4,7),
 		                            WriteAvailabilityInfo (1,4,3,9,2,2,6,11,0,0),
 		                            iBracketTime);
-
+		
 		ptPlayer4 = new PlayerTable(WriteActivityInfo (3,4,5,11,6,6,2,5,1,1,4,0,2,0,3,1,0,1,5,0),
 		                            WriteAvailabilityInfo (4,7,2,3,0,0,5,12,1,1),
 		                            iBracketTime);
@@ -59,7 +69,7 @@ public class GameManager : MonoBehaviour {
 			Debug.Log("Default Case");
 			break;
 		}
-
+		
 		for(int i = 0; i < Activities.Length; i++) {
 			Activities[i].text = activeTable.Activities[i].GetAsString();
 		}
@@ -67,12 +77,6 @@ public class GameManager : MonoBehaviour {
 			Availabilities[i].text = activeTable.Availabilities[i].GetAsString();
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 
 	#region Raw Playertable Definitions
 	int[,] WriteActivityInfo( int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k, int l, int m, int n, int o, int p, int q, int r, int s, int t)

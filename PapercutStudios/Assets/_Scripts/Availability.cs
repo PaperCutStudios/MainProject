@@ -13,8 +13,8 @@ public class Availability{
 		baseValues[0] = dayId;
 		baseValues[1] = rootTimeId;
 
-		iAvailableHours = CalculateAvailabilityHours(XMLInformationEditor.GetTimePiece(baseValues[1]), bracket);
-		sDay = XMLInformationEditor.GetDayPiece(baseValues[0]);
+		iAvailableHours = CalculateAvailabilityHours(XmlManager.Instance.GetTimePiece(baseValues[1]), bracket);
+		sDay = XmlManager.Instance.GetDayPiece(baseValues[0]);
 
 	}
 

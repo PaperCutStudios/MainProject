@@ -26,10 +26,15 @@ public class Activity {
 			isAnswer = false;
 		}
 
-		EventName =XMLInformationEditor.GetActivityPiece(baseValues[0]);
-		ClosedDay1 = XMLInformationEditor.GetDayPiece(baseValues[1]);
-		ClosedDay2 = XMLInformationEditor.GetDayPiece(baseValues[2]);
-		OpenHours = CalcOpeningHours(XMLInformationEditor.GetTimePiece(baseValues[3]),isAnswer,bracket);
+		SetInterpretedValues(bracket);
+
+	}
+
+	void SetInterpretedValues (int bracket) {
+		EventName =XmlManager.Instance.GetActivityPiece(baseValues[0]);
+		ClosedDay1 = XmlManager.Instance.GetDayPiece(baseValues[1]);
+		ClosedDay2 = XmlManager.Instance.GetDayPiece(baseValues[2]);
+		OpenHours = CalcOpeningHours(XmlManager.Instance.GetTimePiece(baseValues[3]),isAnswer,bracket);
 	}
 
 	public string GetAsString() 
