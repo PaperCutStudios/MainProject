@@ -1,28 +1,29 @@
 <?xml version='1.0' encoding='us-ascii'?> 
 <Information>
 	<Activities>
+		<Activity>Laser Tag</Activity>
+		<Activity>Sky-Diving</Activity>		
 		<Activity>Cinema</Activity>
-		<Activity>Paintball</Activity>
 		<Activity>Beach</Activity>
 		<Activity>Night Club</Activity>
 		<Activity>Theme Park</Activity>
+		<Activity>Paintball</Activity>
 		<Activity>Pub</Activity>
-		<Activity>LaserTag</Activity>
-		<Activity>Cinema</Activity>
-		<Activity>Sky-Diving</Activity>
+		<Activity>The Mall</Activity>
+
 	</Activities>
 	<Days>
-		<Day>Saturday</Day>
-		<Day>Monday</Day>
-		<Day>Thursday</Day>
-		<Day>Sunday</Day>
-		<Day>Tuesday</Day>
-		<Day>Wednesday</Day>
 		<Day>Friday</Day>
+		<Day>Tuesday</Day>
+		<Day>Saturday</Day>
+		<Day>Sunday</Day>
+		<Day>Monday</Day>
+		<Day>Wednesday</Day>
+		<Day>Thursday</Day>
 	</Days>
 	<Times>
 		<Time>03</Time>
-		<Time>04</Time>
+		<Time>20</Time>
 		<Time>05</Time>
 		<Time>06</Time>
 		<Time>07</Time>
@@ -38,6 +39,6 @@
 		<Time>17</Time>
 		<Time>18</Time>
 		<Time>19</Time>
-		<Time>20</Time>
+		<Time>04</Time>
 	</Times>
 </Information>

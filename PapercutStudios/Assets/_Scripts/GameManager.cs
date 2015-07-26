@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 
 	PlayerTable activeTable;
 
-	public int iActiveTable;
+	public int iPlayerNum;
 
 	public int iBracketTime = 3;
 
@@ -24,15 +24,14 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log( XmlManager.Instance.name);
-		initialiseEverything();
+//		Debug.Log( XmlManager.Instance.name);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	}
 
-	void initialiseEverything () {
+	public void SetUpPlayerInformation () {
 		
 		//yes, its very hard-coded at this point, but it would be fairly simple to write a tool to edit these values or even read them from XML/CSV, they're currently based on what was written in TestAnswer.sheet on the PapercutStudios Google Drive
 		ptPlayer1 = new PlayerTable(WriteActivityInfo (2,0,3,1,0,1,5,0,6,3,6,14,8,2,3,10,1,1,4,0),
@@ -51,7 +50,7 @@ public class GameManager : MonoBehaviour {
 		                            WriteAvailabilityInfo (4,7,2,3,0,0,5,12,1,1),
 		                            iBracketTime);
 		
-		switch(iActiveTable) {
+		switch(iPlayerNum) {
 		case 1 :
 			activeTable = ptPlayer1;
 			break;
@@ -76,6 +75,10 @@ public class GameManager : MonoBehaviour {
 		for(int i = 0; i < Availabilities.Length; i++) {
 			Availabilities[i].text = activeTable.Availabilities[i].GetAsString();
 		}
+	}
+
+	public void SetPlayerNum (int playerNum ) {
+		iPlayerNum = playerNum;
 	}
 
 	#region Raw Playertable Definitions

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class XMLRulesReader : MonoBehaviour {
+public class Rule : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

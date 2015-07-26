@@ -392,7 +392,7 @@
 		</Clashes>
 	</Rule>
 		<Rule 	id = "39"
-.			text = "Pick an activity & day and continuously suggest both as a preference">
+				text = "Pick an activity and day then continuously suggest both as a preference">
 		<Conjoined id = "5"/>
 		<Clashes>
 			<Clash id = "1"/>

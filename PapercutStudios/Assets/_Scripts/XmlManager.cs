@@ -6,12 +6,17 @@ using System.IO;
 
 namespace XMLEditorC {
 	public class XmlManager : Singleton<XmlManager> {
-		private XmlDocument xml = new XmlDocument();
+		private XmlDocument xmlInfo = new XmlDocument();
+		private XmlDocument xmlRules = new XmlDocument();
+		private TextAsset textAssetInfo;
+		private TextAsset textAssetRules;
 
 		protected XmlManager() {
-			xml = new XmlDocument();
-			xml.Load(Application.dataPath +"/_Resources/GameDataSet.xml");
-			XmlNode elem = xml.DocumentElement.FirstChild;
+			textAssetInfo = (TextAsset)Resources.Load("GameDataSet",typeof(TextAsset));
+			textAssetRules = (TextAsset)Resources.Load("Rules",typeof(TextAsset));
+			xmlInfo.LoadXml(textAssetInfo.text);
+			xmlRules.LoadXml(textAssetRules.text);
+			XmlNode elem = xmlInfo.DocumentElement.FirstChild;
 			Debug.Log(elem.InnerText);
 		}
 
@@ -58,7 +63,7 @@ namespace XMLEditorC {
 
 		public string GetActivityPiece(int i) {
 			//compare int i to activities in information xml
-			XmlNodeList nodes = xml.DocumentElement.GetElementsByTagName("Activity");
+			XmlNodeList nodes = xmlInfo.DocumentElement.GetElementsByTagName("Activity");
 			if(nodes.Count > 0) {
 				return nodes.Item(i).InnerText;
 //				return nodes[i].Attributes["name"].Value;
@@ -69,7 +74,7 @@ namespace XMLEditorC {
 		}
 
 		public string GetDayPiece(int i) {
-			XmlNodeList nodes = xml.DocumentElement.GetElementsByTagName("Day");
+			XmlNodeList nodes = xmlInfo.DocumentElement.GetElementsByTagName("Day");
 			if(nodes.Count > 0) {
 				return nodes.Item(i).InnerText;
 //				return nodes[i].Attributes["name"].Value;
@@ -80,7 +85,7 @@ namespace XMLEditorC {
 		}
 
 		public int GetTimePiece(int i) {
-			XmlNodeList nodes = xml.DocumentElement.GetElementsByTagName("Time");
+			XmlNodeList nodes = xmlInfo.DocumentElement.GetElementsByTagName("Time");
 			if(nodes.Count > 0) {
 				return int.Parse(nodes.Item(i).InnerText);
 //				return int.Parse(nodes[i].Attributes["root"].Value);
