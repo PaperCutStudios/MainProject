@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Net.Sockets;
 using System.IO;
+using System.Text;
 
 
 public class TCPClientManager : MonoBehaviour {
@@ -22,7 +23,9 @@ public class TCPClientManager : MonoBehaviour {
 		}
 
 	}
-	
+
+
+
 	// Update is called once per frame
 	void Update () {
 	

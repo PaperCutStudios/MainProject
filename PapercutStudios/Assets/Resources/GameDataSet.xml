@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='us-ascii'?> 
+<Information>
+	<Activities>
+		<Activity name = "Cinema"/>
+		<Activity name = "Paint ball"/>
+		<Activity name = "Beach"/>
+		<Activity name = "Night Club"/>
+		<Activity name = "Theme Park"/>
+		<Activity name = "Pub"/>
+		<Activity name = "Laser Tag"/>
+		<Activity name = "Cinema"/>
+	</Activities>
+	<Days>
+		<Day name = "Saturday"/>
+		<Day name = "Monday"/>
+		<Day name = "Thursday"/>
+		<Day name = "Sunday"/>
+		<Day name = "Tuesday"/>
+		<Day name = "Wednesday"/>
+		<Day name = "Friday"/>
+	</Days>
+	<Times>
+		<Time root = "03"/>
+		<Time root = "04"/>
+		<Time root = "05"/>
+		<Time root = "06"/>
+		<Time root = "07"/>
+		<Time root = "08"/>
+		<Time root = "09"/>
+		<Time root = "10"/>
+		<Time root = "11"/>
+		<Time root = "12"/>
+		<Time root = "13"/>
+		<Time root = "14"/>
+		<Time root = "15"/>
+		<Time root = "16"/>
+		<Time root = "17"/>
+		<Time root = "18"/>
+		<Time root = "19"/>
+		<Time root = "20"/>
+	</Times>
+</Information>
