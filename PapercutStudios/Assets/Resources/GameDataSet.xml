@@ -12,13 +12,13 @@
 		<Activity>Sky-Diving</Activity>
 	</Activities>
 	<Days>
-		<Day>Saturday</Day>
-		<Day>Monday</Day>
-		<Day>Thursday</Day>
-		<Day>Sunday</Day>
-		<Day>Tuesday</Day>
-		<Day>Wednesday</Day>
-		<Day>Friday</Day>
+		<Day>Sat</Day>
+		<Day>Mon</Day>
+		<Day>Thur</Day>
+		<Day>Sun</Day>
+		<Day>Tues</Day>
+		<Day>Wed</Day>
+		<Day>Fri</Day>
 	</Days>
 	<Times>
 		<Time>03</Time>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='us-ascii'?> 
 <Rules>
 	<Rule 	id = "0"
-			text = "Can only speak when someone else is speaking">
+			text = "You can only speak when someone else is speaking">
 		<Conjoined id = "5"/>
 		<Clashes>
 			<Clash id = "2"/>
@@ -22,16 +22,14 @@
 		</Clashes>
 	</Rule>
 	<Rule 	id = "1"
-			text = "Must smile and giggle whenever you speak">
+			text = "You must smile and giggle whenever you speak">
 		<Conjoined id = "5"/>
 		<Clashes>
 			<Clash id = "16"/>
-			<Clash id = ""/>
-			<Clash id = ""/>
 		</Clashes>
 	</Rule>
 		<Rule 	id = "2"
-			text = "Mimic anybody who tries to speak to you">
+				text = "You must mimic anybody who speaks to you directly, before replying">
 		<Conjoined id = "5"/>
 		<Clashes>
 			<Clash id = "0"/>
@@ -60,7 +58,7 @@
 		</Clashes>
 	</Rule>
 		<Rule 	id = "3"
-			text = "Never respond to any questions directed to you">
+			text = "You can never respond to any questions directed at you">
 		<Conjoined id = "5"/>
 		<Clashes>
 			<Clash id = "2"/>
@@ -223,7 +221,7 @@
 			<Clash id = "0"/>
 			<Clash id = "2"/>
 			<Clash id = "7"/>
-			<Clash id = "14/>
+			<Clash id = "14"/>
 			<Clash id = "16"/>
 			<Clash id = "18"/>
 			<Clash id = "21"/>
@@ -645,42 +643,6 @@
 			text = "You must always maintain eye contact with somebody">
 		<Conjoined id = "5"/>
 		<Clashes>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "46"
-			text = "">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "1"/>
-			<Clash id = "2"/>
-			<Clash id = "3"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "47"
-			text = "">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "1"/>
-			<Clash id = "2"/>
-			<Clash id = "3"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "48"
-			text = "">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "1"/>
-			<Clash id = "2"/>
-			<Clash id = "3"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "49"
-			text = "">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "1"/>
-			<Clash id = "2"/>
-			<Clash id = "3"/>
 		</Clashes>
 	</Rule>
 </Rules>

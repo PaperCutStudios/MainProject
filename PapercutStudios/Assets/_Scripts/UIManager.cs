@@ -1,26 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager> {
 	private GameObject MainMenu;
 	private GameObject PlayerInfo;
 
-	private GameManager gameManager;
+	private PlayerManager gameManager;
 
 	private Text StatusDisplay;
 	private Button PlayButton;
 	private Button JoinButton;
 
+	int iCurrentDisplayedRules = 0;
+
+	Text[] Activities;
+	Text[] Availabilities;
+	Text[] Rules;
+
 	void Start() {
 		if (gameManager == null) {
-			gameManager = FindObjectOfType<GameManager>();
+			gameManager = FindObjectOfType<PlayerManager>();
 		}
 
-		MainMenu = GameObject.FindWithTag("MainMenu");
+//		-------------Player Info Screen initialisation----------------
 		PlayerInfo = GameObject.FindWithTag("PlayerInfo");
+		Activities = FindTextGUIObjs("ActivityText");
+		Availabilities = FindTextGUIObjs("AvailText");
+		Rules = FindTextGUIObjs("RulesText");
+		foreach(Text element in Rules) {
+			element.text = "";
+		}
 		PlayerInfo.SetActive(false);
 
+//		--------------Main Menu UI initialisation---------------------
+		MainMenu = GameObject.FindWithTag("MainMenu");
 		JoinButton = MainMenu.transform.FindChild("JoinButton").gameObject.GetComponent<Button>();
 		JoinButton.onClick.AddListener(() => ConnectionSuccess());
 //		JoinButton.onClick.AddListener(() => TCPClientManager.Instance.AttempToJoin());
@@ -35,6 +50,29 @@ public class UIManager : Singleton<UIManager> {
 
 	}
 
+	Text[] FindTextGUIObjs(string searchTag) {
+		GameObject[] FoundWithTag = GameObject.FindGameObjectsWithTag(searchTag);
+		Text[] returnArray = new Text[FoundWithTag.Length];
+		for (int i = 0; i < FoundWithTag.Length; i++) {
+			returnArray[i] = FoundWithTag[i].GetComponent<Text>();
+		}
+		Array.Sort(returnArray, CompareObNames);
+		return returnArray;
+	}
+
+	int CompareObNames( Text x, Text y) {
+		return x.gameObject.name.CompareTo(y.gameObject.name);
+	}
+
+	public void ShowNextRule () {
+		Rules[iCurrentDisplayedRules].text = gameManager.GetRuleString(iCurrentDisplayedRules);
+		iCurrentDisplayedRules++;
+	}
+
+	public void EndGame() {
+		PlayerInfo.SetActive(false);
+	}
+
 	public void MainMenuPlay() {
 		MainMenu.SetActive(false);
 		PlayerInfo.SetActive(true);
@@ -44,12 +82,21 @@ public class UIManager : Singleton<UIManager> {
 		PlayButton.gameObject.SetActive(true);
 		JoinButton.gameObject.SetActive(false);
 		gameManager.SetUpPlayerInformation();
+		SetInfoScreenText();
+		ShowNextRule();
 
 
 	}
 
 	public void Quit() {
 		Application.Quit();
+	}
+
+	void SetInfoScreenText() {
+		for(int i = 0; i < Activities.Length; i++) {
+			Activities[i].text = gameManager.GetActivityString(i);
+			Availabilities[i].text = gameManager.GetAvailabilityString(i);
+		}
 	}
 }
 

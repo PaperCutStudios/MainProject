@@ -8,15 +8,10 @@ public class Timer : MonoBehaviour {
 	
 	public float StartingCountDownTime;
 	public float fCountDownTimer;
-	private PRototyping UICommands;
 	private float fInterval;
 	private bool bTimerRunning;
 	private bool ShownRule2;
 	private bool ShownRule3;
-
-	void Awake() {
-		UICommands = FindObjectOfType<PRototyping>();
-	}
 
 	void Start () { 
 		fCountDownTimer = StartingCountDownTime;
@@ -37,18 +32,18 @@ public class Timer : MonoBehaviour {
 			timerLabel.text = string.Format ("{0:00} : {1:00}", minutes, seconds);
 
 			if (fCountDownTimer <= StartingCountDownTime - fInterval && !ShownRule2) {
-				UICommands.ShowNextRule();
+				UIManager.Instance.ShowNextRule();
 				ShownRule2 = true;
 			}
 
 			if(fCountDownTimer <= StartingCountDownTime - (2*fInterval) && !ShownRule3) {
-				UICommands.ShowNextRule();
+				UIManager.Instance.ShowNextRule();
 				ShownRule3 = true;
 			}
 
 			if (fCountDownTimer <= 0.0f) 
 			{
-				UICommands.EndGame();
+				UIManager.Instance.EndGame();
 				bTimerRunning = false;
 			}
 		}

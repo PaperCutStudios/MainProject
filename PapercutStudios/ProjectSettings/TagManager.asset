@@ -5,6 +5,9 @@ TagManager:
   tags:
   - MainMenu
   - PlayerInfo
+  - RulesText
+  - AvailText
+  - ActivityText
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

@@ -32,7 +32,7 @@ public class Availability{
 	public string GetAsString() 
 	{
 		string returnString;
-		returnString = sDay +"\t\t" +HoursToString(iAvailableHours); 
+		returnString = sDay +"\t" +HoursToString(iAvailableHours); 
 		return returnString;
 	}
 

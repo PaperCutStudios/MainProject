@@ -41,7 +41,7 @@ public class Activity {
 	{
 		string returnString;
 
-		returnString = EventName + " is closed on " +ClosedDay1 + "'s and " + ClosedDay2 + "'s. \nOpening Hours:" + HoursToString(OpenHours);
+		returnString = EventName + " (Closed " +ClosedDay1 + " & " + ClosedDay2 + "). \nOpening Hours:" + HoursToString(OpenHours);
 
 		return returnString;
 	}

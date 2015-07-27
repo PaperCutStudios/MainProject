@@ -7,7 +7,7 @@ using System.Text;
 
 public class TCPClientManager : Singleton<TCPClientManager> {
 
-	GameManager gameManager;
+	PlayerManager gameManager;
 	TcpClient tcpClient;
 	Stream stm;
 	ASCIIEncoding asciiEncoding = new ASCIIEncoding();
@@ -15,11 +15,13 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 
 	// Use this for initialization
 	void Start () {
-		gameManager = FindObjectOfType<GameManager>();
+		gameManager = FindObjectOfType<PlayerManager>();
 		tcpClient = new TcpClient();
 		try {
 			tcpClient.Connect("192.168.0.1",80);
 			stm = tcpClient.GetStream();
+			Debug.Log(tcpClient.Client.RemoteEndPoint.ToString());
+
 
 		}
 		catch {

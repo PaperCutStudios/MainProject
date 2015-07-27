@@ -1,26 +1,26 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using XMLEditorC;
 
 
-public class GameManager : MonoBehaviour {
+public class PlayerManager : MonoBehaviour {
 
 	PlayerTable ptPlayer1;
 	PlayerTable ptPlayer2;
 	PlayerTable ptPlayer3;
 	PlayerTable ptPlayer4;
 
-	PlayerTable activeTable;
+	PlayerTable ptActiveTable;
+
+	List<Rule> l_rRules = new List<Rule>();
+
 
 	public int iPlayerNum;
+	public int iTotalRules;
 
 	public int iBracketTime = 3;
-
-	public Text[] Activities;
-	public Text[] Availabilities;
-	public Text[] Items;
-	public Text[] Rules;
 
 	// Use this for initialization
 	void Start () {
@@ -49,37 +49,69 @@ public class GameManager : MonoBehaviour {
 		ptPlayer4 = new PlayerTable(WriteActivityInfo (3,4,5,11,6,6,2,5,1,1,4,0,2,0,3,1,0,1,5,0),
 		                            WriteAvailabilityInfo (4,7,2,3,0,0,5,12,1,1),
 		                            iBracketTime);
-		
+
+		//depending on the playernumber we recieve from TCPManager, set our playerNumber and, therefore, the table we use, will be moved to the "Recieve connection info" function TBD
 		switch(iPlayerNum) {
 		case 1 :
-			activeTable = ptPlayer1;
+			ptActiveTable = ptPlayer1;
 			break;
 		case 2 :
-			activeTable = ptPlayer2;
+			ptActiveTable = ptPlayer2;
 			break;
 		case 3 :
-			activeTable = ptPlayer3;
+			ptActiveTable = ptPlayer3;
 			break;
 		case 4 :
-			activeTable = ptPlayer4;
+			ptActiveTable = ptPlayer4;
 			break;
 		default :
-			activeTable = ptPlayer1;
+			ptActiveTable = ptPlayer1;
 			Debug.Log("Default Case");
 			break;
 		}
-		
-		for(int i = 0; i < Activities.Length; i++) {
-			Activities[i].text = activeTable.Activities[i].GetAsString();
+
+		for (int i = 0; i< iTotalRules; i++) {
+			l_rRules.Add(GetNewRule(l_rRules));
 		}
-		for(int i = 0; i < Availabilities.Length; i++) {
-			Availabilities[i].text = activeTable.Availabilities[i].GetAsString();
-		}
+
 	}
 
 	public void SetPlayerNum (int playerNum ) {
 		iPlayerNum = playerNum;
 	}
+
+	public string GetRuleString(int index) {
+		return l_rRules[index].RuleText;
+	}
+
+	public string GetActivityString(int index) {
+		return ptActiveTable.Activities[index].GetAsString();
+	}
+
+	public string GetAvailabilityString(int index) {
+		return ptActiveTable.Availabilities[index].GetAsString();
+	}
+
+	Rule GetNewRule (List<Rule> currentRules) {
+		Rule newRule;
+		//if we have no rules yet, grab simple rule
+		if(currentRules == null) {
+			newRule = XmlManager.Instance.GetNextRule();
+			return newRule;
+		}
+		//if we have rules, build a list of current clashes to send to the XmlEditor
+		else {
+			List<int> ruleClashes = new List<int>();
+			for(int i = 0; i<currentRules.Count; i++) {
+				for(int j = 0; j<currentRules[i].l_ClashIDs.Count; j++) {
+					ruleClashes.Add(currentRules[i].l_ClashIDs[j]);
+				}
+			}
+			newRule = XmlManager.Instance.GetNextRule(ruleClashes);
+			return newRule;
+		}
+	}
+
 
 	#region Raw Playertable Definitions
 	int[,] WriteActivityInfo( int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k, int l, int m, int n, int o, int p, int q, int r, int s, int t)
