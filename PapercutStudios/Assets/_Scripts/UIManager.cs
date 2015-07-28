@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager> {
 	private GameObject MainMenu;
+	private GameObject EndScreen;
 	private GameObject PlayerInfo;
 
 	private PlayerManager gameManager;
@@ -12,6 +13,18 @@ public class UIManager : Singleton<UIManager> {
 	private Text StatusDisplay;
 	private Button PlayButton;
 	private Button JoinButton;
+
+	private Button AvailButton0;
+	private Button AvailButton1;
+	private Button AvailButton2;
+	private Button AvailButton3;
+	private Button AvailButton4;
+
+	private GameObject AvTime0;
+	private GameObject AvTime1;
+	private GameObject AvTime2;
+	private GameObject AvTime3;
+	private GameObject AvTime4;
 
 	int iCurrentDisplayedRules = 0;
 
@@ -46,8 +59,21 @@ public class UIManager : Singleton<UIManager> {
 		PlayButton.gameObject.SetActive(false);
 
 		StatusDisplay = MainMenu.transform.FindChild("StatusDisplay").gameObject.GetComponent<Text>();
+		
+//		--------------End Screen UI initialisation---------------------
+		EndScreen = GameObject.FindWithTag ("EndScreen");
+		AvailButtonActive0 = EndScreen.transform.FindChild ("AvailButton0").gameObject.GetComponent<Button>();
+		AvailButton0.onClick.AddListener (() => AvailButtonActive0 ());
+		AvailButtonActive1 = EndScreen.transform.FindChild ("AvailButton1").gameObject.GetComponent<Button>();
+		AvailButton1.onClick.AddListener (() => AvailButtonActive1 ());
+		AvailButtonActive2 = EndScreen.transform.FindChild ("AvailButton2").gameObject.GetComponent<Button>();
+		AvailButton2.onClick.AddListener (() => AvailButtonActive2 ());
+		AvailButtonActive3 = EndScreen.transform.FindChild ("AvailButton3").gameObject.GetComponent<Button>();
+		AvailButton3.onClick.AddListener (() => AvailButtonActive3 ());
+		AvailButtonActive4 = EndScreen.transform.FindChild ("AvailButton4").gameObject.GetComponent<Button>();
+		AvailButton4.onClick.AddListener (() => AvailButtonActive4 ());
 
-
+		EndScreen.SetActive (false);
 	}
 
 	Text[] FindTextGUIObjs(string searchTag) {
@@ -71,6 +97,7 @@ public class UIManager : Singleton<UIManager> {
 
 	public void EndGame() {
 		PlayerInfo.SetActive(false);
+		EndScreen.SetActive (true);
 	}
 
 	public void MainMenuPlay() {
@@ -84,8 +111,23 @@ public class UIManager : Singleton<UIManager> {
 		gameManager.SetUpPlayerInformation();
 		SetInfoScreenText();
 		ShowNextRule();
+	}
 
 
+	public void AvailButtonActive0() {
+
+	}
+	public void AvailButtonActive1() {
+		
+	}
+	public void AvailButtonActive2() {
+		
+	}
+	public void AvailButtonActive3() {
+		
+	}
+	public void AvailButtonActive4() {
+		
 	}
 
 	public void Quit() {
