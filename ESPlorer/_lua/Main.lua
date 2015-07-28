@@ -1,7 +1,7 @@
 function HandleSocketData (Socket,DataStream)
-    local gpiofunctions = require("gpiofunctions")
-    local funcIdentifier = "0"
     if(DataStream:byte(1) == string.byte("0")) then
+        local gpiofunctions = require("gpiofunctions")
+        local funcIdentifier = "0"
         if(numPlayers == 0) then
             local player = require("player1")
             player.SetIP( string.char(DataStream:byte(2,DataStream:len())))
@@ -19,6 +19,7 @@ function HandleSocketData (Socket,DataStream)
             player.SetIP( string.char(DataStream:byte(2,DataStream:len())))
             gpiofunctions.LightOn("red")
         end
+        
         numPlayers = numPlayers + 1;
     end
 end

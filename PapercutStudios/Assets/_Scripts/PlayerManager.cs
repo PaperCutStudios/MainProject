@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour {
 	PlayerTable ptPlayer3;
 	PlayerTable ptPlayer4;
 
-	PlayerTable ptActiveTable;
+	public PlayerTable ptActiveTable;
 
 	List<Rule> l_rRules = new List<Rule>();
 
@@ -21,6 +21,8 @@ public class PlayerManager : MonoBehaviour {
 	public int iTotalRules;
 
 	public int iBracketTime = 3;
+
+	public int[] AnswerIDs = new int[3];
 
 	// Use this for initialization
 	void Start () {

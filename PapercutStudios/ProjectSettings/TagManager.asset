@@ -9,6 +9,9 @@ TagManager:
   - AvailText
   - ActivityText
   - EndScreen
+  - ActivityButton
+  - DayButton
+  - TimeButton
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

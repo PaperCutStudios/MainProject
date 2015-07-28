@@ -6,7 +6,7 @@ public class Availability{
 
 	public int[] baseValues = new int[2];
 	public int[] iAvailableHours;
-	private string sDay;
+	public string sDay;
 	
 	public Availability(int dayId, int rootTimeId, int bracket) 
 	{
