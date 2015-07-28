@@ -106,7 +106,7 @@
 		</Clashes>
 	</Rule>
 		<Rule 	id = "6"
-			text = "Any time you are asked a question you must read through you entire list of information">
+			text = "Any time you are asked a question you must read through your entire list of information">
 		<Conjoined id = "5"/>
 		<Clashes>
 			<Clash id = "0"/>
