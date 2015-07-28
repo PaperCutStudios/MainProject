@@ -20,6 +20,12 @@ public class UIManager : Singleton<UIManager> {
 	private Button AvailButton3;
 	private Button AvailButton4;
 
+	public Text ActText0;
+	public Text ActText1;
+	public Text ActText2;
+	public Text ActText3;
+	public Text ActText4;
+
 	public GameObject AvTime0;
 	public GameObject AvTime1;
 	public GameObject AvTime2;
@@ -78,6 +84,8 @@ public class UIManager : Singleton<UIManager> {
 //		AvTime2 = EndScreen.transform.FindChild ("AvTime2").gameObject.GetComponent<Button>();
 //		AvTime3 = EndScreen.transform.FindChild ("AvTime3").gameObject.GetComponent<Button>();
 //		AvTime4 = EndScreen.transform.FindChild ("AvTime4").gameObject.GetComponent<Button>();
+
+		//ActText0.text = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[0].toString();
 
 		AvTime0.SetActive (false);
 		AvTime1.SetActive (false);
