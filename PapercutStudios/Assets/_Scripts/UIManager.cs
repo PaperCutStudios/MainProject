@@ -20,11 +20,11 @@ public class UIManager : Singleton<UIManager> {
 	private Button AvailButton3;
 	private Button AvailButton4;
 
-	private GameObject AvTime0;
-	private GameObject AvTime1;
-	private GameObject AvTime2;
-	private GameObject AvTime3;
-	private GameObject AvTime4;
+	public GameObject AvTime0;
+	public GameObject AvTime1;
+	public GameObject AvTime2;
+	public GameObject AvTime3;
+	public GameObject AvTime4;
 
 	int iCurrentDisplayedRules = 0;
 
@@ -62,17 +62,28 @@ public class UIManager : Singleton<UIManager> {
 		
 //		--------------End Screen UI initialisation---------------------
 		EndScreen = GameObject.FindWithTag ("EndScreen");
-		AvailButtonActive0 = EndScreen.transform.FindChild ("AvailButton0").gameObject.GetComponent<Button>();
+		AvailButton0 = EndScreen.transform.FindChild ("AvailButton0").gameObject.GetComponent<Button>();
 		AvailButton0.onClick.AddListener (() => AvailButtonActive0 ());
-		AvailButtonActive1 = EndScreen.transform.FindChild ("AvailButton1").gameObject.GetComponent<Button>();
+		AvailButton1 = EndScreen.transform.FindChild ("AvailButton1").gameObject.GetComponent<Button>();
 		AvailButton1.onClick.AddListener (() => AvailButtonActive1 ());
-		AvailButtonActive2 = EndScreen.transform.FindChild ("AvailButton2").gameObject.GetComponent<Button>();
+		AvailButton2 = EndScreen.transform.FindChild ("AvailButton2").gameObject.GetComponent<Button>();
 		AvailButton2.onClick.AddListener (() => AvailButtonActive2 ());
-		AvailButtonActive3 = EndScreen.transform.FindChild ("AvailButton3").gameObject.GetComponent<Button>();
+		AvailButton3 = EndScreen.transform.FindChild ("AvailButton3").gameObject.GetComponent<Button>();
 		AvailButton3.onClick.AddListener (() => AvailButtonActive3 ());
-		AvailButtonActive4 = EndScreen.transform.FindChild ("AvailButton4").gameObject.GetComponent<Button>();
+		AvailButton4 = EndScreen.transform.FindChild ("AvailButton4").gameObject.GetComponent<Button>();
 		AvailButton4.onClick.AddListener (() => AvailButtonActive4 ());
 
+//		AvTime0 = EndScreen.transform.FindChild ("AvTime0").gameObject.GetComponent<Button>();
+//		AvTime1 = EndScreen.transform.FindChild ("AvTime1").gameObject.GetComponent<Button>();
+//		AvTime2 = EndScreen.transform.FindChild ("AvTime2").gameObject.GetComponent<Button>();
+//		AvTime3 = EndScreen.transform.FindChild ("AvTime3").gameObject.GetComponent<Button>();
+//		AvTime4 = EndScreen.transform.FindChild ("AvTime4").gameObject.GetComponent<Button>();
+
+		AvTime0.SetActive (false);
+		AvTime1.SetActive (false);
+		AvTime2.SetActive (false);
+		AvTime3.SetActive (false);
+		AvTime4.SetActive (false);
 		EndScreen.SetActive (false);
 	}
 
@@ -115,19 +126,45 @@ public class UIManager : Singleton<UIManager> {
 
 
 	public void AvailButtonActive0() {
+		AvTime0.SetActive (true);
 
+		AvTime1.SetActive (false);
+		AvTime2.SetActive (false);
+		AvTime3.SetActive (false);
+		AvTime4.SetActive (false);
 	}
 	public void AvailButtonActive1() {
-		
+		AvTime1.SetActive (true);
+
+		AvTime0.SetActive (false);
+		AvTime2.SetActive (false);
+		AvTime3.SetActive (false);
+		AvTime4.SetActive (false);
 	}
 	public void AvailButtonActive2() {
+		AvTime2.SetActive (true);
+
+		AvTime0.SetActive (false);
+		AvTime1.SetActive (false);
+		AvTime3.SetActive (false);
+		AvTime4.SetActive (false);
 		
 	}
 	public void AvailButtonActive3() {
-		
+		AvTime3.SetActive (true);
+
+		AvTime0.SetActive (false);
+		AvTime1.SetActive (false);
+		AvTime2.SetActive (false);
+		AvTime4.SetActive (false);
 	}
 	public void AvailButtonActive4() {
-		
+		AvTime4.SetActive (true);
+
+		AvTime0.SetActive (false);
+		AvTime1.SetActive (false);
+		AvTime2.SetActive (false);
+		AvTime3.SetActive (false);
 	}
 
 	public void Quit() {
