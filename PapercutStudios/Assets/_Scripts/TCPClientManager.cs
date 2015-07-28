@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Net;
 using System.Net.Sockets;
 using System.IO;
 using System.Text;
@@ -17,16 +18,6 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 	void Start () {
 		gameManager = FindObjectOfType<PlayerManager>();
 		tcpClient = new TcpClient();
-		try {
-			tcpClient.Connect("192.168.0.1",80);
-			stm = tcpClient.GetStream();
-			Debug.Log(tcpClient.Client.RemoteEndPoint.ToString());
-
-
-		}
-		catch {
-			Debug.Log("Could not connect");
-		}
 
 	}
 
@@ -44,6 +35,16 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 	}
 
 	public void AttempToJoin() {
-
+		try {
+			tcpClient.Connect("192.168.0.1",80);
+			stm = tcpClient.GetStream();
+			string simpleIP = tcpClient.Client.LocalEndPoint.ToString().Remove(11);
+			Debug.Log(tcpClient.Client.LocalEndPoint.ToString());
+			Debug.Log(simpleIP);
+			
+		}
+		catch {
+			Debug.Log("Could not connect");
+		}
 	}
 }
