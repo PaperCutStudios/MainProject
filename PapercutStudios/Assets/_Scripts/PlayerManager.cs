@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour {
 	PlayerTable ptPlayer3;
 	PlayerTable ptPlayer4;
 
+
 	public PlayerTable ptActiveTable;
 
 	List<Rule> l_rRules = new List<Rule>();
@@ -31,6 +32,7 @@ public class PlayerManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 	}
 
 	public void SetUpPlayerInformation () {

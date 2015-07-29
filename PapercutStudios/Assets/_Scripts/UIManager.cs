@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
+using System;
 
 public class UIManager : Singleton<UIManager> {
 	private GameObject MainMenu;
@@ -15,6 +17,8 @@ public class UIManager : Singleton<UIManager> {
 	private Button JoinButton;
 	private Button[] PlayerButtons;
 	private Button activeButton;
+
+	private List<DayAndTimeButton> dayAndTimeButtons = new List<DayAndTimeButton>();
 
 	private Button AvailButton0;
 	private Button AvailButton1;
@@ -84,16 +88,7 @@ public class UIManager : Singleton<UIManager> {
 		
 //		--------------End Screen UI initialisation---------------------
 		EndScreen = GameObject.FindWithTag ("EndScreen");
-		AvailButton0 = EndScreen.transform.FindChild ("AvailButton0").gameObject.GetComponent<Button>();
-		AvailButton0.onClick.AddListener (() => AvailButtonActive0 ());
-		AvailButton1 = EndScreen.transform.FindChild ("AvailButton1").gameObject.GetComponent<Button>();
-		AvailButton1.onClick.AddListener (() => AvailButtonActive1 ());
-		AvailButton2 = EndScreen.transform.FindChild ("AvailButton2").gameObject.GetComponent<Button>();
-		AvailButton2.onClick.AddListener (() => AvailButtonActive2 ());
-		AvailButton3 = EndScreen.transform.FindChild ("AvailButton3").gameObject.GetComponent<Button>();
-		AvailButton3.onClick.AddListener (() => AvailButtonActive3 ());
-		AvailButton4 = EndScreen.transform.FindChild ("AvailButton4").gameObject.GetComponent<Button>();
-		AvailButton4.onClick.AddListener (() => AvailButtonActive4 ());
+
 
 //		AvTime0 = EndScreen.transform.FindChild ("AvTime0").gameObject.GetComponent<Button>();
 //		AvTime1 = EndScreen.transform.FindChild ("AvTime1").gameObject.GetComponent<Button>();
@@ -102,13 +97,29 @@ public class UIManager : Singleton<UIManager> {
 //		AvTime4 = EndScreen.transform.FindChild ("AvTime4").gameObject.GetComponent<Button>();
 
 		//ActText0.text = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[0].toString();
-
-		AvTime0.SetActive (false);
-		AvTime1.SetActive (false);
-		AvTime2.SetActive (false);
-		AvTime3.SetActive (false);
-		AvTime4.SetActive (false);
+		//ActText0.text = "Worked";
 		EndScreen.SetActive (false);
+	}
+
+	void SetEndMenuStuff() {
+		Button[] tempButtons = FindButtonsWithTag ("DayButton");
+		Debug.Log (tempButtons.Length.ToString ());
+		for(int i = 0; i < tempButtons.Length; i++) {
+			dayAndTimeButtons.Add(new DayAndTimeButton(tempButtons[i]));
+			dayAndTimeButtons[i].dayButton.GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Availabilities[i].sDay;
+			Button[] childButtons = dayAndTimeButtons[i].dayButton.GetComponentsInChildren<Button>();
+			dayAndTimeButtons[i].timeButtons = childButtons;
+			for (int j = 1; j < childButtons.Length; j++) {
+				dayAndTimeButtons[i].timeButtons[j].GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1].ToString();
+				if(gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1]> 12){
+					dayAndTimeButtons[i].timeButtons[j].GetComponentInChildren<Text>().text = (gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1]-12).ToString() + " pm";
+				}else if (gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1] == 12){
+					dayAndTimeButtons[i].timeButtons[j].GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1].ToString() + " pm";
+				}else if (gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1] < 12) {
+					dayAndTimeButtons[i].timeButtons[j].GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1].ToString() + " am";
+				}
+			}
+		}
 	}
 
 	void SetActivePlayerButton(Button pressed) {
@@ -117,18 +128,28 @@ public class UIManager : Singleton<UIManager> {
 		activeButton.image.color = Color.grey;
 	}
 
-	Text[] FindTextGUIObjs(string searchTag) {
+	Button[] FindButtonsWithTag(string searchTag) {
 		GameObject[] FoundWithTag = GameObject.FindGameObjectsWithTag(searchTag);
-		Text[] returnArray = new Text[FoundWithTag.Length];
+		Button[] returnArray = new Button[FoundWithTag.Length];
+		Array.Sort(FoundWithTag, CompareObNames);
 		for (int i = 0; i < FoundWithTag.Length; i++) {
-			returnArray[i] = FoundWithTag[i].GetComponent<Text>();
+			returnArray[i] = FoundWithTag[i].GetComponent<Button>();
 		}
-		Array.Sort(returnArray, CompareObNames);
 		return returnArray;
 	}
 
-	int CompareObNames( Text x, Text y) {
-		return x.gameObject.name.CompareTo(y.gameObject.name);
+	Text[] FindTextGUIObjs(string searchTag) {
+		GameObject[] FoundWithTag = GameObject.FindGameObjectsWithTag(searchTag);
+		Text[] returnArray = new Text[FoundWithTag.Length];
+		Array.Sort(FoundWithTag, CompareObNames);
+		for (int i = 0; i < FoundWithTag.Length; i++) {
+			returnArray[i] = FoundWithTag[i].GetComponent<Text>();
+		}
+		return returnArray;
+	}
+
+	int CompareObNames( GameObject x, GameObject y) {
+		return x.name.CompareTo(y.name);
 	}
 
 	public void ShowNextRule () {
@@ -144,8 +165,10 @@ public class UIManager : Singleton<UIManager> {
 	public void MainMenuPlay() {
 		MainMenu.SetActive(false);
 		PlayerInfo.SetActive(true);
-		
+		EndScreen.SetActive (true);
 		gameManager.SetUpPlayerInformation();
+		SetEndMenuStuff ();
+		EndScreen.SetActive (false);
 		SetInfoScreenText();
 		ShowNextRule();
 	}
