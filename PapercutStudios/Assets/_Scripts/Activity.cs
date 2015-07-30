@@ -6,7 +6,7 @@ public class Activity {
 
 	//not even sure if BaseValues is technically needed, considering that we're getting passed these values on construction
 	public int[] baseValues = new int[4];
-	private string EventName;
+	public string EventName;
 	private string ClosedDay1;
 	private string ClosedDay2;
 	private int[] OpenHours = new int[2];				//where [0] = open from, [1] = open til (closing)

@@ -506,7 +506,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2076885533}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -140, y: 411}
@@ -948,7 +948,7 @@ GameObject:
   - 114: {fileID: 204579568}
   m_Layer: 5
   m_Name: ActivityButton3
-  m_TagString: Untagged
+  m_TagString: ActivityButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1039,43 +1039,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 204579566}
---- !u!1 &215506389
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 215506390}
-  m_Layer: 5
-  m_Name: DayAnswers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &215506390
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 215506389}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1600896763}
-  - {fileID: 746760292}
-  - {fileID: 294288322}
-  - {fileID: 803712704}
-  - {fileID: 1044590781}
-  m_Father: {fileID: 2076885533}
-  m_RootOrder: 3
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: .5, y: .5}
 --- !u!1 &257322135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,16 +1151,16 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 294288321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .200000003}
+  m_LocalPosition: {x: 0, y: 0, z: .200000763}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2060859312}
   - {fileID: 1698900944}
-  m_Father: {fileID: 215506390}
-  m_RootOrder: 2
+  m_Father: {fileID: 2076885533}
+  m_RootOrder: 10
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -178.699997, y: -321.600006}
+  m_AnchoredPosition: {x: -178.700058, y: -321.599976}
   m_SizeDelta: {x: 65.5, y: 54.2999992}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &294288323
@@ -1238,7 +1201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 294288324}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &294288324
@@ -1383,7 +1358,7 @@ GameObject:
   - 114: {fileID: 341573856}
   m_Layer: 5
   m_Name: ActivityButton1
-  m_TagString: Untagged
+  m_TagString: ActivityButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3045,7 +3020,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2076885533}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
   m_AnchoredPosition: {x: 0, y: -103}
@@ -3096,7 +3071,7 @@ GameObject:
   - 114: {fileID: 622018680}
   m_Layer: 5
   m_Name: ActivityButton0
-  m_TagString: Untagged
+  m_TagString: ActivityButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3523,7 +3498,7 @@ GameObject:
   - 114: {fileID: 683738879}
   m_Layer: 5
   m_Name: ActivityButton4
-  m_TagString: Untagged
+  m_TagString: ActivityButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3817,16 +3792,16 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 746760291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .200000003}
+  m_LocalPosition: {x: 0, y: 0, z: .200000763}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1178189116}
   - {fileID: 1469773004}
-  m_Father: {fileID: 215506390}
-  m_RootOrder: 1
+  m_Father: {fileID: 2076885533}
+  m_RootOrder: 8
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -178.699997, y: -158.699997}
+  m_AnchoredPosition: {x: -178.700058, y: -158.699997}
   m_SizeDelta: {x: 65.5, y: 54.2999992}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &746760293
@@ -3867,7 +3842,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 746760294}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &746760294
@@ -4153,16 +4140,16 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 803712703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .200000003}
+  m_LocalPosition: {x: 0, y: 0, z: .200000763}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1672743031}
   - {fileID: 1543968044}
-  m_Father: {fileID: 215506390}
-  m_RootOrder: 3
+  m_Father: {fileID: 2076885533}
+  m_RootOrder: 11
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -178.699997, y: -403.100006}
+  m_AnchoredPosition: {x: -178.700058, y: -403.099823}
   m_SizeDelta: {x: 65.5, y: 54.2999992}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &803712705
@@ -4203,7 +4190,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 803712706}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &803712706
@@ -4678,16 +4677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6942b6c7b8c605f4393fbe3fda522ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActText0: {fileID: 1036779795}
-  ActText1: {fileID: 0}
-  ActText2: {fileID: 0}
-  ActText3: {fileID: 0}
-  ActText4: {fileID: 0}
-  AvTime0: {fileID: 1942048265}
-  AvTime1: {fileID: 0}
-  AvTime2: {fileID: 0}
-  AvTime3: {fileID: 0}
-  AvTime4: {fileID: 0}
   iCurrentDisplayedRules: 0
 --- !u!1 &945435924
 GameObject:
@@ -5099,72 +5088,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1008032613}
---- !u!1 &1036779793
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 1036779794}
-  - 222: {fileID: 1036779796}
-  - 114: {fileID: 1036779795}
-  m_Layer: 5
-  m_Name: TestText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1036779794
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1036779793}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2023106256}
-  m_RootOrder: 3
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -53.2999992, y: -194.199997}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: .5, y: .5}
---- !u!114 &1036779795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1036779793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: New Text
---- !u!222 &1036779796
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1036779793}
 --- !u!1 &1044590780
 GameObject:
   m_ObjectHideFlags: 0
@@ -5190,16 +5113,16 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1044590780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .200000003}
+  m_LocalPosition: {x: 0, y: 0, z: .200000763}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1878958808}
   - {fileID: 37272657}
-  m_Father: {fileID: 215506390}
-  m_RootOrder: 4
+  m_Father: {fileID: 2076885533}
+  m_RootOrder: 9
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -178.699997, y: -240.199997}
+  m_AnchoredPosition: {x: -178.700058, y: -240.199905}
   m_SizeDelta: {x: 65.5, y: 54.2999992}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1044590782
@@ -5240,7 +5163,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1044590783}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1044590783
@@ -7538,16 +7473,16 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1600896762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .200000003}
+  m_LocalPosition: {x: 0, y: 0, z: .200000763}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 521027557}
   - {fileID: 1942048266}
-  m_Father: {fileID: 215506390}
-  m_RootOrder: 0
+  m_Father: {fileID: 2076885533}
+  m_RootOrder: 7
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -178.699997, y: -77.1999969}
+  m_AnchoredPosition: {x: -178.700058, y: -77.1999817}
   m_SizeDelta: {x: 65.5, y: 54.2999992}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1600896764
@@ -7588,7 +7523,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1600896765}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1600896765
@@ -9055,6 +9002,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 42a8453320003a4478cdd52344ef9175, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1857955660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1857955661}
+  m_Layer: 0
+  m_Name: DayButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1857955661
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1857955660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -314.63913, y: -542.386719, z: -50.2359009}
+  m_LocalScale: {x: 1.73939502, y: 1.73939502, z: 1.73939502}
+  m_Children: []
+  m_Father: {fileID: 2076885533}
+  m_RootOrder: 6
 --- !u!1 &1878958807
 GameObject:
   m_ObjectHideFlags: 0
@@ -9461,7 +9435,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2076885533}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -147.600006, y: -6}
@@ -10007,7 +9981,6 @@ RectTransform:
   - {fileID: 1890544341}
   - {fileID: 2076885533}
   - {fileID: 257842735}
-  - {fileID: 1036779794}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -10617,7 +10590,7 @@ GameObject:
   - 114: {fileID: 2061858856}
   m_Layer: 5
   m_Name: ActivityButton2
-  m_TagString: Untagged
+  m_TagString: ActivityButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10909,10 +10882,15 @@ RectTransform:
   - {fileID: 566165895}
   - {fileID: 1369859146}
   - {fileID: 838093805}
-  - {fileID: 215506390}
   - {fileID: 134591338}
   - {fileID: 1949157697}
   - {fileID: 575151640}
+  - {fileID: 1857955661}
+  - {fileID: 1600896763}
+  - {fileID: 746760292}
+  - {fileID: 1044590781}
+  - {fileID: 294288322}
+  - {fileID: 803712704}
   m_Father: {fileID: 2023106256}
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}

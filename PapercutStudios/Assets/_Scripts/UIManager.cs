@@ -19,24 +19,20 @@ public class UIManager : Singleton<UIManager> {
 	private Button activeButton;
 
 	private List<DayAndTimeButton> dayAndTimeButtons = new List<DayAndTimeButton>();
+	private List<ActivityButton> ActivityButtonText = new List<ActivityButton> ();
 
-	private Button AvailButton0;
-	private Button AvailButton1;
-	private Button AvailButton2;
-	private Button AvailButton3;
-	private Button AvailButton4;
+	private Button DayButton0;
+	private Button DayButton1;
+	private Button DayButton2;
+	private Button DayButton3;
+	private Button DayButton4;
 
-	public Text ActText0;
-	public Text ActText1;
-	public Text ActText2;
-	public Text ActText3;
-	public Text ActText4;
 
-	public GameObject AvTime0;
-	public GameObject AvTime1;
-	public GameObject AvTime2;
-	public GameObject AvTime3;
-	public GameObject AvTime4;
+//	public GameObject AvTime0;
+//	public GameObject AvTime1;
+//	public GameObject AvTime2;
+//	public GameObject AvTime3;
+//	public GameObject AvTime4;
 
 	public int iCurrentDisplayedRules = 0;
 
@@ -89,7 +85,6 @@ public class UIManager : Singleton<UIManager> {
 //		--------------End Screen UI initialisation---------------------
 		EndScreen = GameObject.FindWithTag ("EndScreen");
 
-
 //		AvTime0 = EndScreen.transform.FindChild ("AvTime0").gameObject.GetComponent<Button>();
 //		AvTime1 = EndScreen.transform.FindChild ("AvTime1").gameObject.GetComponent<Button>();
 //		AvTime2 = EndScreen.transform.FindChild ("AvTime2").gameObject.GetComponent<Button>();
@@ -98,8 +93,15 @@ public class UIManager : Singleton<UIManager> {
 
 		//ActText0.text = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[0].toString();
 		//ActText0.text = "Worked";
+
+//		AvTime0.SetActive (false);
+//		AvTime1.SetActive (false);
+//		AvTime2.SetActive (false);
+//		AvTime3.SetActive (false);
+//		AvTime4.SetActive (false);
 		EndScreen.SetActive (false);
 	}
+
 
 	void SetEndMenuStuff() {
 		Button[] tempButtons = FindButtonsWithTag ("DayButton");
@@ -118,7 +120,20 @@ public class UIManager : Singleton<UIManager> {
 				}else if (gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1] < 12) {
 					dayAndTimeButtons[i].timeButtons[j].GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1].ToString() + " am";
 				}
+				dayAndTimeButtons[0].dayButton.onClick.AddListener(() => DayButtonActive0());
+				dayAndTimeButtons[1].dayButton.onClick.AddListener(() => DayButtonActive1());
+				dayAndTimeButtons[2].dayButton.onClick.AddListener(() => DayButtonActive2());
+				dayAndTimeButtons[3].dayButton.onClick.AddListener(() => DayButtonActive3());
+				dayAndTimeButtons[4].dayButton.onClick.AddListener(() => DayButtonActive4());
 			}
+		}
+	
+
+		Button[] tempbuttons = FindButtonsWithTag ("ActivityButton");
+		Debug.Log (tempbuttons.Length.ToString ());
+		for (int a = 0; a < tempbuttons.Length; a++){
+			ActivityButtonText.Add(new ActivityButton(tempbuttons[a]));
+			ActivityButtonText[a].activityButton.GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Activities[a].EventName;
 		}
 	}
 
@@ -179,46 +194,51 @@ public class UIManager : Singleton<UIManager> {
 	}
 
 
-	public void AvailButtonActive0() {
-		AvTime0.SetActive (true);
+	public void DayButtonActive0() {
 
-		AvTime1.SetActive (false);
-		AvTime2.SetActive (false);
-		AvTime3.SetActive (false);
-		AvTime4.SetActive (false);
+//		AvTime0.SetActive (true);
+//		
+//		AvTime1.SetActive (false);
+//		AvTime2.SetActive (false);
+//		AvTime3.SetActive (false);
+//		AvTime4.SetActive (false);
 	}
-	public void AvailButtonActive1() {
-		AvTime1.SetActive (true);
+	public void DayButtonActive1() {
 
-		AvTime0.SetActive (false);
-		AvTime2.SetActive (false);
-		AvTime3.SetActive (false);
-		AvTime4.SetActive (false);
+//		AvTime1.SetActive (true);
+//
+//		AvTime0.SetActive (false);
+//		AvTime2.SetActive (false);
+//		AvTime3.SetActive (false);
+//		AvTime4.SetActive (false);
 	}
-	public void AvailButtonActive2() {
-		AvTime2.SetActive (true);
+		public void DayButtonActive2() {
 
-		AvTime0.SetActive (false);
-		AvTime1.SetActive (false);
-		AvTime3.SetActive (false);
-		AvTime4.SetActive (false);
+//		AvTime2.SetActive (true);
+//
+//		AvTime0.SetActive (false);
+//		AvTime1.SetActive (false);
+//		AvTime3.SetActive (false);
+//		AvTime4.SetActive (false);
 		
 	}
-	public void AvailButtonActive3() {
-		AvTime3.SetActive (true);
+		public void DayButtonActive3() {
 
-		AvTime0.SetActive (false);
-		AvTime1.SetActive (false);
-		AvTime2.SetActive (false);
-		AvTime4.SetActive (false);
+//		AvTime3.SetActive (true);
+//
+//		AvTime0.SetActive (false);
+//		AvTime1.SetActive (false);
+//		AvTime2.SetActive (false);
+//		AvTime4.SetActive (false);
 	}
-	public void AvailButtonActive4() {
-		AvTime4.SetActive (true);
+		public void DayButtonActive4() {
 
-		AvTime0.SetActive (false);
-		AvTime1.SetActive (false);
-		AvTime2.SetActive (false);
-		AvTime3.SetActive (false);
+//		AvTime4.SetActive (true);
+//
+//		AvTime0.SetActive (false);
+//		AvTime1.SetActive (false);
+//		AvTime2.SetActive (false);
+//		AvTime3.SetActive (false);
 	}
 
 	public void Quit() {
@@ -236,4 +256,3 @@ public class UIManager : Singleton<UIManager> {
 		}
 	}
 }
-
