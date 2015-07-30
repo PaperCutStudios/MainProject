@@ -19,14 +19,7 @@ public class UIManager : Singleton<UIManager> {
 	private Button activeButton;
 
 	private List<DayAndTimeButton> dayAndTimeButtons = new List<DayAndTimeButton>();
-	private List<ActivityButton> ActivityButtonText = new List<ActivityButton> ();
-
-	private Button DayButton0;
-	private Button DayButton1;
-	private Button DayButton2;
-	private Button DayButton3;
-	private Button DayButton4;
-
+	private List<ActivityButton> ActivityButtons = new List<ActivityButton> ();
 
 //	public GameObject AvTime0;
 //	public GameObject AvTime1;
@@ -47,9 +40,9 @@ public class UIManager : Singleton<UIManager> {
 
 //		-------------Player Info Screen initialisation----------------
 		PlayerInfo = GameObject.FindWithTag("PlayerInfo");
-		Activities = FindTextGUIObjs("ActivityText");
-		Availabilities = FindTextGUIObjs("AvailText");
-		Rules = FindTextGUIObjs("RulesText");
+		Activities = FindTextsWithTag("ActivityText");
+		Availabilities = FindTextsWithTag("AvailText");
+		Rules = FindTextsWithTag("RulesText");
 		foreach(Text element in Rules) {
 			element.text = "";
 		}
@@ -66,6 +59,7 @@ public class UIManager : Singleton<UIManager> {
 		PlayButton.onClick.AddListener(() => MainMenuPlay());
 		PlayButton.gameObject.SetActive(false);
 
+		//will be removed when networking is working
 		PlayerButtons = new Button[] { 	MainMenu.transform.FindChild("Player1Button").GetComponent<Button>(), 
 										MainMenu.transform.FindChild("Player2Button").GetComponent<Button>(),
 										MainMenu.transform.FindChild("Player3Button").GetComponent<Button>(),
@@ -84,61 +78,62 @@ public class UIManager : Singleton<UIManager> {
 		
 //		--------------End Screen UI initialisation---------------------
 		EndScreen = GameObject.FindWithTag ("EndScreen");
-
-//		AvTime0 = EndScreen.transform.FindChild ("AvTime0").gameObject.GetComponent<Button>();
-//		AvTime1 = EndScreen.transform.FindChild ("AvTime1").gameObject.GetComponent<Button>();
-//		AvTime2 = EndScreen.transform.FindChild ("AvTime2").gameObject.GetComponent<Button>();
-//		AvTime3 = EndScreen.transform.FindChild ("AvTime3").gameObject.GetComponent<Button>();
-//		AvTime4 = EndScreen.transform.FindChild ("AvTime4").gameObject.GetComponent<Button>();
-
-		//ActText0.text = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[0].toString();
-		//ActText0.text = "Worked";
-
-//		AvTime0.SetActive (false);
-//		AvTime1.SetActive (false);
-//		AvTime2.SetActive (false);
-//		AvTime3.SetActive (false);
-//		AvTime4.SetActive (false);
 		EndScreen.SetActive (false);
 	}
 
 
 	void SetEndMenuStuff() {
+
+		//Setting of each Day and Time button in the scene
 		Button[] tempButtons = FindButtonsWithTag ("DayButton");
 		Debug.Log (tempButtons.Length.ToString ());
 		for(int i = 0; i < tempButtons.Length; i++) {
+			// Set up the Day Button with a listener and its text
 			dayAndTimeButtons.Add(new DayAndTimeButton(tempButtons[i]));
 			dayAndTimeButtons[i].dayButton.GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Availabilities[i].sDay;
+			//when iterating through, we gotta capture the value of the iterator before we pass it to the listener otherwise it will pass through the final value of the loop
+			int cap = i;
+			dayAndTimeButtons[i].dayButton.onClick.AddListener(() => DayButtonClick(dayAndTimeButtons[cap],gameManager.ptActiveTable.Availabilities[cap].baseValues[0]));
+
+			// Set up each time button for this day button.
+			// Starts at one because getcomponents in children returns the button this is called on as well as the child buttons
 			Button[] childButtons = dayAndTimeButtons[i].dayButton.GetComponentsInChildren<Button>();
 			dayAndTimeButtons[i].timeButtons = childButtons;
 			for (int j = 1; j < childButtons.Length; j++) {
-				dayAndTimeButtons[i].timeButtons[j].GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1].ToString();
-				if(gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1]> 12){
-					dayAndTimeButtons[i].timeButtons[j].GetComponentInChildren<Text>().text = (gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1]-12).ToString() + " pm";
-				}else if (gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1] == 12){
-					dayAndTimeButtons[i].timeButtons[j].GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1].ToString() + " pm";
-				}else if (gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1] < 12) {
-					dayAndTimeButtons[i].timeButtons[j].GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1].ToString() + " am";
+
+				//set the text on each button, based on the time it relates to. "j-1" is used as Available hours is only 4 long
+				int time = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1];
+				Text timeButtonText = dayAndTimeButtons[i].timeButtons[j].GetComponentInChildren<Text>();
+				if(time> 12){
+					timeButtonText.text = (time-12).ToString() + " pm";
+				}else if (time == 12){
+					timeButtonText.text = time.ToString() + " pm";
+				}else if (time < 12) {
+					timeButtonText.text = time.ToString() + " am";
+				}else if (time == 0) {
+					timeButtonText.text = "12 am";
 				}
-				dayAndTimeButtons[0].dayButton.onClick.AddListener(() => DayButtonActive0());
-				dayAndTimeButtons[1].dayButton.onClick.AddListener(() => DayButtonActive1());
-				dayAndTimeButtons[2].dayButton.onClick.AddListener(() => DayButtonActive2());
-				dayAndTimeButtons[3].dayButton.onClick.AddListener(() => DayButtonActive3());
-				dayAndTimeButtons[4].dayButton.onClick.AddListener(() => DayButtonActive4());
+
+				// Set the listener on each time buttons, again capturing the value of the iterator
+				// this is slightly different in that, when sending the answers back and forth, we need to tell each player at what time exactly each person has gone somewhere
+				// eg. player one goes to the Bar at 1pm. player 2 goes to the bar at 2pm. Seeing as though they both went at different times, they wont be shown arriving at the same time (the goal of the game)
+				int captime = j;
+				dayAndTimeButtons[i].timeButtons[j].onClick.AddListener(()=> TimeButtonClick(dayAndTimeButtons[cap], captime, time));
 			}
 		}
 	
-
+		//Setting of activity buttons
 		Button[] tempbuttons = FindButtonsWithTag ("ActivityButton");
-		Debug.Log (tempbuttons.Length.ToString ());
-		for (int a = 0; a < tempbuttons.Length; a++){
-			ActivityButtonText.Add(new ActivityButton(tempbuttons[a]));
-			ActivityButtonText[a].activityButton.GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Activities[a].EventName;
+		for (int i = 0; i < tempbuttons.Length; i++){
+			ActivityButtons.Add(new ActivityButton(tempbuttons[i]));
+			ActivityButtons[i].activityButton.GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Activities[i].EventName;
+			int cap = i;
+			ActivityButtons[i].activityButton.onClick.AddListener(() => ActivityButtonClick(ActivityButtons[cap],gameManager.ptActiveTable.Activities[cap].baseValues[0]));
 		}
 	}
 
 	void SetActivePlayerButton(Button pressed) {
-		activeButton.image.color = pressed.image.color;
+		activeButton.image.color = Color.white;
 		activeButton = pressed;
 		activeButton.image.color = Color.grey;
 	}
@@ -153,7 +148,7 @@ public class UIManager : Singleton<UIManager> {
 		return returnArray;
 	}
 
-	Text[] FindTextGUIObjs(string searchTag) {
+	Text[] FindTextsWithTag(string searchTag) {
 		GameObject[] FoundWithTag = GameObject.FindGameObjectsWithTag(searchTag);
 		Text[] returnArray = new Text[FoundWithTag.Length];
 		Array.Sort(FoundWithTag, CompareObNames);
@@ -175,6 +170,12 @@ public class UIManager : Singleton<UIManager> {
 	public void EndGame() {
 		PlayerInfo.SetActive(false);
 		EndScreen.SetActive (true);
+		//ensure that the time buttons are all hidden away when opening the end screen
+		foreach(DayAndTimeButton dtb in dayAndTimeButtons) {
+			for (int i = 1; i < dtb.timeButtons.Length; i++) {
+				dtb.timeButtons[i].gameObject.SetActive(false);
+			}
+		}
 	}
 
 	public void MainMenuPlay() {
@@ -193,52 +194,26 @@ public class UIManager : Singleton<UIManager> {
 		JoinButton.gameObject.SetActive(false);
 	}
 
-
-	public void DayButtonActive0() {
-
-//		AvTime0.SetActive (true);
-//		
-//		AvTime1.SetActive (false);
-//		AvTime2.SetActive (false);
-//		AvTime3.SetActive (false);
-//		AvTime4.SetActive (false);
+	void ActivityButtonClick(ActivityButton ab, int actID) {
+		foreach(ActivityButton abb in ActivityButtons) {
+			abb.SetSelected(false);
+		}
+		ab.SetSelected(true);
+		gameManager.SetAnswerActivity(actID);
 	}
-	public void DayButtonActive1() {
 
-//		AvTime1.SetActive (true);
-//
-//		AvTime0.SetActive (false);
-//		AvTime2.SetActive (false);
-//		AvTime3.SetActive (false);
-//		AvTime4.SetActive (false);
+	//Set any previously selected button to unselected, then select the passed through button
+	void DayButtonClick(DayAndTimeButton dtb, int dayID) {
+		for(int i = 0; i < dayAndTimeButtons.Count; i++) {
+			dayAndTimeButtons[i].SetDaySelected(false);
+		}
+		dtb.SetDaySelected(true);
+		gameManager.SetAnswerDay(dayID);
 	}
-		public void DayButtonActive2() {
 
-//		AvTime2.SetActive (true);
-//
-//		AvTime0.SetActive (false);
-//		AvTime1.SetActive (false);
-//		AvTime3.SetActive (false);
-//		AvTime4.SetActive (false);
-		
-	}
-		public void DayButtonActive3() {
-
-//		AvTime3.SetActive (true);
-//
-//		AvTime0.SetActive (false);
-//		AvTime1.SetActive (false);
-//		AvTime2.SetActive (false);
-//		AvTime4.SetActive (false);
-	}
-		public void DayButtonActive4() {
-
-//		AvTime4.SetActive (true);
-//
-//		AvTime0.SetActive (false);
-//		AvTime1.SetActive (false);
-//		AvTime2.SetActive (false);
-//		AvTime3.SetActive (false);
+	void TimeButtonClick(DayAndTimeButton dtb, int buttonIndex, int timeID) {
+		dtb.SetTimeSelected(buttonIndex);
+		gameManager.SetAnswerTime(timeID);
 	}
 
 	public void Quit() {

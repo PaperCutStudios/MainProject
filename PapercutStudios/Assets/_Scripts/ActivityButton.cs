@@ -10,4 +10,15 @@ public class ActivityButton{
 	public ActivityButton (Button ActButton){
 		activityButton = ActButton;
 		}
+
+	public void SetSelected (bool b) {
+		isSelected = b;
+		if(isSelected) {
+			activityButton.image.color = Color.grey;
+		}
+		else {
+			activityButton.image.color = Color.white;
+		}
+
+	}
 }

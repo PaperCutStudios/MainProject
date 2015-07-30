@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour {
 
 	public int iBracketTime = 3;
 
-	public int[] AnswerIDs = new int[3];
+	private int[] AnswerIDs = new int[3];
 
 	// Use this for initialization
 	void Start () {
@@ -97,6 +97,20 @@ public class PlayerManager : MonoBehaviour {
 		return ptActiveTable.Availabilities[index].GetAsString();
 	}
 
+	public void SetAnswerActivity(int actID) {
+		AnswerIDs[0] = actID;
+		Debug.Log("Set AnsActivity ID to: " + actID + "\nThis ID correlates to: " + XmlManager.Instance.GetActivityPiece(actID));
+	}
+
+	public void SetAnswerDay(int dayID) {
+		AnswerIDs[1] = dayID;
+		Debug.Log("Set AnsDay ID to: " + dayID + "\nThis ID correlates to: " + XmlManager.Instance.GetDayPiece(dayID));
+	}
+
+	public void SetAnswerTime(int timeNum) {
+		AnswerIDs[2] = timeNum;
+		Debug.Log("Set AnsTime to: " + timeNum);
+	}
 	Rule GetNewRule (List<Rule> currentRules) {
 		Rule newRule;
 		//if we have no rules yet, grab simple rule
