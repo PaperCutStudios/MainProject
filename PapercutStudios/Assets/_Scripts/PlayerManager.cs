@@ -7,16 +7,9 @@ using XMLEditorC;
 
 public class PlayerManager : MonoBehaviour {
 
-	PlayerTable ptPlayer1;
-	PlayerTable ptPlayer2;
-	PlayerTable ptPlayer3;
-	PlayerTable ptPlayer4;
-
-
 	public PlayerTable ptActiveTable;
 
 	List<Rule> l_rRules = new List<Rule>();
-
 
 	int iPlayerNum;
 	public int iTotalRules;
@@ -36,40 +29,54 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	public void SetUpPlayerInformation () {
-		
-		//yes, its very hard-coded at this point, but it would be fairly simple to write a tool to edit these values or even read them from XML/CSV, they're currently based on what was written in TestAnswer.sheet on the PapercutStudios Google Drive
-		ptPlayer1 = new PlayerTable(WriteActivityInfo (2,0,3,1,0,1,5,0,6,3,6,14,8,2,3,10,1,1,4,0),
-		                            WriteAvailabilityInfo (5,11,2,4,0,0,4,17,1,1),
-		                            iBracketTime);
-		
-		ptPlayer2 = new PlayerTable(WriteActivityInfo (1,1,4,0,2,0,3,1,0,1,5,0,4,5,6,16,8,0,4,9),
-		                            WriteAvailabilityInfo (0,0,5,12,2,5,1,1,6,3),
-		                            iBracketTime);
-		
-		ptPlayer3 = new PlayerTable(WriteActivityInfo (0,1,5,0,5,0,6,8,1,1,4,0,2,0,3,1,3,2,4,7),
-		                            WriteAvailabilityInfo (1,4,3,9,2,2,6,11,0,0),
-		                            iBracketTime);
-		
-		ptPlayer4 = new PlayerTable(WriteActivityInfo (3,4,5,11,6,6,2,5,1,1,4,0,2,0,3,1,0,1,5,0),
-		                            WriteAvailabilityInfo (4,7,2,3,0,0,5,12,1,1),
-		                            iBracketTime);
-
+	
 		//depending on the playernumber we recieve from TCPManager, set our playerNumber and, therefore, the table we use, will be moved to the "Recieve connection info" function TBD
+		//These numbers are based on the 
 		switch(iPlayerNum) {
 		case 1 :
-			ptActiveTable = ptPlayer1;
+			ptActiveTable = new PlayerTable(WriteActivityInfo (2,0,0,3,1,
+			                                                   0,1,1,5,0,
+			                                                   6,0,3,6,14,
+			                                                   8,1,2,3,10,
+			                                                   1,0,1,4,0),
+			                                WriteAvailabilityInfo (5,11,2,4,0,0,4,17,1,1),
+			                                iBracketTime);
 			break;
 		case 2 :
-			ptActiveTable = ptPlayer2;
+			ptActiveTable = new PlayerTable(WriteActivityInfo (1,1,1,4,0,
+			                                                   2,0,0,3,1,
+			                                                   0,0,1,5,0,
+			                                                   4,1,5,6,16,
+			                                                   8,0,0,4,9),
+			                                WriteAvailabilityInfo (0,0,5,12,2,5,1,1,6,3),
+			                                iBracketTime);
 			break;
 		case 3 :
-			ptActiveTable = ptPlayer3;
+			ptActiveTable = new PlayerTable(WriteActivityInfo (0,0,1,5,0,
+			                                                   5,1,0,6,8,
+			                                                   1,0,1,4,0,
+			                                                   2,1,0,3,1,
+			                                                   3,0,2,4,7),
+			                                WriteAvailabilityInfo (1,4,3,9,2,2,6,11,0,0),
+			                                iBracketTime);
 			break;
 		case 4 :
-			ptActiveTable = ptPlayer4;
+			ptActiveTable = new PlayerTable(WriteActivityInfo (3,1,4,5,11,
+			                                                    6,1,6,2,5,
+			                                                    1,0,1,4,0,
+			                                                    2,0,0,3,1,
+			                                                    0,0,1,5,0),
+			                                 WriteAvailabilityInfo (4,7,2,3,0,0,5,12,1,1),
+			                                 iBracketTime);
 			break;
 		default :
-			ptActiveTable = ptPlayer1;
+			ptActiveTable = new PlayerTable(WriteActivityInfo (2,0,0,3,1,
+			                                                   0,1,1,5,0,
+			                                                   6,0,3,6,14,
+			                                                   8,1,2,3,10,
+			                                                   1,0,1,4,0),
+			                                WriteAvailabilityInfo (5,11,2,4,0,0,4,17,1,1),
+			                                iBracketTime);
 			Debug.Log("Default Case");
 			break;
 		}
@@ -133,29 +140,38 @@ public class PlayerManager : MonoBehaviour {
 
 
 	#region Raw Playertable Definitions
-	int[,] WriteActivityInfo( int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k, int l, int m, int n, int o, int p, int q, int r, int s, int t)
+	int[,] WriteActivityInfo( int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k, int l, int m, int n, int o, int p, int q, int r, int s, int t, int u, int v, int w,int x,int y)
 	{
-		int[,] Output = new int[5, 4];
+		int[,] Output = new int[5, 5];
 		Output [0, 0] = a;
 		Output [0, 1] = b;
 		Output [0, 2] = c;
 		Output [0, 3] = d;
-		Output [1, 0] = e;
-		Output [1, 1] = f;
-		Output [1, 2] = g;
-		Output [1, 3] = h;
-		Output [2, 0] = i;
-		Output [2, 1] = j;
-		Output [2, 2] = k;
-		Output [2, 3] = l;
-		Output [3, 0] = m;
-		Output [3, 1] = n;
-		Output [3, 2] = o;
-		Output [3, 3] = p;
-		Output [4, 0] = q;
-		Output [4, 1] = r;
-		Output [4, 2] = s;
-		Output [4, 3] = t;
+		Output [0, 4] = e;
+
+		Output [1, 0] = f;
+		Output [1, 1] = g;
+		Output [1, 2] = h;
+		Output [1, 3] = i;
+		Output [1, 4] = j;
+
+		Output [2, 0] = k;
+		Output [2, 1] = l;
+		Output [2, 2] = m;
+		Output [2, 3] = n;
+		Output [2, 4] = o;
+
+		Output [3, 0] = p;
+		Output [3, 1] = q;
+		Output [3, 2] = r;
+		Output [3, 3] = s;
+		Output [3, 4] = t;
+
+		Output [4, 0] = u;
+		Output [4, 1] = v;
+		Output [4, 2] = w;
+		Output [4, 3] = x;
+		Output [4, 4] = y;
 
 		return Output;
 

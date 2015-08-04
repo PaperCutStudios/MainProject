@@ -5,19 +5,20 @@ using XMLEditorC;
 public class Activity {
 
 	//not even sure if BaseValues is technically needed, considering that we're getting passed these values on construction
-	public int[] baseValues = new int[4];
+	public int[] baseValues = new int[5];
 	public string EventName;
 	private string ClosedDay1;
 	private string ClosedDay2;
 	private int[] OpenHours = new int[2];				//where [0] = open from, [1] = open til (closing)
 	private bool isAnswer;
 
-	public Activity(int EventID, int Day1ID, int Day2ID, int RootTimeID, int bracket) 
+	public Activity(int EventID,int ShownDetails ,int Day1ID, int Day2ID, int RootTimeID, int bracket) 
 	{
 		baseValues[0] = EventID;
-		baseValues[1] = Day1ID;
-		baseValues[2] = Day2ID;
-		baseValues[3] = RootTimeID;
+		baseValues[1] = ShownDetails;
+		baseValues[2] = Day1ID;
+		baseValues[3] = Day2ID;
+		baseValues[4] = RootTimeID;
 
 		if(baseValues[3] == 0 && baseValues[0] == 0) {
 			isAnswer = true;
@@ -41,7 +42,16 @@ public class Activity {
 	{
 		string returnString;
 
-		returnString = EventName + " (Closed " +ClosedDay1 + " & " + ClosedDay2 + "). \nOpening Hours:" + HoursToString(OpenHours);
+		if(baseValues[1] == 0) {
+			returnString = EventName;
+		}
+		else if(baseValues[1] == 1) {
+			returnString = EventName + " (Closed " +ClosedDay1 + " & " + ClosedDay2 + "). \nOpening Hours:" + HoursToString(OpenHours);
+		}
+		else {
+			returnString = "ERROR 100: IncorrectShownDetails";
+		}
+
 
 		return returnString;
 	}
