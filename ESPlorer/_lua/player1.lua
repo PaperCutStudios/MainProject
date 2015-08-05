@@ -1,14 +1,13 @@
 local player1 = {}
 player1.ID = 1;
-player1.IP = "";
-player1.AnswerIDs = "";
-function player1.SetID(id)
-    player1.ID = id;
+player1.AnswerIDs = "A";
+function player1.SetSocket(Socket)
+    player1.Socket = Socket;
 end
-function player1.SetIP(ip)
-    player1.IP = ip;
+function player1.SetAnswerID(ID)
+    player1.AnswerIDs = ID
 end
-function player1.SetAnswer(answerid)
-    player1.AnswerIDs = answerid;
+function player1.GetAnswerID()
+    return player1.AnswerIDs
 end
 return player1;
