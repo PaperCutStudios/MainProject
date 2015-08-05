@@ -1,14 +1,7 @@
 local player2 = {}
 player2.ID = 2;
-player2.IP = "";
 player2.AnswerIDs = "";
-function player2.SetID(id)
-    player2.ID = id;
+function player2.SetSocket(Socket)
+    player2.Socket = Socket;
 end
-function player2.SetIP(ip)
-    player2.IP = ip;
-end
-function player2.SetAnswer(answerid)
-    player2.AnswerIDs = answerid;
-end
-return player2;
+return player1;
