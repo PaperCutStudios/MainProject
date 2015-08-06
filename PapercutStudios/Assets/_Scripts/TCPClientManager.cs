@@ -10,7 +10,7 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 
 	PlayerManager gameManager;
 	TcpClient tcpClient;
-	Stream stm;
+	NetworkStream stm;
 	ASCIIEncoding asciiEncoding = new ASCIIEncoding();
 	byte[] IncomingBytes;
 
@@ -23,6 +23,24 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 
 	//should probably put this stuff into a tcp.listen call or something, just testing atm
 	void Update () {
+		if(stm != null) {
+			if(stm.CanRead && stm.DataAvailable) {
+				StringBuilder completemessage = new StringBuilder();
+				IncomingBytes = new byte[100];
+				int numberofBytesRead = 0;
+				do{
+					numberofBytesRead = stm.Read(IncomingBytes, 0, IncomingBytes.Length);
+					
+					completemessage.AppendFormat("{0}", Encoding.ASCII.GetString(IncomingBytes, 0, numberofBytesRead));
+					
+				}
+				while(stm.DataAvailable);
+				
+				Debug.Log(completemessage);
+				
+			}
+		}
+
 //		switch(stm) {
 //			//if we receive that our connection is a success, get our assigned playernum from stream and send that to the game manager, tell ui manager that we have sucessfully connected
 ////		case 1 :
@@ -34,13 +52,21 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 //		}
 	}
 
+	void ActOnDataString(string dataAsString) {
+		if(dataAsString == "Connection Initiated") {
+			UIManager.Instance.ConnectionSuccess();
+
+		}
+	}
+
 	public void AttempToJoin() {
 		try {
 			tcpClient.Connect("192.168.0.1",80);
 			stm = tcpClient.GetStream();
-			string simpleIP = tcpClient.Client.LocalEndPoint.ToString().Remove(11);
-			Debug.Log(tcpClient.Client.LocalEndPoint.ToString());
-			Debug.Log(simpleIP);
+			byte[] ba;
+			Debug.Log(tcpClient.Client.LocalEndPoint.ToString().Remove(11));
+			ba = asciiEncoding.GetBytes(gameManager.GetPlayerNum());
+			stm.Write(ba,0,ba.Length);
 			
 		}
 		catch {

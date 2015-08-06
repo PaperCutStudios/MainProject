@@ -3,6 +3,7 @@ player1.ID = 1;
 player1.AnswerIDs = "A";
 function player1.SetSocket(Socket)
     player1.Socket = Socket;
+    print("Player "..player1.ID.." has Joined")
 end
 function player1.SetAnswerID(ID)
     player1.AnswerIDs = ID

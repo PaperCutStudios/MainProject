@@ -91,6 +91,9 @@ public class PlayerManager : MonoBehaviour {
 		iPlayerNum = playerNum;
 		Debug.Log(iPlayerNum.ToString());
 	}
+	public int GetPlayerNum () {
+		return iPlayerNum;
+	}
 
 	public string GetRuleString(int index) {
 		return l_rRules[index].RuleText;
