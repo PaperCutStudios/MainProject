@@ -5,7 +5,11 @@ using System.Net.Sockets;
 using System.IO;
 using System.Text;
 
-
+//Collects necessary data from other classes and sends it as bytes to the node
+//Also reads data back from the node and acts on it
+/*
+ *	 
+ */
 public class TCPClientManager : Singleton<TCPClientManager> {
 
 	PlayerManager gameManager;
@@ -13,6 +17,8 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 	NetworkStream stm;
 	ASCIIEncoding asciiEncoding = new ASCIIEncoding();
 	byte[] IncomingBytes;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -52,11 +58,35 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 //		}
 	}
 
-	void ActOnDataString(string dataAsString) {
-		if(dataAsString == "Connection Initiated") {
-			UIManager.Instance.ConnectionSuccess();
+	public void Disconnect() {
+		byte[] ba;
+		ba = asciiEncoding.GetBytes(gameManager.GetPlayerNum().ToString() + "0");
+		stm.Write(ba,0,ba.Length);
+		tcpClient.GetStream().Close();
+		tcpClient.Close();
+	}
 
+	void ActOnDataString(string dataAsString) {
+		//switch on the first character of the received data
+		switch(dataAsString[0]) {
+		case '0':
+			//If we've received a 0 it means there are already 4 players connected to the device
+			UIManager.Instance.ConnectionFailed(false);
+			break;
+		case '1':
+			//if the first character is a '1' it means we have sucessfully connected and the node has sent us our player number as the second character
+			//so we must save this number as our player number for the game
+			UIManager.Instance.ConnectionSuccess();
+			SetPlayerNumberFromCharacter(dataAsString[1]);
+			break;
+		case '2':
+			//First Char '2' indicates the node is sending a line of text from the chosen xml
+			break;
+		default:
+			Debug.LogWarning("Trying to act on empty data!",this);
+			break;
 		}
+
 	}
 
 	public void AttempToJoin() {
@@ -64,13 +94,28 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 			tcpClient.Connect("192.168.0.1",80);
 			stm = tcpClient.GetStream();
 			byte[] ba;
-			Debug.Log(tcpClient.Client.LocalEndPoint.ToString().Remove(11));
-			ba = asciiEncoding.GetBytes(gameManager.GetPlayerNum());
+			ba = asciiEncoding.GetBytes(gameManager.GetPlayerNum().ToString());
 			stm.Write(ba,0,ba.Length);
 			
 		}
 		catch {
-			Debug.Log("Could not connect");
+			UIManager.Instance.ConnectionFailed(true);
+			Debug.LogWarning("Could not connect");
+		}
+	}
+
+	public void SendAnswerInfo() {
+
+	}
+
+	void SetPlayerNumberFromCharacter(char c) {
+		int playernum;
+		bool result = int.TryParse(c.ToString(), out playernum);
+		if(result) {
+			gameManager.SetPlayerNum(playernum);
+		}
+		else {
+			Debug.LogWarning("Converstion of Playernumber Failed", this);
 		}
 	}
 }

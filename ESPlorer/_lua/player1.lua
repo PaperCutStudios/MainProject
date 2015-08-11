@@ -5,10 +5,8 @@ function player1.SetSocket(Socket)
     player1.Socket = Socket;
     print("Player "..player1.ID.." has Joined")
 end
-function player1.SetAnswerID(ID)
-    player1.AnswerIDs = ID
-end
-function player1.GetAnswerID()
-    return player1.AnswerIDs
+function player4.LightOn()
+    local gpio = require("gpiofunctions")
+    gpio.LightOn("red")
 end
 return player1;

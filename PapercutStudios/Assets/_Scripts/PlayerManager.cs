@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using XMLEditorC;
 
 
 public class PlayerManager : MonoBehaviour {
@@ -15,17 +14,23 @@ public class PlayerManager : MonoBehaviour {
 	public int iTotalRules;
 
 	public int iBracketTime = 3;
+	public int randomSeed;
 
 	private int[] AnswerIDs = new int[3];
 
 	// Use this for initialization
 	void Start () {
 //		Debug.Log( XmlManager.Instance.name);
+		Random.seed = randomSeed;
+		Debug.Log("Started with seed: " + randomSeed.ToString() + " " + Random.seed);
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
+	void OnApplicationQuit() {
+		TCPClientManager.Instance.Disconnect();
+	}
+
+	void Update() {
+		Debug.Log("<color=red>" +Random.seed.ToString() +"</color>");
 	}
 
 	public void SetUpPlayerInformation () {
@@ -105,6 +110,10 @@ public class PlayerManager : MonoBehaviour {
 
 	public string GetAvailabilityString(int index) {
 		return ptActiveTable.Availabilities[index].GetAsString();
+	}
+
+	public int[] GetAnswers() {
+		return AnswerIDs;
 	}
 
 	public void SetAnswerActivity(int actID) {

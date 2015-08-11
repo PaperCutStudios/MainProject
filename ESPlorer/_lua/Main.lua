@@ -7,9 +7,9 @@ function HandleSocketData (Socket,DataStream)
         
     end
 end
-function OnConnectionSuccess(Socket)
+function OnConnection(Socket)
     Socket:on("receive", HandleSocketData)
-    Socket:send("Connection Initiated",function(sent) print (sent) end)
+
 end
 --ServerListening
-Server:listen(80,OnConnectionSuccess)
+Server:listen(80,OnConnection)

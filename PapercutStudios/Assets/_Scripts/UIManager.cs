@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
-using System;
 
 public class UIManager : Singleton<UIManager> {
 	private GameObject MainMenu;
@@ -20,12 +19,6 @@ public class UIManager : Singleton<UIManager> {
 
 	private List<DayAndTimeButton> dayAndTimeButtons = new List<DayAndTimeButton>();
 	private List<ActivityButton> ActivityButtons = new List<ActivityButton> ();
-
-//	public GameObject AvTime0;
-//	public GameObject AvTime1;
-//	public GameObject AvTime2;
-//	public GameObject AvTime3;
-//	public GameObject AvTime4;
 
 	public int iCurrentDisplayedRules = 0;
 
@@ -52,7 +45,7 @@ public class UIManager : Singleton<UIManager> {
 		MainMenu = GameObject.FindWithTag("MainMenu");
 		JoinButton = MainMenu.transform.FindChild("JoinButton").gameObject.GetComponent<Button>();
 		JoinButton.onClick.AddListener(() => ConnectionSuccess());
-//		JoinButton.onClick.AddListener(() => TCPClientManager.Instance.AttempToJoin());
+//		JoinButton.onClick.AddListener(() => AttemptToJoin());
 		JoinButton.gameObject.SetActive(true);
 
 		PlayButton = MainMenu.transform.FindChild("PlayButton").gameObject.GetComponent<Button>();
@@ -75,13 +68,14 @@ public class UIManager : Singleton<UIManager> {
 		}
 
 		StatusDisplay = MainMenu.transform.FindChild("StatusDisplay").gameObject.GetComponent<Text>();
+		StatusDisplay.text = "Waiting for Command...";
 		
 //		--------------End Screen UI initialisation---------------------
 		EndScreen = GameObject.FindWithTag ("EndScreen");
 		EndScreen.SetActive (false);
 	}
 
-
+	#region Initiation related Functions
 	void SetEndMenuStuff() {
 
 		//Setting of each Day and Time button in the scene
@@ -161,6 +155,7 @@ public class UIManager : Singleton<UIManager> {
 	int CompareObNames( GameObject x, GameObject y) {
 		return x.name.CompareTo(y.name);
 	}
+	#endregion
 
 	public void ShowNextRule () {
 		Rules[iCurrentDisplayedRules].text = gameManager.GetRuleString(iCurrentDisplayedRules);
@@ -177,7 +172,7 @@ public class UIManager : Singleton<UIManager> {
 			}
 		}
 	}
-
+	#region Main Menu Button Functions
 	public void MainMenuPlay() {
 		MainMenu.SetActive(false);
 		PlayerInfo.SetActive(true);
@@ -189,11 +184,39 @@ public class UIManager : Singleton<UIManager> {
 		ShowNextRule();
 	}
 
-	public void ConnectionSuccess() {
-		PlayButton.gameObject.SetActive(true);
+	public void Quit() {
+		Application.Quit();
+	}
+
+	void SetInfoScreenText() {
+		for(int i = 0; i < Activities.Length; i++) {
+			Activities[i].text = gameManager.GetActivityString(i);
+			Availabilities[i].text = gameManager.GetAvailabilityString(i);
+		}
+	}
+
+	void AttemptToJoin() {
+		TCPClientManager.Instance.AttempToJoin();
 		JoinButton.gameObject.SetActive(false);
 	}
 
+	public void ConnectionSuccess() {
+		JoinButton.gameObject.SetActive(false);
+
+		PlayButton.gameObject.SetActive(true);
+	}
+
+	public void ConnectionFailed(bool b) {
+		JoinButton.gameObject.SetActive(true);
+		if(b) {
+			StatusDisplay.text = "Connection Failed!\nCould not connect to the Node Device";
+		}
+		else {
+			StatusDisplay.text = "Connection Failed!\n4 Maximum Players ";
+		}
+	}
+	#endregion
+	#region Answer Screen Button Functions
 	void ActivityButtonClick(ActivityButton ab, int actID) {
 		foreach(ActivityButton abb in ActivityButtons) {
 			abb.SetSelected(false);
@@ -215,19 +238,13 @@ public class UIManager : Singleton<UIManager> {
 		dtb.SetTimeSelected(buttonIndex);
 		gameManager.SetAnswerTime(timeID);
 	}
+	#endregion
 
-	public void Quit() {
-		Application.Quit();
-	}
+
 
 	public void OpenMainMenu() {
 		Application.LoadLevel(0);
 	}
 
-	void SetInfoScreenText() {
-		for(int i = 0; i < Activities.Length; i++) {
-			Activities[i].text = gameManager.GetActivityString(i);
-			Availabilities[i].text = gameManager.GetAvailabilityString(i);
-		}
-	}
+
 }

@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &10220383
 GameObject:
@@ -4654,6 +4653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iTotalRules: 3
   iBracketTime: 3
+  randomSeed: 50
 --- !u!4 &942444012
 Transform:
   m_ObjectHideFlags: 0
@@ -4665,7 +4665,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!114 &942444013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5047,7 +5047,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2123660796}
+      - m_Target: {fileID: 0}
         m_MethodName: quit
         m_Mode: 1
         m_Arguments:
@@ -6083,7 +6083,7 @@ MonoBehaviour:
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: e800fb9c5751be740b0b2277dd195326, type: 3}
-    m_FontSize: 40
+    m_FontSize: 0
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -7682,15 +7682,15 @@ MonoBehaviour:
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: e800fb9c5751be740b0b2277dd195326, type: 3}
-    m_FontSize: 40
+    m_FontSize: 0
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 1
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: '<b>Status:</b>
 
@@ -9925,8 +9925,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  ignoreReversedGraphics: 1
+  blockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -10898,242 +10898,6 @@ RectTransform:
   m_AnchoredPosition: {x: .000839230604, y: -.000930786133}
   m_SizeDelta: {x: 547.640015, y: 876.48999}
   m_Pivot: {x: .5, y: .5}
---- !u!1 &2123660794
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2123660795}
-  - 114: {fileID: 2123660796}
-  m_Layer: 0
-  m_Name: Prototype
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2123660795
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2123660794}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 262.524414, y: 539.368225, z: 15.564209}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
---- !u!114 &2123660796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2123660794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4c6b9ea7e30f174dadae59929baf6cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainMenu: {fileID: 1890544340}
-  PlayerInfo: {fileID: 257842734}
-  EndScreen: {fileID: 2076885532}
-  PlayButton: {fileID: 1982425381}
-  Ring: {fileID: 8300000, guid: 888c9cc1e425c274c93a2587e1c31bcf, type: 3}
-  Game1ButtonText: {fileID: 0}
-  Game2ButtonText: {fileID: 0}
-  Game1:
-    Player1:
-      iPlayerNum: 0
-      Activities:
-      - Beach (closed Thursday)
-      - Pub (closed Tuesday)
-      - Cinema (closed Sunday)
-      - Theme Park (closed Sunday)
-      - The Mall (closed Thursday)
-      Availabilities:
-      - Monday (9am - 11am)
-      - Tuesday (4pm - 6pm)
-      - Thursday (9am - 11am)
-      - Saturday (6pm - 8pm)
-      Items:
-      - Car
-      - Map
-      - 3DS
-      Rules:
-      - 1. Swear In Every Sentence.
-      - 2. You must always shout when speaking.
-      - 3. You can never stop speaking.
-    Player2:
-      iPlayerNum: 0
-      Activities:
-      - Cinema (closed Monday)
-      - The Mall (closed Thursday)
-      - Nightclub (closed Monday)
-      - Theme Park (closed Sunday)
-      - Beach (Closed Thursday)
-      Availabilities:
-      - Monday (10am - 12 noon)
-      - Wednesday (6am - 8am)
-      - Thursday (10am - 12 noon)
-      - Saturday (9pm - 11pm)
-      Items:
-      - Water
-      - 3DS
-      - Car
-      Rules:
-      - 1. Can't Swear.
-      - 2. Must answer others with questions.
-      - 3. You can only whisper.
-    Player3:
-      iPlayerNum: 0
-      Activities:
-      - The Mall (closed Thursday)
-      - LAN Party (closed Tuesday)
-      - Night Club (closed Monday)
-      - Theme Park (closed Sunday)
-      - Paintball (closed Saturday)
-      Availabilities:
-      - Monday (9am - 11am)
-      - Thursday (10am - 12 noon)
-      - Friday (9pm - 11pm)
-      - Saturday (5pm - 7pm)
-      Items:
-      - Snacks
-      - Money
-      - Water
-      Rules:
-      - 1. Can't speak if anyone else is speaking
-      - 2. Always look down at floor
-      - 3. Can not answer the last question asked of you.
-    Player4:
-      iPlayerNum: 0
-      Activities:
-      - Pool (closed Wednesday)
-      - The Mall (closed Thursday)
-      - Pub (closed Tuesday)
-      - Theme Park (closed Sunday)
-      - Night club (closed Monday)
-      Availabilities:
-      - Monday (1pm - 3pm)
-      - Thursday (11am - 1pm)
-      - Saturday (6am - 8am)
-      - Sunday (1pm - 3pm)
-      Items:
-      - Sunscreen
-      - Gum
-      - Snacks
-      Rules:
-      - 1. Only speak when spoken to.
-      - 2. Only give single word replies.
-      - 3. Do not respond to shouting.
-  Game2:
-    Player1:
-      iPlayerNum: 0
-      Activities:
-      - Paintball (Closed Tuesday)
-      - Pub (Closed Saturday)
-      - LAN Party (Closed Wednesday)
-      - Theme Park (Closed Sunday)
-      - Nightclub (Closed Tuesday)
-      Availabilities:
-      - Monday (7am - 10am)
-      - Tuesday (9pm - 12pm)
-      - Wednesday (6pm - 9pm)
-      - Sunday (9am - 12 Noon)
-      Items:
-      - Sunscreen
-      - Money
-      - Snacks
-      Rules:
-      - 
-      - 
-      - 
-    Player2:
-      iPlayerNum: 0
-      Activities:
-      - Paintball (Closed Tuesday)
-      - LAN Party (Closed Wednesday)
-      - Movies (Closed Sunday)
-      - Nightclub (Closed Tuesday)
-      - Pub (Closed Sunday)
-      Availabilities:
-      - Monday (12 noon - 3pm)
-      - Tuesday (8pm - 11pm)
-      - Thursday (7am - 10am)
-      - Sunday (7am - 10am)
-      Items:
-      - 3DS
-      - Sunscreen
-      - Water
-      Rules:
-      - 
-      - 
-      - 
-    Player3:
-      iPlayerNum: 0
-      Activities:
-      - Nightclub (Closed Tuesday)
-      - Movies (Closed Sunday)
-      - Theme Park (Closed Sunday)
-      - LAN Party (Closed Wednesday)
-      - Paintball (Closed Tuesday)
-      Availabilities:
-      - Tuesday (6pm - 9pm)
-      - Thursday (10am - 1pm)
-      - Saturday (7am - 10am)
-      - Sunday (1pm - 4pm)
-      Items:
-      - Map
-      - Car
-      - Snacks
-      Rules:
-      - 
-      - 
-      - 
-    Player4:
-      iPlayerNum: 0
-      Activities:
-      - Nightclub (Closed Tuesday)
-      - Paintball (Closed Tuesday)
-      - Beach (Closed Wednesday)
-      - LAN Party (Closed Wednesday)
-      - Pub (Closed Saturday)
-      Availabilities:
-      - Sunday (8pm - 11pm)
-      - Saturday (11am - 2pm)
-      - Tuesday (7pm - 10pm)
-      - Friday (3pm - 6pm)
-      Items:
-      - 3DS
-      - Water
-      - Gum
-      Rules:
-      - 
-      - 
-      - 
-  Activities:
-  - {fileID: 140266260}
-  - {fileID: 774980832}
-  - {fileID: 1485713083}
-  - {fileID: 369240666}
-  - {fileID: 358505116}
-  Availabilities:
-  - {fileID: 735000263}
-  - {fileID: 1611690667}
-  - {fileID: 1972521315}
-  - {fileID: 1995046481}
-  Items:
-  - {fileID: 1933740702}
-  - {fileID: 0}
-  - {fileID: 0}
-  Rules:
-  - {fileID: 1367972092}
-  - {fileID: 1486853625}
-  - {fileID: 559785184}
-  PlayButtonText: {fileID: 1725691472}
 --- !u!1 &2138134426
 GameObject:
   m_ObjectHideFlags: 0
