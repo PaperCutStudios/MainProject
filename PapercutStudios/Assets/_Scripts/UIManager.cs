@@ -1,21 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System;
+//using System;
 using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager> {
 	private GameObject MainMenu;
 	private GameObject EndScreen;
 	private GameObject PlayerInfo;
+	private GameObject ResultsScreen;
 
 	private PlayerManager gameManager;
+	private XmlManager xmlManager;
 
 	private Text StatusDisplay;
 	private Button PlayButton;
 	private Button JoinButton;
 	private Button[] PlayerButtons;
 	private Button activeButton;
+
+	private Image ResultsImage;
+	public Sprite[] ActivitySprites;
+	public Sprite[] PlayerSilhouettes;
 
 	private List<DayAndTimeButton> dayAndTimeButtons = new List<DayAndTimeButton>();
 	private List<ActivityButton> ActivityButtons = new List<ActivityButton> ();
@@ -44,8 +50,8 @@ public class UIManager : Singleton<UIManager> {
 //		--------------Main Menu UI initialisation---------------------
 		MainMenu = GameObject.FindWithTag("MainMenu");
 		JoinButton = MainMenu.transform.FindChild("JoinButton").gameObject.GetComponent<Button>();
-//		JoinButton.onClick.AddListener(() => ConnectionSuccess());
-		JoinButton.onClick.AddListener(() => AttemptToJoin());
+		JoinButton.onClick.AddListener(() => ConnectionSuccess());
+//		JoinButton.onClick.AddListener(() => AttemptToJoin());
 		JoinButton.gameObject.SetActive(true);
 
 		PlayButton = MainMenu.transform.FindChild("PlayButton").gameObject.GetComponent<Button>();
@@ -73,6 +79,10 @@ public class UIManager : Singleton<UIManager> {
 //		--------------End Screen UI initialisation---------------------
 		EndScreen = GameObject.FindWithTag ("EndScreen");
 		EndScreen.SetActive (false);
+
+//		--------------Results Screen UI initialisation---------------------
+		ResultsScreen = GameObject.FindWithTag ("ResultsScreen");
+		ResultsScreen.SetActive (false);
 	}
 
 	#region Initiation related Functions
@@ -135,7 +145,7 @@ public class UIManager : Singleton<UIManager> {
 	Button[] FindButtonsWithTag(string searchTag) {
 		GameObject[] FoundWithTag = GameObject.FindGameObjectsWithTag(searchTag);
 		Button[] returnArray = new Button[FoundWithTag.Length];
-		Array.Sort(FoundWithTag, CompareObNames);
+		System.Array.Sort(FoundWithTag, CompareObNames);
 		for (int i = 0; i < FoundWithTag.Length; i++) {
 			returnArray[i] = FoundWithTag[i].GetComponent<Button>();
 		}
@@ -145,7 +155,7 @@ public class UIManager : Singleton<UIManager> {
 	Text[] FindTextsWithTag(string searchTag) {
 		GameObject[] FoundWithTag = GameObject.FindGameObjectsWithTag(searchTag);
 		Text[] returnArray = new Text[FoundWithTag.Length];
-		Array.Sort(FoundWithTag, CompareObNames);
+		System.Array.Sort(FoundWithTag, CompareObNames);
 		for (int i = 0; i < FoundWithTag.Length; i++) {
 			returnArray[i] = FoundWithTag[i].GetComponent<Text>();
 		}
@@ -241,10 +251,51 @@ public class UIManager : Singleton<UIManager> {
 	#endregion
 
 
-	public void ShowEndScenario(int numPlayers) {
+	public void ShowEndResult(int numPlayers) {
 		//read from gamemanager.answerIDs
 		//compare answerIDs[0] to the strings stored on the xml, perform a switch on that statement(eg. case "ThemePark": prefab.image = ThemePark.jpg
 		//for(inti=0;i<numplayers;i++) {person[i].gameobject.enabled  }
+		//resultsscreen.setactive(true)
+		ResultsScreen.SetActive (true);
+		EndScreen.SetActive (false);
+
+		ResultsImage = GameObject.FindWithTag ("ResultsImage").GetComponent<Image>();
+		string answerActivity = xmlManager.GetActivityPiece (gameManager.AnswerIDs [0]);
+		switch (answerActivity) {
+		case "Arcade":
+			ResultsImage.sprite = ActivitySprites[0];
+			break;
+		case "Aquarium":
+			ResultsImage.sprite = ActivitySprites[1];
+			break;
+		case "Beach":
+			ResultsImage.sprite = ActivitySprites[2];
+			break;
+		case "Cinema":
+			ResultsImage.sprite = ActivitySprites[3];
+			break;
+		case "Pub":
+			ResultsImage.sprite = ActivitySprites[4];
+			break;
+		case "Theme Park":
+			ResultsImage.sprite = ActivitySprites[5];
+			break;
+		case "The Zoo":
+			ResultsImage.sprite = ActivitySprites[6];
+			break;
+		default:
+			break;
+		}
+
+		Image[] people = ResultsImage.GetComponentsInChildren<Image>();
+
+		for (int i = 0; i < numPlayers; i++) 
+		{
+			int randomIndex = Random.Range(0,PlayerSilhouettes.Length);
+			people[i+1].sprite = PlayerSilhouettes[randomIndex];
+		}
+
+		//gameManager.AnswerIDs [0] = xmlManager.actsFromXML [0];
 	}
 
 
