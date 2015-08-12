@@ -11,7 +11,6 @@ public class UIManager : Singleton<UIManager> {
 	private GameObject ResultsScreen;
 
 	private PlayerManager gameManager;
-	private XmlManager xmlManager;
 
 	private Text StatusDisplay;
 	private Button PlayButton;
@@ -260,7 +259,7 @@ public class UIManager : Singleton<UIManager> {
 		EndScreen.SetActive (false);
 
 		ResultsImage = GameObject.FindWithTag ("ResultsImage").GetComponent<Image>();
-		string answerActivity = xmlManager.GetActivityPiece (gameManager.GetAnswers()[0]);
+		string answerActivity = XmlManager.Instance.GetActivityPiece (gameManager.GetAnswers()[0]);
 		switch (answerActivity) {
 		case "Arcade":
 			ResultsImage.sprite = ActivitySprites[0];
