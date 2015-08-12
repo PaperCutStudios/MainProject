@@ -24,7 +24,6 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 	void Start () {
 		gameManager = FindObjectOfType<PlayerManager>();
 		tcpClient = new TcpClient();
-
 	}
 
 	//should probably put this stuff into a tcp.listen call or something, just testing atm
@@ -77,10 +76,17 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 			//if the first character is a '1' it means we have sucessfully connected and the node has sent us our player number as the second character
 			//so we must save this number as our player number for the game
 			UIManager.Instance.ConnectionSuccess();
-			SetPlayerNumberFromCharacter(dataAsString[1]);
+			gameManager.SetPlayerNum(ParseChar(dataAsString[1]));
 			break;
 		case '2':
-			//First Char '2' indicates the node is sending a line of text from the chosen xml
+			//Begin playing the game
+			UIManager.Instance.MainMenuPlay();
+			break;
+		case '3':
+			gameManager.Difficulty = ParseChar(dataAsString[1]);
+			break;
+		case '4':
+
 			break;
 		default:
 			Debug.LogWarning("Trying to act on empty data!",this);
@@ -108,13 +114,14 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 
 	}
 
-	void SetPlayerNumberFromCharacter(char c) {
-		int playernum;
-		bool result = int.TryParse(c.ToString(), out playernum);
+	int ParseChar(char c) {
+		int num;
+		bool result = int.TryParse(c.ToString(), out num);
 		if(result) {
-			gameManager.SetPlayerNum(playernum);
+			return num;
 		}
 		else {
+			return 1;
 			Debug.LogWarning("Converstion of Playernumber Failed", this);
 		}
 	}

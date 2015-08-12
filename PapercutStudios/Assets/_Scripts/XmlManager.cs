@@ -152,7 +152,7 @@ public class XmlManager : Singleton<XmlManager> {
 
 	private Rule XmlNodeToRule (XmlNode node) {
 		Rule returnRule = new Rule();
-		returnRule.RuleText = node.Attributes["text"].Value.ToString();
+		returnRule.RuleText = node.Attributes["text"].Value.ToString() + " (" + node.Attributes["id"].Value.ToString() + ")";
 		for (int i = 0; i < node.ChildNodes[1].ChildNodes.Count; i++) {
 			returnRule.l_ClashIDs.Add(int.Parse(node.ChildNodes.Item(1).ChildNodes.Item(i).Attributes["id"].Value.ToString()));
 		}
@@ -164,7 +164,7 @@ public class XmlManager : Singleton<XmlManager> {
 
 	private Rule XmlNodeToRule (XmlNode node, List<int> clashes) {
 		Rule returnRule = new Rule();
-		returnRule.RuleText = node.Attributes["text"].Value.ToString();
+		returnRule.RuleText = node.Attributes["text"].Value.ToString() + " (" + node.Attributes["id"].Value.ToString() + ")";
 //			this can be confusing; as the node we're passing is <rule> and the clashes are stored as individual elements und <clashes> (ie. <rule><clashes><clash id=""><clash id = ""><clas... etc.) 
 //			we need to get the children of <clashes> to iterate through
 		for (int i = 0; i < node.ChildNodes[1].ChildNodes.Count; i++) {

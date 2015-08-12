@@ -44,8 +44,8 @@ public class UIManager : Singleton<UIManager> {
 //		--------------Main Menu UI initialisation---------------------
 		MainMenu = GameObject.FindWithTag("MainMenu");
 		JoinButton = MainMenu.transform.FindChild("JoinButton").gameObject.GetComponent<Button>();
-//		JoinButton.onClick.AddListener(() => ConnectionSuccess());
-		JoinButton.onClick.AddListener(() => AttemptToJoin());
+		JoinButton.onClick.AddListener(() => ConnectionSuccess());
+//		JoinButton.onClick.AddListener(() => AttemptToJoin());
 		JoinButton.gameObject.SetActive(true);
 
 		PlayButton = MainMenu.transform.FindChild("PlayButton").gameObject.GetComponent<Button>();

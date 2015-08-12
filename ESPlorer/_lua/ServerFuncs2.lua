@@ -1,5 +1,4 @@
 local ServerFuncs = {}
-function ServerFuncs.SendXML(playernum)
-    --local player = 
+function ServerFuncs. 
 end
 return ServerFuncs

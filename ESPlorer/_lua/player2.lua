@@ -1,8 +1,16 @@
-local player2 = {}
-player2.ID = 2;
-player2.AnswerIDs = "";
-function player2.SetSocket(Socket)
-    player2.Socket = Socket;
-    print("Player "..player2.ID.." has Joined")
+local player = {}
+player.ID = 2;
+player.AnswerIDs = " ";
+function player.connect(Socket)
+    player.Socket = Socket;
+    print("Player "..player.ID.." has Joined")
+    local gpio = require("gpiofunctions")
+    gpio.LightOn("green")
 end
-return player2;
+function player.disconnect()
+    player.Socket:close
+    print("Player "..player.ID.." has Disconnected")
+    local gpio = require("gpiofunctions")
+    gpio.LightOff("green") 
+end
+return player;

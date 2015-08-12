@@ -14,8 +14,9 @@ public class PlayerManager : MonoBehaviour {
 	public int iTotalRules;
 
 	public int iBracketTime = 3;
-	public int randomSeed;
-
+	public int randomSeed { get; set; }
+	public int Difficulty { get; set; }
+	public float gameTime { get; set; }
 	private int[] AnswerIDs = new int[3];
 
 	// Use this for initialization
@@ -30,7 +31,6 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	void Update() {
-		Debug.Log("<color=red>" +Random.seed.ToString() +"</color>");
 	}
 
 	public void SetUpPlayerInformation () {
@@ -41,8 +41,8 @@ public class PlayerManager : MonoBehaviour {
 		case 1 :
 			ptActiveTable = new PlayerTable(WriteActivityInfo (2,0,0,3,1,
 			                                                   0,1,1,5,0,
-			                                                   6,0,3,6,14,
-			                                                   8,1,2,3,10,
+			                                                   5,0,3,6,14,
+			                                                   6,1,2,3,10,
 			                                                   1,0,1,4,0),
 			                                WriteAvailabilityInfo (5,11,2,4,0,0,4,17,1,1),
 			                                iBracketTime);
@@ -52,13 +52,13 @@ public class PlayerManager : MonoBehaviour {
 			                                                   2,0,0,3,1,
 			                                                   0,0,1,5,0,
 			                                                   4,1,5,6,16,
-			                                                   8,0,0,4,9),
+			                                                   6,0,0,4,9),
 			                                WriteAvailabilityInfo (0,0,5,12,2,5,1,1,6,3),
 			                                iBracketTime);
 			break;
 		case 3 :
 			ptActiveTable = new PlayerTable(WriteActivityInfo (0,0,1,5,0,
-			                                                   5,1,0,6,8,
+			                                                   4,1,0,6,8,
 			                                                   1,0,1,4,0,
 			                                                   2,1,0,3,1,
 			                                                   3,0,2,4,7),
@@ -67,18 +67,18 @@ public class PlayerManager : MonoBehaviour {
 			break;
 		case 4 :
 			ptActiveTable = new PlayerTable(WriteActivityInfo (3,1,4,5,11,
-			                                                    6,1,6,2,5,
-			                                                    1,0,1,4,0,
-			                                                    2,0,0,3,1,
-			                                                    0,0,1,5,0),
+			                                                   5,1,6,2,5,
+			                                                   1,0,1,4,0,
+			                                                   2,0,0,3,1,
+			                                                   0,0,1,5,0),
 			                                 WriteAvailabilityInfo (4,7,2,3,0,0,5,12,1,1),
 			                                 iBracketTime);
 			break;
 		default :
 			ptActiveTable = new PlayerTable(WriteActivityInfo (2,0,0,3,1,
 			                                                   0,1,1,5,0,
-			                                                   6,0,3,6,14,
-			                                                   8,1,2,3,10,
+			                                                   5,0,3,6,14,
+			                                                   6,1,2,3,10,
 			                                                   1,0,1,4,0),
 			                                WriteAvailabilityInfo (5,11,2,4,0,0,4,17,1,1),
 			                                iBracketTime);

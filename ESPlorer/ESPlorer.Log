@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-08-12T09:17:25</date>
+  <millis>1439335045666</millis>
+  <sequence>6</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Set new color theme: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:25</date>
+  <millis>1439335045670</millis>
+  <sequence>7</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Load saved settings: DONE.</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:25</date>
+  <millis>1439335045671</millis>
+  <sequence>8</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Snippets (LUA): loading...</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:25</date>
+  <millis>1439335045675</millis>
+  <sequence>9</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Snippets (LUA) load: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:26</date>
+  <millis>1439335046018</millis>
+  <sequence>10</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Scan system...</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:26</date>
+  <millis>1439335046041</millis>
+  <sequence>11</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>found last saved serial port COM3</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:26</date>
+  <millis>1439335046044</millis>
+  <sequence>12</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Scan done.</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:33</date>
+  <millis>1439335053374</millis>
+  <sequence>13</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to open file ServerFuncs1.lua</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:33</date>
+  <millis>1439335053376</millis>
+  <sequence>14</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File name: C:\Users\lbrown53.SAE\Documents\PapercutStudios\ESPlorer\_lua\ServerFuncs1.lua</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:33</date>
+  <millis>1439335053402</millis>
+  <sequence>15</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to load file ServerFuncs1.lua</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:33</date>
+  <millis>1439335053469</millis>
+  <sequence>16</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Loading ServerFuncs1.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:33</date>
+  <millis>1439335053471</millis>
+  <sequence>17</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Open "ServerFuncs1.lua": Success.</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:37</date>
+  <millis>1439335057863</millis>
+  <sequence>18</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to open file ServerFuncs2.lua</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:37</date>
+  <millis>1439335057864</millis>
+  <sequence>19</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File name: C:\Users\lbrown53.SAE\Documents\PapercutStudios\ESPlorer\_lua\ServerFuncs2.lua</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:37</date>
+  <millis>1439335057865</millis>
+  <sequence>20</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to load file ServerFuncs2.lua</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:37</date>
+  <millis>1439335057905</millis>
+  <sequence>21</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Loading ServerFuncs2.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T09:17:37</date>
+  <millis>1439335057907</millis>
+  <sequence>22</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Open "ServerFuncs2.lua": Success.</message>
+</record>
+<record>
+  <date>2015-08-12T09:46:14</date>
+  <millis>1439336774636</millis>
+  <sequence>23</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to open file Main.lua</message>
+</record>
+<record>
+  <date>2015-08-12T09:46:14</date>
+  <millis>1439336774637</millis>
+  <sequence>24</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File name: C:\Users\lbrown53.SAE\Documents\PapercutStudios\ESPlorer\_lua\Main.lua</message>
+</record>
+<record>
+  <date>2015-08-12T09:46:14</date>
+  <millis>1439336774639</millis>
+  <sequence>25</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to load file Main.lua</message>
+</record>
+<record>
+  <date>2015-08-12T09:46:14</date>
+  <millis>1439336774655</millis>
+  <sequence>26</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Loading Main.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T09:46:14</date>
+  <millis>1439336774657</millis>
+  <sequence>27</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Open "Main.lua": Success.</message>
+</record>
+<record>
+  <date>2015-08-12T09:53:06</date>
+  <millis>1439337186182</millis>
+  <sequence>28</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to open file player1.lua</message>
+</record>
+<record>
+  <date>2015-08-12T09:53:06</date>
+  <millis>1439337186191</millis>
+  <sequence>29</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File name: C:\Users\lbrown53.SAE\Documents\PapercutStudios\ESPlorer\_lua\player1.lua</message>
+</record>
+<record>
+  <date>2015-08-12T09:53:06</date>
+  <millis>1439337186195</millis>
+  <sequence>30</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to load file player1.lua</message>
+</record>
+<record>
+  <date>2015-08-12T09:53:06</date>
+  <millis>1439337186212</millis>
+  <sequence>31</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Loading player1.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T09:53:06</date>
+  <millis>1439337186213</millis>
+  <sequence>32</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Open "player1.lua": Success.</message>
+</record>
+<record>
+  <date>2015-08-12T10:05:53</date>
+  <millis>1439337953577</millis>
+  <sequence>33</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>New empty file ready.</message>
+</record>
+<record>
+  <date>2015-08-12T10:10:21</date>
+  <millis>1439338221078</millis>
+  <sequence>34</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Saving new file...</message>
+</record>
+<record>
+  <date>2015-08-12T10:10:28</date>
+  <millis>1439338228781</millis>
+  <sequence>35</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to saving file gamePrefs.lua ...</message>
+</record>
+<record>
+  <date>2015-08-12T10:10:28</date>
+  <millis>1439338228783</millis>
+  <sequence>36</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Save file gamePrefs.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T10:10:28</date>
+  <millis>1439338228796</millis>
+  <sequence>37</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileSaveESP: Serial port not open. Cancel.</message>
+</record>
+<record>
+  <date>2015-08-12T10:13:33</date>
+  <millis>1439338413146</millis>
+  <sequence>38</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>New empty file ready.</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:14</date>
+  <millis>1439343314176</millis>
+  <sequence>39</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>We save known file player1.lua</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:14</date>
+  <millis>1439343314177</millis>
+  <sequence>40</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to saving file player1.lua ...</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:14</date>
+  <millis>1439343314181</millis>
+  <sequence>41</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Save file player1.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:14</date>
+  <millis>1439343314183</millis>
+  <sequence>42</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileSaveESP: Serial port not open. Cancel.</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:16</date>
+  <millis>1439343316931</millis>
+  <sequence>43</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to open file player2.lua</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:16</date>
+  <millis>1439343316932</millis>
+  <sequence>44</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File name: C:\Users\lbrown53.SAE\Documents\PapercutStudios\ESPlorer\_lua\player2.lua</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:16</date>
+  <millis>1439343316934</millis>
+  <sequence>45</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to load file player2.lua</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:16</date>
+  <millis>1439343316943</millis>
+  <sequence>46</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Loading player2.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:16</date>
+  <millis>1439343316943</millis>
+  <sequence>47</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Open "player2.lua": Success.</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:19</date>
+  <millis>1439343319304</millis>
+  <sequence>48</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to open file player3.lua</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:19</date>
+  <millis>1439343319305</millis>
+  <sequence>49</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File name: C:\Users\lbrown53.SAE\Documents\PapercutStudios\ESPlorer\_lua\player3.lua</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:19</date>
+  <millis>1439343319307</millis>
+  <sequence>50</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to load file player3.lua</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:19</date>
+  <millis>1439343319314</millis>
+  <sequence>51</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Loading player3.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:19</date>
+  <millis>1439343319315</millis>
+  <sequence>52</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Open "player3.lua": Success.</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:21</date>
+  <millis>1439343321308</millis>
+  <sequence>53</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to open file player4.lua</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:21</date>
+  <millis>1439343321308</millis>
+  <sequence>54</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File name: C:\Users\lbrown53.SAE\Documents\PapercutStudios\ESPlorer\_lua\player4.lua</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:21</date>
+  <millis>1439343321309</millis>
+  <sequence>55</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to load file player4.lua</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:21</date>
+  <millis>1439343321318</millis>
+  <sequence>56</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Loading player4.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:21</date>
+  <millis>1439343321319</millis>
+  <sequence>57</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Open "player4.lua": Success.</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:52</date>
+  <millis>1439343352243</millis>
+  <sequence>58</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>We save known file player2.lua</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:52</date>
+  <millis>1439343352244</millis>
+  <sequence>59</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to saving file player2.lua ...</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:52</date>
+  <millis>1439343352246</millis>
+  <sequence>60</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Save file player2.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T11:35:52</date>
+  <millis>1439343352248</millis>
+  <sequence>61</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileSaveESP: Serial port not open. Cancel.</message>
+</record>
+<record>
+  <date>2015-08-12T13:19:08</date>
+  <millis>1439349548594</millis>
+  <sequence>62</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Saving new file...</message>
+</record>
+<record>
+  <date>2015-08-12T13:20:07</date>
+  <millis>1439349607693</millis>
+  <sequence>63</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to saving file GamePrefsServerFuncs.lua ...</message>
+</record>
+<record>
+  <date>2015-08-12T13:20:07</date>
+  <millis>1439349607696</millis>
+  <sequence>64</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Save file GamePrefsServerFuncs.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T13:20:07</date>
+  <millis>1439349607713</millis>
+  <sequence>65</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileSaveESP: Serial port not open. Cancel.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:42</date>
+  <millis>1439357502213</millis>
+  <sequence>66</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileTab removed: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:42</date>
+  <millis>1439357502215</millis>
+  <sequence>67</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File close: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:42</date>
+  <millis>1439357502216</millis>
+  <sequence>68</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File changed. Ask before closing.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:43</date>
+  <millis>1439357503325</millis>
+  <sequence>69</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>We save known file player2.lua</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:43</date>
+  <millis>1439357503327</millis>
+  <sequence>70</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to saving file player2.lua ...</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:43</date>
+  <millis>1439357503329</millis>
+  <sequence>71</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Save file player2.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:43</date>
+  <millis>1439357503335</millis>
+  <sequence>72</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileTab removed: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:43</date>
+  <millis>1439357503336</millis>
+  <sequence>73</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File close: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:43</date>
+  <millis>1439357503337</millis>
+  <sequence>74</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File changed. Ask before closing.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:43</date>
+  <millis>1439357503740</millis>
+  <sequence>75</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>We save known file player3.lua</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:43</date>
+  <millis>1439357503742</millis>
+  <sequence>76</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to saving file player3.lua ...</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:43</date>
+  <millis>1439357503744</millis>
+  <sequence>77</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Save file player3.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:43</date>
+  <millis>1439357503750</millis>
+  <sequence>78</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileTab removed: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:43</date>
+  <millis>1439357503751</millis>
+  <sequence>79</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File close: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:43</date>
+  <millis>1439357503752</millis>
+  <sequence>80</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File changed. Ask before closing.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504108</millis>
+  <sequence>81</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>We save known file player4.lua</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504110</millis>
+  <sequence>82</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to saving file player4.lua ...</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504113</millis>
+  <sequence>83</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Save file player4.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504118</millis>
+  <sequence>84</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileTab removed: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504119</millis>
+  <sequence>85</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File close: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504122</millis>
+  <sequence>86</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileTab removed: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504123</millis>
+  <sequence>87</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File close: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504124</millis>
+  <sequence>88</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File changed. Ask before closing.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504485</millis>
+  <sequence>89</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>We save known file player1.lua</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504486</millis>
+  <sequence>90</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to saving file player1.lua ...</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504488</millis>
+  <sequence>91</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Save file player1.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504492</millis>
+  <sequence>92</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileTab removed: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504492</millis>
+  <sequence>93</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File close: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:44</date>
+  <millis>1439357504493</millis>
+  <sequence>94</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File changed. Ask before closing.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:45</date>
+  <millis>1439357505348</millis>
+  <sequence>95</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>We save known file Main.lua</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:45</date>
+  <millis>1439357505350</millis>
+  <sequence>96</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to saving file Main.lua ...</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:45</date>
+  <millis>1439357505352</millis>
+  <sequence>97</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Save file Main.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:45</date>
+  <millis>1439357505357</millis>
+  <sequence>98</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileTab removed: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:45</date>
+  <millis>1439357505358</millis>
+  <sequence>99</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File close: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:45</date>
+  <millis>1439357505359</millis>
+  <sequence>100</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File changed. Ask before closing.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:46</date>
+  <millis>1439357506436</millis>
+  <sequence>101</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>We save known file ServerFuncs2.lua</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:46</date>
+  <millis>1439357506438</millis>
+  <sequence>102</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Try to saving file ServerFuncs2.lua ...</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:46</date>
+  <millis>1439357506440</millis>
+  <sequence>103</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Save file ServerFuncs2.lua: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:46</date>
+  <millis>1439357506445</millis>
+  <sequence>104</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileTab removed: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:46</date>
+  <millis>1439357506446</millis>
+  <sequence>105</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File close: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:46</date>
+  <millis>1439357506471</millis>
+  <sequence>106</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>FileTab cleared: Success.</message>
+</record>
+<record>
+  <date>2015-08-12T15:31:46</date>
+  <millis>1439357506472</millis>
+  <sequence>107</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>File close: Success.</message>
+</record>
+</log>
