@@ -44,8 +44,8 @@ public class UIManager : Singleton<UIManager> {
 //		--------------Main Menu UI initialisation---------------------
 		MainMenu = GameObject.FindWithTag("MainMenu");
 		JoinButton = MainMenu.transform.FindChild("JoinButton").gameObject.GetComponent<Button>();
-		JoinButton.onClick.AddListener(() => ConnectionSuccess());
-//		JoinButton.onClick.AddListener(() => AttemptToJoin());
+//		JoinButton.onClick.AddListener(() => ConnectionSuccess());
+		JoinButton.onClick.AddListener(() => AttemptToJoin());
 		JoinButton.gameObject.SetActive(true);
 
 		PlayButton = MainMenu.transform.FindChild("PlayButton").gameObject.GetComponent<Button>();
@@ -240,6 +240,12 @@ public class UIManager : Singleton<UIManager> {
 	}
 	#endregion
 
+
+	public void ShowEndScenario(int numPlayers) {
+		//read from gamemanager.answerIDs
+		//compare answerIDs[0] to the strings stored on the xml, perform a switch on that statement(eg. case "ThemePark": prefab.image = ThemePark.jpg
+		//for(inti=0;i<numplayers;i++) {person[i].gameobject.enabled  }
+	}
 
 
 	public void OpenMainMenu() {

@@ -120,12 +120,12 @@ public class XmlManager : Singleton<XmlManager> {
 	public Rule GetNextRule(List<int> clashes) {
 		bool foundRule  = false;
 		int ruleID = 0;
-//		if(SystemInfo.deviceType == DeviceType.Handheld) {
-//			Random.seed = Mathf.FloorToInt(Input.acceleration.x);
-//		}
-//		if(SystemInfo.deviceType == DeviceType.Desktop) {
-//			Random.seed = (int)System.DateTime.Now.Ticks;
-//		}
+		if(SystemInfo.deviceType == DeviceType.Handheld) {
+			Random.seed = Mathf.FloorToInt(Input.acceleration.x);
+		}
+		if(SystemInfo.deviceType == DeviceType.Desktop) {
+			Random.seed = (int)System.DateTime.Now.Ticks;
+		}
 		while (!foundRule) {
 			bool passRuleTest = true;
 			int randRule = Random.Range(0,ruleNodes.Count);
