@@ -1,15 +1,13 @@
 <?xml version='1.0' encoding='us-ascii'?> 
 <Information>
 	<Activities>
-		<Activity>Cinema</Activity>
-		<Activity>Paintball</Activity>
+		<Activity>Arcade</Activity>
+		<Activity>Aquarium</Activity>
 		<Activity>Beach</Activity>
-		<Activity>Night Club</Activity>
-		<Activity>Theme Park</Activity>
+		<Activity>Cinema</Activity>
 		<Activity>Pub</Activity>
-		<Activity>LaserTag</Activity>
-		<Activity>Shopping</Activity>
-		<Activity>Sky-Diving</Activity>
+		<Activity>Theme Park</Activity>
+		<Activity>The Zoo</Activity>
 	</Activities>
 	<Days>
 		<Day>Sat</Day>
