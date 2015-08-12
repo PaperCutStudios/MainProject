@@ -260,7 +260,7 @@ public class UIManager : Singleton<UIManager> {
 		EndScreen.SetActive (false);
 
 		ResultsImage = GameObject.FindWithTag ("ResultsImage").GetComponent<Image>();
-		string answerActivity = xmlManager.GetActivityPiece (gameManager.AnswerIDs [0]);
+		string answerActivity = xmlManager.GetActivityPiece (gameManager.GetAnswers()[0]);
 		switch (answerActivity) {
 		case "Arcade":
 			ResultsImage.sprite = ActivitySprites[0];
@@ -284,6 +284,7 @@ public class UIManager : Singleton<UIManager> {
 			ResultsImage.sprite = ActivitySprites[6];
 			break;
 		default:
+			Debug.Log("Default Case: you broke it....");
 			break;
 		}
 
