@@ -24,7 +24,7 @@ public class UIManager : Singleton<UIManager> {
 
 	private List<DayAndTimeButton> dayAndTimeButtons = new List<DayAndTimeButton>();
 	private List<ActivityButton> ActivityButtons = new List<ActivityButton> ();
-	private Image SelectedImage;
+	public Image SelectedImage;
 
 	public int iCurrentDisplayedRules = 0;
 
@@ -79,7 +79,7 @@ public class UIManager : Singleton<UIManager> {
 //		--------------End Screen UI initialisation---------------------
 		EndScreen = GameObject.FindWithTag ("EndScreen");
 		EndScreen.SetActive (false);
-
+		//SelectedImage = EndScreen.transform.FindChild ("SelectedImage").gameObject.GetComponent<Image> ();
 
 //		--------------Results Screen UI initialisation---------------------
 		ResultsScreen = GameObject.FindWithTag ("ResultsScreen");
@@ -162,11 +162,6 @@ public class UIManager : Singleton<UIManager> {
 		}
 		return returnArray;
 	}
-	Image[] FindImageWithTag (Image searchTag){
-		GameObject[] FoundWithTag = GameObject.FindGameObjectsWithTag (searchTag);
-		Image[] returnArray = new Image[FoundWithTag.Length];
-		System.Array.Sort(FoundWithTag, CompareObNames);
-	}
 
 	int CompareObNames( GameObject x, GameObject y) {
 		return x.name.CompareTo(y.name);
@@ -239,6 +234,10 @@ public class UIManager : Singleton<UIManager> {
 		}
 		ab.SetSelected(true);
 		gameManager.SetAnswerActivity(actID);
+
+		GameObject Selected = Instantiate (SelectedImage, ab.activityButton.transform.position, Quaternion.identity) as GameObject;
+//		Selected.transform.position = ab.activityButton.transform.position;
+//		Selected.transform.SetParent (ab.activityButton.gameObject.transform);
 	}
 
 	//Set any previously selected button to unselected, then select the passed through button
@@ -248,11 +247,15 @@ public class UIManager : Singleton<UIManager> {
 		}
 		dtb.SetDaySelected(true);
 		gameManager.SetAnswerDay(dayID);
+		GameObject Selected = GameObject.Instantiate(SelectedImage)as GameObject;
+		Selected.transform.SetParent (dtb.dayButton.transform);
 	}
 
 	void TimeButtonClick(DayAndTimeButton dtb, int buttonIndex, int timeID) {
 		dtb.SetTimeSelected(buttonIndex);
 		gameManager.SetAnswerTime(timeID);
+		GameObject Selected = GameObject.Instantiate(SelectedImage)as GameObject;
+		Selected.transform.SetParent (dtb.dayButton.transform);
 	}
 	#endregion
 
