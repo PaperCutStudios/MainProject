@@ -73,11 +73,17 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 			UIManager.Instance.ConnectionFailed(false);
 			break;
 		case '1':
+		{
 			//if the first character is a '1' it means we have sucessfully connected and the node has sent us our player number as the second character
 			//so we must save this number as our player number for the game
 			UIManager.Instance.ConnectionSuccess();
 			gameManager.SetPlayerNum(ParseChar(dataAsString[1]));
+			gameManager.Difficulty = ParseChar(dataAsString[2]);
+			char[] timeChars = {dataAsString[3], dataAsString[4],dataAsString[5]};
+			string timeString = new string(timeChars);
+			gameManager.gameTime = int.Parse(timeString);
 			break;
+		}
 		case '2':
 			//Begin playing the game
 			UIManager.Instance.MainMenuPlay();
@@ -86,8 +92,12 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 			gameManager.Difficulty = ParseChar(dataAsString[1]);
 			break;
 		case '4':
-
+		{
+			char[] timeChars = {dataAsString[1], dataAsString[2],dataAsString[3]};
+			string timeString = new string(timeChars);
+			gameManager.gameTime = int.Parse(timeString);
 			break;
+		}
 		default:
 			Debug.LogWarning("Trying to act on empty data!",this);
 			break;
@@ -121,8 +131,8 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 			return num;
 		}
 		else {
-			return 1;
 			Debug.LogWarning("Converstion of Playernumber Failed", this);
+			return 1;
 		}
 	}
 }

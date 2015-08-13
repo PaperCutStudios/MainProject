@@ -2,9 +2,6 @@
 local gpiofunctions = require("gpiofunctions");
 gpiofunctions.InitAllLights()
 gpiofunctions.InitAllButtons()
-numPlayers = 0
-DataSet = math.random(25)
-print(DataSet)
 wifi.setmode(wifi.SOFTAP)
 apcfg = {}
 apcfg.ssid = "PapercutGame"
