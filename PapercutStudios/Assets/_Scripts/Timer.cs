@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour {
 	private bool ShownRule3;
 
 	void Start () { 
-		fCountDownTimer = StartingCountDownTime;
+		fCountDownTimer = GameObject.FindObjectOfType<PlayerManager>().gameTime;
 		fInterval = fCountDownTimer/3;
 		bTimerRunning = true;
 		ShownRule2 = false;
