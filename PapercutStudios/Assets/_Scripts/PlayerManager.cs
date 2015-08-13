@@ -24,6 +24,9 @@ public class PlayerManager : MonoBehaviour {
 //		Debug.Log( XmlManager.Instance.name);
 		Random.seed = randomSeed;
 		Debug.Log("Started with seed: " + randomSeed.ToString() + " " + Random.seed);
+		if(gameTime == 0f) {
+			gameTime = 270f;
+		}
 	}
 
 	void OnApplicationQuit() {
