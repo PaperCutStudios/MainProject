@@ -24,6 +24,7 @@ public class UIManager : Singleton<UIManager> {
 
 	private List<DayAndTimeButton> dayAndTimeButtons = new List<DayAndTimeButton>();
 	private List<ActivityButton> ActivityButtons = new List<ActivityButton> ();
+	private Image SelectedImage;
 
 	public int iCurrentDisplayedRules = 0;
 
@@ -78,6 +79,7 @@ public class UIManager : Singleton<UIManager> {
 //		--------------End Screen UI initialisation---------------------
 		EndScreen = GameObject.FindWithTag ("EndScreen");
 		EndScreen.SetActive (false);
+
 
 //		--------------Results Screen UI initialisation---------------------
 		ResultsScreen = GameObject.FindWithTag ("ResultsScreen");
@@ -159,6 +161,11 @@ public class UIManager : Singleton<UIManager> {
 			returnArray[i] = FoundWithTag[i].GetComponent<Text>();
 		}
 		return returnArray;
+	}
+	Image[] FindImageWithTag (Image searchTag){
+		GameObject[] FoundWithTag = GameObject.FindGameObjectsWithTag (searchTag);
+		Image[] returnArray = new Image[FoundWithTag.Length];
+		System.Array.Sort(FoundWithTag, CompareObNames);
 	}
 
 	int CompareObNames( GameObject x, GameObject y) {
