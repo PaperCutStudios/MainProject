@@ -4867,7 +4867,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iTotalRules: 3
   iBracketTime: 3
-  randomSeed: 50
 --- !u!4 &942444012
 Transform:
   m_ObjectHideFlags: 0
@@ -4892,10 +4891,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActivitySprites:
-  - {fileID: 21300000, guid: bcc568ee0ec8bef4bb50ec0314e7f623, type: 3}
-  - {fileID: 21300000, guid: a4e9f6c368d267643b01a9f7d3e079d2, type: 3}
-  - {fileID: 21300000, guid: b0d35c04a39c79d46af5852b61064999, type: 3}
-  - {fileID: 21300000, guid: e530e15b6245ee04e9ae344e00036d07, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   PlayerSilhouettes: []
   iCurrentDisplayedRules: 0
 --- !u!1 &945435924
