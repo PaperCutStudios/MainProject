@@ -21,7 +21,11 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 
 	// Use this for initialization
 	void Start () {
-		gameManager = FindObjectOfType<PlayerManager>();
+		if(gameManager == null) {
+			gameManager = FindObjectOfType<PlayerManager>();
+		}
+		Debug.Log(gameManager.GetPlayerNum().ToString());
+
 		tcpClient = new TcpClient();
 	}
 
@@ -40,7 +44,7 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 					
 				}
 				while(stm.DataAvailable);
-				
+				ActOnDataString(completemessage.ToString());
 				Debug.Log(completemessage);
 				
 			}
@@ -76,6 +80,7 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 		{
 			//if the first character is a '1' it means we have sucessfully connected and the node has sent us our player number as the second character
 			//so we must save this number as our player number for the game
+			Debug.Log ("connectionrwacieved");
 			UIManager.Instance.ConnectionSuccess();
 			gameManager.SetPlayerNum(ParseChar(dataAsString[1]));
 			gameManager.Difficulty = ParseChar(dataAsString[2]);
@@ -120,10 +125,11 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 
 	public void AttempToJoin() {
 		try {
+			tcpClient = new TcpClient ();
 			tcpClient.Connect("192.168.0.1",80);
 			stm = tcpClient.GetStream();
 			byte[] ba;
-			ba = asciiEncoding.GetBytes(gameManager.GetPlayerNum().ToString());
+			ba = asciiEncoding.GetBytes("0");
 			stm.Write(ba,0,ba.Length);
 			
 		}

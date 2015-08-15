@@ -16,18 +16,18 @@ public class PlayerTable {
 		}
 
 		//shuffle the activities list using a Fisher-Yates shuffle
-		for (int i = 0; i < Activities.Count; i++) {
-			Activity temp = Activities[i];
-			int randomIndex = Random.Range(i, Activities.Count);
-			Activities[i] = Activities[randomIndex];
-			Activities[randomIndex] = temp;
-		}
-
-		for (int i = 0; i < Activities.Count; i++) {
-			Availability temp = Availabilities[i];
-			int randomIndex = Random.Range(i, Availabilities.Count);
-			Availabilities[i] = Availabilities[randomIndex];
-			Availabilities[randomIndex] = temp;
-		}
+//		for (int i = 0; i < Activities.Count; i++) {
+//			Activity temp = Activities[i];
+//			int randomIndex = Random.Range(i, Activities.Count);
+//			Activities[i] = Activities[randomIndex];
+//			Activities[randomIndex] = temp;
+//		}
+//
+//		for (int i = 0; i < Activities.Count; i++) {
+//			Availability temp = Availabilities[i];
+//			int randomIndex = Random.Range(i, Availabilities.Count);
+//			Availabilities[i] = Availabilities[randomIndex];
+//			Availabilities[randomIndex] = temp;
+//		}
 	}
 }

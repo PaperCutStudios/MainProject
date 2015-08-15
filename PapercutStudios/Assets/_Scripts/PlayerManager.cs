@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour {
 
 	List<Rule> l_rRules = new List<Rule>();
 
-	int iPlayerNum;
+	int iPlayerNum =0;
 	public int iTotalRules;
 
 	public int iBracketTime = 3;
@@ -100,6 +100,7 @@ public class PlayerManager : MonoBehaviour {
 		Debug.Log(iPlayerNum.ToString());
 	}
 	public int GetPlayerNum () {
+		Debug.Log (iPlayerNum.ToString ());
 		return iPlayerNum;
 	}
 
