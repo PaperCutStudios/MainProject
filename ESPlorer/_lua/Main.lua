@@ -3,8 +3,15 @@ function HandleSocketData (Socket,DataStream)
         local serverfuncs = require("ServerFuncs1")
         serverfuncs.InitialJoin(Socket)
     elseif(DataStream:byte(2) == string.byte("0")) then
-        local serverfuncs = require("ServerFuncs2")
-        
+        --Disconnect the player
+    elseif(DataSteam:byte(2)  == string.byte("1")) then
+        local player = require("player"..DataStream:byte(1))
+        local gamePrefs = require("gamePrefs")
+        local seed = gamePrefs.GetSeed()
+        print(seed)
+        print(string.len(seed))
+        player.Socket:send(string.len(seed)..seed)
+           
     end
 end
 function OnConnection(Socket)

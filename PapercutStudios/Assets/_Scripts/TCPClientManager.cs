@@ -16,7 +16,6 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 	TcpClient tcpClient;
 	NetworkStream stm;
 	ASCIIEncoding asciiEncoding = new ASCIIEncoding();
-	byte[] IncomingBytes;
 
 
 
@@ -30,13 +29,14 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 	void Update () {
 		if(stm != null) {
 			if(stm.CanRead && stm.DataAvailable) {
+				byte[] IncomingBytes;
 				StringBuilder completemessage = new StringBuilder();
 				IncomingBytes = new byte[100];
 				int numberofBytesRead = 0;
 				do{
 					numberofBytesRead = stm.Read(IncomingBytes, 0, IncomingBytes.Length);
 					
-					completemessage.AppendFormat("{0}", Encoding.ASCII.GetString(IncomingBytes, 0, numberofBytesRead));
+					completemessage.AppendFormat("{0}", asciiEncoding.GetString(IncomingBytes, 0, numberofBytesRead));
 					
 				}
 				while(stm.DataAvailable);
@@ -82,16 +82,29 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 			char[] timeChars = {dataAsString[3], dataAsString[4],dataAsString[5]};
 			string timeString = new string(timeChars);
 			gameManager.gameTime = int.Parse(timeString);
+
+			//once we've received the default game values (player number, difficulty and time) request the seed for the randomiser
+			byte[] ba;
+			ba = asciiEncoding.GetBytes(gameManager.GetPlayerNum().ToString() + "1");
+			stm.Write(ba,0,ba.Length);
 			break;
 		}
 		case '2':
+			StringBuilder seedAsString = new StringBuilder();
+			for (int i = 0; i<ParseChar(dataAsString[1]); i++) {
+				seedAsString.Append(dataAsString[2+i]);;
+			}
+			int seed = int.Parse(seedAsString.ToString());
+			gameManager.randomSeed = seed;
+			break;
+		case '3':
 			//Begin playing the game
 			UIManager.Instance.MainMenuPlay();
 			break;
-		case '3':
+		case '4':
 			gameManager.Difficulty = ParseChar(dataAsString[1]);
 			break;
-		case '4':
+		case '5':
 		{
 			char[] timeChars = {dataAsString[1], dataAsString[2],dataAsString[3]};
 			string timeString = new string(timeChars);

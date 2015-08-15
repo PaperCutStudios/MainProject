@@ -10,7 +10,8 @@ function ServerFuncs1.InitialJoin (SocketPass)
     else
         SocketPass:send("0")
     end
-    
 end
+
+
 
 return ServerFuncs1
