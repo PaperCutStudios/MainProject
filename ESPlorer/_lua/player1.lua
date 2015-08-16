@@ -1,6 +1,7 @@
 local player = {}
 player.ID = 1;
 player.AnswerIDs = " ";
+player.Socket = ""
 function player.connect(Socket)
     player.Socket = Socket;
     print("Player "..player.ID.." has Joined")

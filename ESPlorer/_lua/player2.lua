@@ -1,6 +1,7 @@
 local player = {}
 player.ID = 2;
 player.AnswerIDs = " ";
+player.Socket = ""
 function player.connect(Socket)
     player.Socket = Socket;
     print("Player "..player.ID.." has Joined")
@@ -8,7 +9,7 @@ function player.connect(Socket)
     gpio.LightOn("green")
 end
 function player.disconnect()
-    player.Socket:close
+    player.Socket:close()
     print("Player "..player.ID.." has Disconnected")
     local gpio = require("gpiofunctions")
     gpio.LightOff("green") 
