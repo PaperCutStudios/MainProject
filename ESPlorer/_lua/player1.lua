@@ -15,7 +15,9 @@ function player.disconnect()
     gpio.LightOff("blue") 
 end
 function player.setAnswer(answer)
+    player.AnswerIDs = answer
     local gameprefs = require("gamePrefs")
+    gameprefs.AnswerAdded()
     
 end
 return player;

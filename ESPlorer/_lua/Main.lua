@@ -19,7 +19,7 @@ print("Receiving data: "..DataStream)
             print("Sent Seed: ".."2"..string.len(seed)..seed)
         elseif(tonumber(DataStream:sub(2,2) == 2)) then
             print ("Player "..player.ID.." sending their answer")
-            player.AnswerIDs = DataSteam:sub(3)          
+            player.setAnswer(DataSteam:sub(3))          
         end            
     else
         print("Data not workable")       

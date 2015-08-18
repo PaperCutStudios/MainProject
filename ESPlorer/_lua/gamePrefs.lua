@@ -4,6 +4,7 @@ gamePrefs.Time = 270
 gamePrefs.Players = {}
 gamePrefs.Seed = 0
 gamePrefs.AnswersEntered = 0
+gamePrefs.GameStarted = false
 function gamePrefs.GetSeed()
     if (gamePrefs.Seed == nil or gamePrefs.Seed == 0) then
         gamePrefs.Seed = math.random(999999)
@@ -62,7 +63,7 @@ function gamePrefs.AnswerAdded()
                     numresult = numresult + 1
                 end
             end
-            player.Socket:send("8"..numresult, function(sent) print(sent.." sent to player"..player.ID) end)
+            player.Socket:send("8"..numresult)
         end
     end
 end
