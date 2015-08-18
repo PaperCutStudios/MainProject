@@ -120,25 +120,39 @@ public class PlayerManager : MonoBehaviour {
 		return AnswerIDs;
 	}
 
-	public void SetAnswerActivity(int actID) {
-		AnswerIDs[0] = actID;
+	public bool SetAnswerActivity(int actID) {
+		AnswerIDs[0] = actID+1;
 		Debug.Log("Set AnsActivity ID to: " + actID + "\nThis ID correlates to: " + XmlManager.Instance.GetActivityPiece(actID));
+		return CheckForAllAnswers();
 	}
 
-	public void SetAnswerDay(int dayID) {
-		AnswerIDs[1] = dayID;
+	public bool SetAnswerDay(int dayID) {
+		AnswerIDs[1] = dayID+1;
 		Debug.Log("Set AnsDay ID to: " + dayID + "\nThis ID correlates to: " + XmlManager.Instance.GetDayPiece(dayID));
+		return CheckForAllAnswers();
 	}
 
-	public void SetAnswerTime(int timeNum) {
-		AnswerIDs[2] = timeNum;
+	public bool SetAnswerTime(int timeNum) {
+		AnswerIDs[2] = timeNum+1;
 		Debug.Log("Set AnsTime to: " + timeNum);
+		return CheckForAllAnswers();
+	}
+
+	private bool CheckForAllAnswers() {
+		bool allAnswered = true;
+		foreach(int i in AnswerIDs){
+			if(i == 0) {
+				allAnswered = false;
+				break;
+			}
+		}
+		return allAnswered;
 	}
 
 	public void SendAnswer() {
 		string answerstring = "";
 		foreach(int i in AnswerIDs) {
-			answerstring += i.ToString();
+			answerstring += (i-1).ToString();
 		}
 		TCPClientManager.Instance.SendAnswerToNode(answerstring);
 	}

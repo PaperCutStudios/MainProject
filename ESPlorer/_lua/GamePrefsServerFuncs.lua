@@ -3,7 +3,7 @@ function serverFuncs.SendGameStart()
     local gameprefs = require("gamePrefs")
     for key,value in pairs(gameprefs.Players) do
         local player = require("player"..value)
-        player.Socket:send("2");
+        player.Socket:send("3");
     end
 end
 function serverFuncs.SendDifficulty() 

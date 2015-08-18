@@ -17,6 +17,7 @@ public class UIManager : Singleton<UIManager> {
 	private Button JoinButton;
 	private Button[] PlayerButtons;
 	private Button activeButton;
+	private Button submitAnswersButton;
 
 	private Image ResultsImage;
 	public Sprite[] ActivitySprites;
@@ -24,7 +25,8 @@ public class UIManager : Singleton<UIManager> {
 
 	private List<DayAndTimeButton> dayAndTimeButtons = new List<DayAndTimeButton>();
 	private List<ActivityButton> ActivityButtons = new List<ActivityButton> ();
-	public Image SelectedImage;
+	public Sprite SelectedImage;
+	public Sprite DeSelecectedImage;
 
 
 	public int iCurrentDisplayedRules = 0;
@@ -79,6 +81,9 @@ public class UIManager : Singleton<UIManager> {
 		
 //		--------------End Screen UI initialisation---------------------
 		EndScreen = GameObject.FindWithTag ("EndScreen");
+		submitAnswersButton = EndScreen.transform.FindChild("SubmitAnswer").gameObject.GetComponent<Button>();
+		submitAnswersButton.onClick.AddListener(() => SubmitAnswersButtonClick());
+		submitAnswersButton.gameObject.SetActive(false);
 		EndScreen.SetActive (false);
 		//SelectedImage = EndScreen.transform.FindChild ("SelectedImage").gameObject.GetComponent<Image> ();
 
@@ -105,26 +110,31 @@ public class UIManager : Singleton<UIManager> {
 			// Starts at one because getcomponents in children returns the button this is called on as well as the child buttons
 			Button[] childButtons = dayAndTimeButtons[i].dayButton.GetComponentsInChildren<Button>();
 			dayAndTimeButtons[i].timeButtons = childButtons;
-			for (int j = 1; j < childButtons.Length; j++) {
-
+			for (int j = 0; j < gameManager.ptActiveTable.Availabilities[i].iAvailableHours.Length; j++) {
+//				Debug.Log ("Testing " + j.ToString());
+//				Debug.Log(gameManager.ptActiveTable.Availabilities[i].ToString() + i.ToString());
+//				Debug.Log("AvailableHours " + gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1].ToString());
 				//set the text on each button, based on the time it relates to. "j-1" is used as Available hours is only 4 long
-				int time = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j-1];
-				Text timeButtonText = dayAndTimeButtons[i].timeButtons[j].GetComponentInChildren<Text>();
+				int time = gameManager.ptActiveTable.Availabilities[i].iAvailableHours[j];
+				Text timeButtonText = dayAndTimeButtons[i].timeButtons[j+1].GetComponentInChildren<Text>();
 				if(time> 12){
 					timeButtonText.text = (time-12).ToString() + " pm";
-				}else if (time == 12){
+				}
+				else if (time == 12){
 					timeButtonText.text = time.ToString() + " pm";
-				}else if (time < 12) {
-					timeButtonText.text = time.ToString() + " am";
-				}else if (time == 0) {
+				}
+				else if (time == 0) {
 					timeButtonText.text = "12 am";
+				}
+				else if (time < 12) {
+					timeButtonText.text = time.ToString() + " am";
 				}
 
 				// Set the listener on each time buttons, again capturing the value of the iterator
 				// this is slightly different in that, when sending the answers back and forth, we need to tell each player at what time exactly each person has gone somewhere
 				// eg. player one goes to the Bar at 1pm. player 2 goes to the bar at 2pm. Seeing as though they both went at different times, they wont be shown arriving at the same time (the goal of the game)
-				int captime = j;
-				dayAndTimeButtons[i].timeButtons[j].onClick.AddListener(()=> TimeButtonClick(dayAndTimeButtons[cap], captime, time));
+				int captime = j+1;
+				dayAndTimeButtons[i].timeButtons[j+1].onClick.AddListener(()=> TimeButtonClick(dayAndTimeButtons[cap], captime, time));
 			}
 		}
 	
@@ -235,10 +245,13 @@ public class UIManager : Singleton<UIManager> {
 //			SelectedImage.gameObject.SetActive(false);
 		}
 		ab.SetSelected(true);
-		gameManager.SetAnswerActivity(actID);
+		bool showSubmit = gameManager.SetAnswerActivity(actID);
+		if(showSubmit){
+			submitAnswersButton.gameObject.SetActive(true);
+		}
 
-		Image Selected = Instantiate (SelectedImage, new Vector2 (ab.activityButton.transform.position.x, ab.activityButton.transform.position.y), Quaternion.Euler(Vector3.zero)) as Image;
-		Selected.transform.SetParent(GameObject.Find("Canvas").transform, true);
+//		Image Selected = Instantiate (SelectedImage, new Vector2 (ab.activityButton.transform.position.x, ab.activityButton.transform.position.y), Quaternion.Euler(Vector3.zero)) as Image;
+//		Selected.transform.SetParent(GameObject.Find("Canvas").transform, true);
 		
 //		Selected.transform.position = ab.activityButton.transform.position;
 //		Selected.transform.SetParent (ab.activityButton.gameObject.transform);
@@ -250,18 +263,32 @@ public class UIManager : Singleton<UIManager> {
 			dayAndTimeButtons[i].SetDaySelected(false);
 		}
 		dtb.SetDaySelected(true);
-		gameManager.SetAnswerDay(dayID);
+		bool showSubmit = gameManager.SetAnswerDay(dayID);
+		if(showSubmit){
+			submitAnswersButton.gameObject.SetActive(true);
+		}
 
-		Image Selected = Instantiate (SelectedImage, new Vector2 (dtb.dayButton.transform.position.x, dtb.dayButton.transform.position.y), Quaternion.Euler(Vector3.zero)) as Image;
-		Selected.transform.SetParent(GameObject.Find("Canvas").transform, true);
+//		Image Selected = Instantiate (SelectedImage, new Vector2 (dtb.dayButton.transform.position.x, dtb.dayButton.transform.position.y), Quaternion.Euler(Vector3.zero)) as Image;
+//		Selected.transform.SetParent(GameObject.Find("Canvas").transform, true);
 	}
 
 	void TimeButtonClick(DayAndTimeButton dtb, int buttonIndex, int timeID) {
 		dtb.SetTimeSelected(buttonIndex);
-		gameManager.SetAnswerTime(timeID);
+		bool showSubmit = gameManager.SetAnswerTime(timeID);
+		if(showSubmit){
+			submitAnswersButton.gameObject.SetActive(true);
+		}
+//
+//		Image Selected = Instantiate (SelectedImage, new Vector2 (dtb.dayButton.transform.position.x, dtb.dayButton.transform.position.y), Quaternion.Euler(Vector3.zero)) as Image;
+//		Selected.transform.SetParent(GameObject.Find("Canvas").transform, true);
+	}
 
-		Image Selected = Instantiate (SelectedImage, new Vector2 (dtb.dayButton.transform.position.x, dtb.dayButton.transform.position.y), Quaternion.Euler(Vector3.zero)) as Image;
-		Selected.transform.SetParent(GameObject.Find("Canvas").transform, true);
+	void SubmitAnswersButtonClick() {
+		gameManager.SendAnswer();
+	}
+
+	public void WaitingOnAnswers() {
+		submitAnswersButton.GetComponentInChildren<Text>().text = "waiting...";
 	}
 	#endregion
 

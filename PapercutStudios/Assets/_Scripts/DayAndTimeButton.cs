@@ -16,21 +16,21 @@ public class DayAndTimeButton{
 		if(dayIsSelected) {
 			for(int i = 1; i< timeButtons.Length; i++) {
 				timeButtons[i].gameObject.SetActive(true);
-				dayButton.image.color = Color.gray;
+				dayButton.image.sprite = UIManager.Instance.SelectedImage;
 			}
 		}
 		else {
 			for(int i = 1; i< timeButtons.Length; i++) {
 				timeButtons[i].gameObject.SetActive(false);
-				dayButton.image.color = Color.white;
+				dayButton.image.sprite = UIManager.Instance.DeSelecectedImage;
 			}
 		}
 	}
 
 	public void SetTimeSelected(int selectIndex) {
 		foreach(Button bu in timeButtons) {
-			bu.image.color = Color.white;
+			bu.image.sprite = UIManager.Instance.DeSelecectedImage;
 		}
-		timeButtons[selectIndex].image.color = Color.gray;
+		timeButtons[selectIndex].image.sprite = UIManager.Instance.SelectedImage;
 	}
 }
