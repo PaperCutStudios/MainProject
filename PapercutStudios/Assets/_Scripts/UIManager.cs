@@ -26,6 +26,7 @@ public class UIManager : Singleton<UIManager> {
 	private List<ActivityButton> ActivityButtons = new List<ActivityButton> ();
 	public Image SelectedImage;
 
+
 	public int iCurrentDisplayedRules = 0;
 
 	Text[] Activities;
@@ -231,11 +232,14 @@ public class UIManager : Singleton<UIManager> {
 	void ActivityButtonClick(ActivityButton ab, int actID) {
 		foreach(ActivityButton abb in ActivityButtons) {
 			abb.SetSelected(false);
+//			SelectedImage.gameObject.SetActive(false);
 		}
 		ab.SetSelected(true);
 		gameManager.SetAnswerActivity(actID);
 
-		GameObject Selected = Instantiate (SelectedImage, ab.activityButton.transform.position, Quaternion.identity) as GameObject;
+		Image Selected = Instantiate (SelectedImage, new Vector2 (ab.activityButton.transform.position.x, ab.activityButton.transform.position.y), Quaternion.Euler(Vector3.zero)) as Image;
+		Selected.transform.SetParent(GameObject.Find("Canvas").transform, true);
+		
 //		Selected.transform.position = ab.activityButton.transform.position;
 //		Selected.transform.SetParent (ab.activityButton.gameObject.transform);
 	}
@@ -247,15 +251,17 @@ public class UIManager : Singleton<UIManager> {
 		}
 		dtb.SetDaySelected(true);
 		gameManager.SetAnswerDay(dayID);
-		GameObject Selected = GameObject.Instantiate(SelectedImage)as GameObject;
-		Selected.transform.SetParent (dtb.dayButton.transform);
+
+		Image Selected = Instantiate (SelectedImage, new Vector2 (dtb.dayButton.transform.position.x, dtb.dayButton.transform.position.y), Quaternion.Euler(Vector3.zero)) as Image;
+		Selected.transform.SetParent(GameObject.Find("Canvas").transform, true);
 	}
 
 	void TimeButtonClick(DayAndTimeButton dtb, int buttonIndex, int timeID) {
 		dtb.SetTimeSelected(buttonIndex);
 		gameManager.SetAnswerTime(timeID);
-		GameObject Selected = GameObject.Instantiate(SelectedImage)as GameObject;
-		Selected.transform.SetParent (dtb.dayButton.transform);
+
+		Image Selected = Instantiate (SelectedImage, new Vector2 (dtb.dayButton.transform.position.x, dtb.dayButton.transform.position.y), Quaternion.Euler(Vector3.zero)) as Image;
+		Selected.transform.SetParent(GameObject.Find("Canvas").transform, true);
 	}
 	#endregion
 
