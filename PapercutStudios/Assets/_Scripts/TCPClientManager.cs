@@ -108,6 +108,7 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 			break;
 		case '4':
 			UIManager.Instance.EndGame();
+			break;
 		case '5':
 			gameManager.Difficulty = ParseChar(dataAsString[1]);
 			break;
