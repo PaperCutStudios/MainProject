@@ -1,19 +1,14 @@
 local gpiofunc = {};
-function gpiofunc.InitLightGPIO(PinNum)
-    gpio.mode(PinNum, gpio.OUTPUT)
-    gpio.write(PinNum, gpio.HIGH)
-end
-function gpiofunc.InitButtonGPIO(PinNum)
-    gpio.mode(PinNum, gpio.INT)
-end
 function gpiofunc.InitAllLights()
     for i=1,4 do
-        gpiofunc.InitLightGPIO(i)
+         gpio.mode(i, gpio.OUTPUT)
+         gpio.write(i, gpio.HIGH)
     end
 end
 function gpiofunc.InitAllButtons()
     for i=5,8 do
-        gpiofunc.InitButtonGPIO(i)
+        gpio.mode(i,gpio.INT,gpio.PULLUP)
+        print("button "..i.." initialised")
     end
 end
 function gpiofunc.LightOn(colour)

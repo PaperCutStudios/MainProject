@@ -134,6 +134,15 @@ public class PlayerManager : MonoBehaviour {
 		AnswerIDs[2] = timeNum;
 		Debug.Log("Set AnsTime to: " + timeNum);
 	}
+
+	public void SendAnswer() {
+		string answerstring = "";
+		foreach(int i in AnswerIDs) {
+			answerstring += i.ToString();
+		}
+		TCPClientManager.Instance.SendAnswerToNode(answerstring);
+	}
+
 	Rule GetNewRule (List<Rule> currentRules) {
 		Rule newRule;
 		//if we have no rules yet, grab simple rule

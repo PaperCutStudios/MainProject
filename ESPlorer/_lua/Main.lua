@@ -1,5 +1,5 @@
 function HandleSocketData (Socket,DataStream)
-print("receiving data")
+print("Receiving data: "..DataStream)
     if(tonumber(DataStream:sub(1,1)) == 0) then
         local serverfuncs = require("ServerFuncs1")
         serverfuncs.InitialJoin(Socket)
@@ -12,13 +12,15 @@ print("receiving data")
             local gamePrefs = require("gamePrefs")
             gamePrefs.RemovePlayer(player.ID)
         elseif(tonumber(DataStream:sub(2,2)) == 1) then
-            print ("Sending seed to"..player.ID)
+            print ("Player "..player.ID.." requesting game seed")
             local gamePrefs = require("gamePrefs")
             local seed = gamePrefs.GetSeed()
-            print(seed)
-            print(string.len(seed))
             player.Socket:send("2"..string.len(seed)..seed)
-        end
+            print("Sent Seed: ".."2"..string.len(seed)..seed)
+        elseif(tonumber(DataStream:sub(2,2) == 2)) then
+            print ("Player "..player.ID.." sending their answer")
+            player.AnswerIDs = DataSteam:sub(3)          
+        end            
     else
         print("Data not workable")       
     end
@@ -27,5 +29,9 @@ function OnConnection(Socket)
     Socket:on("receive", HandleSocketData)
 
 end
---ServerListening
+
+local buttonInit = require("ButtonFuncs")
+buttonInit.SetButtonTrigs()
 Server:listen(80,OnConnection)
+local gpio = require("gpiofunctions")
+gpio.LightOff("blue")

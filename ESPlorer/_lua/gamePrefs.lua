@@ -3,6 +3,7 @@ gamePrefs.Difficulty = 1
 gamePrefs.Time = 270
 gamePrefs.Players = {}
 gamePrefs.Seed = 0
+gamePrefs.AnswersEntered = 0
 function gamePrefs.GetSeed()
     if (gamePrefs.Seed == nil or gamePrefs.Seed == 0) then
         gamePrefs.Seed = math.random(999999)
@@ -43,5 +44,26 @@ function gamePrefs.RemovePlayer(playernum)
         end
     end
     table.remove(gamePrefs.Players, toberemoved)
+end
+function gamePrefs.AnswerAdded()
+    gamePrefs.AnswersEntered = gamePrefs.AnswersEntered +1
+    if (gamePrefs.AnswersEntered == table.getn(gamePrefs.Players) ) then
+        --create a table of each of the connected player's answers
+        local playeranswers = {}
+        for key,value in pairs(gamePrefs.Players) do 
+            player = require("player"..value)
+            table.insert(playeranswers, player.AnswerIDs)
+        end
+        for pkey,pvalue in pairs(gamePrefs.Players) do
+            local player = require("player"..value)
+            local numresult = 0
+            for akey,avalue in pairs(playeranswers) do
+                if(player.AnswerIDs:sub(1,1) == avalue:sub(1,1) and player.AnswerIDs:sub(2,2) == avalue:sub(2,2) and player.AnswerIDs:sub(3) == avalue:sub(3)) then
+                    numresult = numresult + 1
+                end
+            end
+            player.Socket:send("8"..numresult, function(sent) print(sent.." sent to player"..player.ID) end)
+        end
+    end
 end
 return gamePrefs

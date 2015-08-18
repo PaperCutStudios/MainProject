@@ -14,4 +14,8 @@ function player.disconnect()
     local gpio = require("gpiofunctions")
     gpio.LightOff("blue") 
 end
+function player.setAnswer(answer)
+    local gameprefs = require("gamePrefs")
+    
+end
 return player;

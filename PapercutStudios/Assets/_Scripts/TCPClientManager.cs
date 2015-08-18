@@ -107,13 +107,25 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 			UIManager.Instance.MainMenuPlay();
 			break;
 		case '4':
+			UIManager.Instance.EndGame();
+		case '5':
 			gameManager.Difficulty = ParseChar(dataAsString[1]);
 			break;
-		case '5':
+		case '6':
 		{
 			char[] timeChars = {dataAsString[1], dataAsString[2],dataAsString[3]};
 			string timeString = new string(timeChars);
 			gameManager.gameTime = int.Parse(timeString);
+			break;
+		}
+		case '7':
+		{
+			//uimanger.waitingonanswer
+			break;
+		}
+		case '8':
+		{
+			//uimanager.answerreceived
 			break;
 		}
 		default:
@@ -139,8 +151,10 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 		}
 	}
 
-	public void SendAnswerInfo() {
-
+	public void SendAnswerToNode(string answer) {
+		byte[] ba;
+		ba = asciiEncoding.GetBytes(gameManager.GetPlayerNum().ToString() + answer);
+		stm.Write(ba,0,ba.Length);
 	}
 
 	int ParseChar(char c) {
