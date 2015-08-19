@@ -1,11 +1,23 @@
 function HandleSocketData (Socket,DataStream)
 print("Receiving data: "..DataStream)
     if(tonumber(DataStream:sub(1,1)) == 0) then
-        local serverfuncs = require("ServerFuncs1")
-        serverfuncs.InitialJoin(Socket)
+        print("A player is requesting to join")
+        local gamePrefs = require("gamePrefs")
+        local playernum = gamePrefs.GetAvailablePlayer()
+        print("GamePrefs is returning: "..playernum)
+        if(playernum == 0) then
+            print("Sending 0 as playernum")
+            SocketPass:send("0")
+        else
+            print("Attemping to give player number")
+            local player = require("player"..playernum)
+            player.connect(Socket)
+            player.Socket:send("1"..player.ID..gamePrefs.Difficulty..gamePrefs.Time)
+            table.insert(gamePrefs.Players, player.ID)
+        end
     elseif(tonumber(DataStream:sub(1,1)) <= 4) then
         local player = require("player"..DataStream:sub(1,1))
-        print("Player"..player.ID)
+        print("DataStream[2] = "..DataStream:sub(2,2))
         if(tonumber(DataStream:sub(2,2)) == 0) then
             print ("disconnecting player"..player.ID)
             player.disconnect()

@@ -47,8 +47,10 @@ function gamePrefs.RemovePlayer(playernum)
     table.remove(gamePrefs.Players, toberemoved)
 end
 function gamePrefs.AnswerAdded()
+print("Answer Added")
     gamePrefs.AnswersEntered = gamePrefs.AnswersEntered +1
     if (gamePrefs.AnswersEntered == table.getn(gamePrefs.Players) ) then
+    print("TOTAL ANSWERS RECEIVED")
         --create a table of each of the connected player's answers
         local playeranswers = {}
         for key,value in pairs(gamePrefs.Players) do 
