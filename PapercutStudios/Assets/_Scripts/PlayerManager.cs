@@ -132,10 +132,9 @@ public class PlayerManager : MonoBehaviour {
 		return CheckForAllAnswers();
 	}
 
-	public bool SetAnswerTime(int timeNum) {
+	public void SetAnswerTime(int timeNum) {
 		AnswerIDs[2] = timeNum+1;
 		Debug.Log("Set AnsTime to: " + timeNum);
-		return CheckForAllAnswers();
 	}
 
 	private bool CheckForAllAnswers() {

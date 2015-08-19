@@ -10,13 +10,13 @@
 		<Activity>The Zoo</Activity>
 	</Activities>
 	<Days>
-		<Day>Sat</Day>
 		<Day>Mon</Day>
-		<Day>Thur</Day>
-		<Day>Sun</Day>
-		<Day>Tues</Day>
+		<Day>Tue</Day>
 		<Day>Wed</Day>
+		<Day>Thu</Day>
 		<Day>Fri</Day>
+		<Day>Sat</Day>
+		<Day>Sun</Day>
 	</Days>
 	<Times>
 		<Time>03</Time>
