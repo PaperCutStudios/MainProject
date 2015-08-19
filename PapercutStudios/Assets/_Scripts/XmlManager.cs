@@ -54,6 +54,12 @@ public class XmlManager : Singleton<XmlManager> {
 		actsFromXML = shuffleStrings (actsFromXML);
 		daysFromXML = shuffleStrings (daysFromXML);
 		timesFromXML = shuffleStrings (timesFromXML);
+		string ShuffledActs = "";
+		for (int i = 0; i < daysFromXML.Length; i++){
+
+			ShuffledActs += (i.ToString() + " " + daysFromXML [i] + "\n");
+		}
+		Debug.Log (ShuffledActs);
 //		shuffleNodeList(dayNodes);
 //		shuffleNodeList(actNodes);
 //		shuffleNodeList(timeNodes);

@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 //		Debug.Log( XmlManager.Instance.name);
-		Random.seed = randomSeed;
+		Random.seed = 33456;
 		Debug.Log("Started with seed: " + randomSeed.ToString() + " " + Random.seed);
 		if(gameTime == 0f) {
 			gameTime = 270f;

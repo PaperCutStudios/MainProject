@@ -33,7 +33,9 @@ public class Activity {
 	void SetInterpretedValues (int bracket) {
 		EventName =XmlManager.Instance.GetActivityPiece(baseValues[0]);
 		ClosedDay1 = XmlManager.Instance.GetDayPiece(baseValues[1]);
+		Debug.Log ("Closed day 1: " + ClosedDay1);
 		ClosedDay2 = XmlManager.Instance.GetDayPiece(baseValues[2]);
+		Debug.Log ("Closed day 2: " + ClosedDay2);
 		OpenHours = CalcOpeningHours(XmlManager.Instance.GetTimePiece(baseValues[3]),isAnswer,bracket);
 	}
 
@@ -45,7 +47,7 @@ public class Activity {
 			returnString = EventName;
 		}
 		else if(baseValues[1] == 1) {
-			returnString = EventName + " (Closed " +ClosedDay1 + " & " + ClosedDay2 + "). \nOpening Hours:" + HoursToString(OpenHours);
+			returnString = EventName + "\n(Open " +HoursToString(OpenHours) + ", Closed " + ClosedDay1 +" & "+ ClosedDay2 +")";
 		}
 		else {
 			returnString = "ERROR 100: IncorrectShownDetails";
@@ -68,19 +70,19 @@ public class Activity {
 	{
 		string returnString;
 		if(hours[0] > 12) {
-			returnString = (hours[0] - 12).ToString()+ "pm til " + (hours[1] -12).ToString() + "pm.";
+			returnString = (hours[0] - 12).ToString()+ "pm-" + (hours[1] -12).ToString() + "pm";
 		}
 		else if (hours[0] == 12) {
-			returnString = hours[0].ToString() + "pm til " + (hours[1] -12).ToString() + "pm.";
+			returnString = hours[0].ToString() + "pm-" + (hours[1] -12).ToString() + "pm";
 		}
 		else if (hours[1] > 12) {
-			returnString = hours[0].ToString() + "am til " + (hours[1] - 12).ToString() + "pm.";
+			returnString = hours[0].ToString() + "am-" + (hours[1] - 12).ToString() + "pm";
 		}
 		else if (hours[1] == 12) {
-			returnString = hours[0].ToString() + "am til " + hours[1].ToString() + "pm.";
+			returnString = hours[0].ToString() + "am-" + hours[1].ToString() + "pm";
 		}
 		else {
-			returnString = hours[0].ToString() + "am til " + hours[1].ToString() + "am.";
+			returnString = hours[0].ToString() + "am-" + hours[1].ToString() + "am";
 		}
 		return returnString;
 	}
