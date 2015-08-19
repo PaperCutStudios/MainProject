@@ -14,10 +14,10 @@ public class ActivityButton{
 	public void SetSelected (bool b) {
 		isSelected = b;
 		if(isSelected) {
-			activityButton.image.color = Color.grey;
+			activityButton.image.sprite = UIManager.Instance.SelectedImage;
 		}
 		else {
-			activityButton.image.color = Color.white;
+			activityButton.image.sprite = UIManager.Instance.DeSelecectedImage;
 		}
 
 	}
