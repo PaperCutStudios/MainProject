@@ -58,7 +58,7 @@ print("Answer Added")
             table.insert(playeranswers, player.AnswerIDs)
         end
         for pkey,pvalue in pairs(gamePrefs.Players) do
-            local player = require("player"..value)
+            local player = require("player"..pvalue)
             local numresult = 0
             for akey,avalue in pairs(playeranswers) do
                 if(player.AnswerIDs:sub(1,1) == avalue:sub(1,1) and player.AnswerIDs:sub(2,2) == avalue:sub(2,2) and player.AnswerIDs:sub(3) == avalue:sub(3)) then
