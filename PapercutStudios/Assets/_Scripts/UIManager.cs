@@ -123,6 +123,14 @@ public class UIManager : Singleton<UIManager> {
 				}
 			}
 		}
+		
+		Button[] tempbuttons = FindButtonsWithTag ("ActivityButton");
+		for (int i = 0; i < tempbuttons.Length; i++){
+			ActivityButtons.Add(new ActivityButton(tempbuttons[i]));
+			ActivityButtons[i].activityButton.GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Activities[i].GetAsString();
+//			int cap = i;
+//			ActivityButtons[i].activityButton.onClick.AddListener(() => ActivityButtonClick(ActivityButtons[cap],gameManager.ptActiveTable.Activities[cap].baseValues[0]));
+		}
 	}
 
 	void SetEndMenuStuff() {
@@ -218,8 +226,6 @@ public class UIManager : Singleton<UIManager> {
 
 	public void EndGame() {
 		PlayerInfo.SetActive(false);
-		EndScreen.SetActive (true);
-		//ensure that the time buttons are all hidden away when opening the end screen
 		for (int i = 0; i < AvailabilityInfoButtons.Count; i++) {
 			var item = AvailabilityInfoButtons.ElementAt(i);
 			var itemValue = item.Value;
@@ -230,6 +236,9 @@ public class UIManager : Singleton<UIManager> {
 				itemValue.timeButtons[j].onClick.AddListener(() => TimeButtonClick(itemValue,capj, time));
 			}
 		}
+		EndScreen.SetActive (true);
+		//ensure that the time buttons are all hidden away when opening the end screen
+
 //		foreach(KeyValuePair<string,DayAndTimeButton> entry in AvailabilityInfoButtons) {
 //			entry.Value.dayButton.onClick.AddListener(()=> DayButtonClick(entry,gameManager.ptActiveTable.Availabilities[cap].baseValues[0]));
 //		}

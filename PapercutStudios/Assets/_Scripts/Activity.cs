@@ -44,7 +44,7 @@ public class Activity {
 		string returnString;
 
 		if(baseValues[1] == 0) {
-			returnString = EventName;
+			returnString = EventName + "\n(Open ???, Closed ???)";
 		}
 		else if(baseValues[1] == 1) {
 			returnString = EventName + "\n(Open " +HoursToString(OpenHours) + ", Closed " + ClosedDay1 +" & "+ ClosedDay2 +")";
