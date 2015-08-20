@@ -25,11 +25,9 @@ public class Timer : MonoBehaviour {
 		if(bTimerRunning) {
 			fCountDownTimer -= Time.deltaTime;
 			
-			int minutes = Mathf.FloorToInt( fCountDownTimer / 60);
-			int seconds = Mathf.FloorToInt (fCountDownTimer % 60);
+
 			//var fraction = (CountDownTime * 100) % 100;
 
-			timerLabel.text = string.Format ("{0:00} : {1:00}", minutes, seconds);
 
 			if (fCountDownTimer <= StartingCountDownTime - fInterval && !ShownRule2) {
 				UIManager.Instance.ShowNextRule();
@@ -43,9 +41,15 @@ public class Timer : MonoBehaviour {
 
 			if (fCountDownTimer <= 0.0f) 
 			{
+				fCountDownTimer = 0.0f;
 				UIManager.Instance.EndGame();
 				bTimerRunning = false;
 			}
+			
+			int minutes = Mathf.FloorToInt( fCountDownTimer / 60);
+			int seconds = Mathf.FloorToInt (fCountDownTimer % 60);
+
+			timerLabel.text = string.Format ("{0:00} : {1:00}", minutes, seconds);
 		}
 	}
 

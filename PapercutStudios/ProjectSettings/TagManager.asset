@@ -4,7 +4,7 @@
 TagManager:
   tags:
   - MainMenu
-  - PlayerInfo
+  - GameScreen
   - RulesText
   - AvailText
   - ActivityText
