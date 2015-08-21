@@ -104,7 +104,7 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 			break;
 		case '3':
 			//Begin playing the game
-			UIManager.Instance.MainMenuPlay();
+			UIManager.Instance.StartGameplay();
 			break;
 		case '4':
 			UIManager.Instance.EndGame();

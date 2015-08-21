@@ -3,7 +3,7 @@
 --- !u!78 &1
 TagManager:
   tags:
-  - MainMenu
+  - MainMenu1
   - GameScreen
   - RulesText
   - AvailText
@@ -15,7 +15,11 @@ TagManager:
   - PlayerSelectButton
   - DayButtonsTag
   - ResultsScreen
-  - ResultsImage
+  - ResultsPeople
+  - MainMenu2
+  - PlayerInfo
+  - 
+  - MainMenu
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager> {
 	private GameObject MainMenu;
+	private GameObject ConnectedMenu;
 	private GameObject GameScreen;
 	private GameObject ResultsScreen;
 
@@ -14,96 +15,84 @@ public class UIManager : Singleton<UIManager> {
 
 	private Text StatusDisplay;
 	private Button PlayButton;
-	private Button JoinButton;
-	private Button[] PlayerButtons;
-	private Button activeButton;
-	private Button submitAnswersButton;
-	private Button[] DayButtons;
-	private Dictionary<string,DayAndTimeButton> AvailabilityInfoButtons = new Dictionary<string,DayAndTimeButton>();
+	private Button ReconnectButton;
+	private Text TimeLimitDisplay;
+	private Image DifficultyImage;
 
+	public Button DebugPlayButton;
+
+	private List<ActivityButton> ActivityButtons = new List<ActivityButton> ();
+	private Dictionary<string,DayAndTimeButton> AvailabilityInfoButtons = new Dictionary<string,DayAndTimeButton>();
+	private Text[] Rules;
+	private Text RulesTitle;
+
+	private Button submitAnswersButton;
 
 	private Image ResultsImage;
-	public Sprite[] ActivitySprites;
-	public Sprite[] PlayerSilhouettes;
+	private GameObject[] ResultsPeople;
+	private Text ResultsText;
 
-	private List<DayAndTimeButton> dayAndTimeButtons = new List<DayAndTimeButton>();
-	private List<ActivityButton> ActivityButtons = new List<ActivityButton> ();
 	public Sprite SelectedImage;
 	public Sprite DeSelecectedImage;
-
+	public Sprite[] ActivitySprites;
+	public Sprite[] PlayerSilhouettes;
+	public Sprite[] DifficultySprites;
 
 	public int iCurrentDisplayedRules = 0;
-
-	Text[] Activities;
-	Text[] Availabilities;
-	Text[] Rules;
 
 	void Start() {
 		if (gameManager == null) {
 			gameManager = FindObjectOfType<PlayerManager>();
 		}
+		
+		//		--------------Main Menu UI initialisation---------------------
+		MainMenu = GameObject.FindWithTag("MainMenu");
+		PlayButton = MainMenu.transform.FindChild("PlayButton").gameObject.GetComponent<Button>();
+		PlayButton.onClick.AddListener(() => MainMenuConnect());
+
+//		-------------Main Menu 2 initialisation-----------------------
+		ConnectedMenu = GameObject.FindWithTag("MainMenu2");
+		
+		ReconnectButton = ConnectedMenu.transform.FindChild("ConnectionStatus/StatusTitle/StatusText/ConnectButton").gameObject.GetComponent<Button>();
+		ReconnectButton.onClick.AddListener(() => AttemptToJoin());
+
+		TimeLimitDisplay = ConnectedMenu.transform.FindChild("Phone Time/Phone Time/TimeLimitText").gameObject.GetComponent<Text>();
+		DifficultyImage = ConnectedMenu.transform.FindChild("DifficultyPostit").gameObject.GetComponent<Image>();
+		
+		StatusDisplay = ConnectedMenu.transform.FindChild("ConnectionStatus/StatusTitle/StatusText").gameObject.GetComponent<Text>();
+		StatusDisplay.text = "";
+
 
 //		-------------Player Info Screen initialisation----------------
 		GameScreen = GameObject.FindWithTag("GameScreen");
-
-//		Activities = FindTextsWithTag("ActivityText");
-//		Availabilities = FindTextsWithTag("AvailText");
 		Rules = FindTextsWithTag("RulesText");
 		foreach(Text element in Rules) {
 			element.text = "";
 		}
+		RulesTitle = GameScreen.transform.FindChild("Rules").GetComponent<Text>();
+		submitAnswersButton = GameScreen.transform.FindChild("SubmitAnswers").GetComponent<Button>();
+		submitAnswersButton.onClick.AddListener(() => SubmitAnswersButtonClick());
+		submitAnswersButton.gameObject.SetActive(false);
 		GameScreen.SetActive(false);
-
-//		--------------Main Menu UI initialisation---------------------
-		MainMenu = GameObject.FindWithTag("MainMenu");
-		JoinButton = MainMenu.transform.FindChild("JoinButton").gameObject.GetComponent<Button>();
-		JoinButton.onClick.AddListener(() => ConnectionSuccess());
-//		JoinButton.onClick.AddListener(() => AttemptToJoin());
-		JoinButton.gameObject.SetActive(true);
-
-		PlayButton = MainMenu.transform.FindChild("PlayButton").gameObject.GetComponent<Button>();
-		PlayButton.onClick.AddListener(() => MainMenuPlay());
-		PlayButton.gameObject.SetActive(false);
-
-		//will be removed when networking is working
-		PlayerButtons = new Button[] { 	MainMenu.transform.FindChild("Player1Button").GetComponent<Button>(), 
-										MainMenu.transform.FindChild("Player2Button").GetComponent<Button>(),
-										MainMenu.transform.FindChild("Player3Button").GetComponent<Button>(),
-										MainMenu.transform.FindChild("Player4Button").GetComponent<Button>()
-		};
-		activeButton = PlayerButtons[0];
-
-		for(int i = 0; i<PlayerButtons.Length;i++) {
-			int captured = i;
-			PlayerButtons[i].onClick.AddListener(()=> gameManager.SetPlayerNum(captured+1));
-			PlayerButtons[i].onClick.AddListener(()=> SetActivePlayerButton(PlayerButtons[captured]));
-
-		}
-
-		StatusDisplay = MainMenu.transform.FindChild("StatusDisplay").gameObject.GetComponent<Text>();
-		StatusDisplay.text = "Waiting for Command...";
-		
-//		--------------End Screen UI initialisation---------------------
-//		EndScreen = GameObject.FindWithTag ("EndScreen");
-//		SetAvailabilityDisplay ();
-//		submitAnswersButton = EndScreen.transform.FindChild("SubmitAnswer").gameObject.GetComponent<Button>();
-//		submitAnswersButton.onClick.AddListener(() => SubmitAnswersButtonClick());
-//		submitAnswersButton.gameObject.SetActive(false);
-//		EndScreen.SetActive (false);
-//		//SelectedImage = EndScreen.transform.FindChild ("SelectedImage").gameObject.GetComponent<Image> ();
 
 //		--------------Results Screen UI initialisation---------------------
 		ResultsScreen = GameObject.FindWithTag ("ResultsScreen");
+		ResultsImage = ResultsScreen.transform.FindChild("ResultsPhoto").GetComponent<Image>();
+		ResultsPeople = GameObject.FindGameObjectsWithTag("ResultsPeople");
+		ResultsText =  ResultsScreen.transform.FindChild("Diary/Text").GetComponent<Text>();
 		ResultsScreen.SetActive (false);
+
+		if(DebugPlayButton != null) {
+			DebugPlayButton.onClick.AddListener(()=>StartGameplay());
+		}
 	}
 
 	#region Initiation related Functions
-	void SetAvailabilityDisplay() {
+	void SetInfoScreenDisplay() {
 		for(int i = 0; i < gameManager.ptActiveTable.Availabilities.Count;i++) {
 			string day = gameManager.ptActiveTable.Availabilities[i].sDay;
 			int cap = i;
 			AvailabilityInfoButtons.Add(day, new DayAndTimeButton(GameScreen.transform.Find("Days/Button"+day).gameObject.GetComponent<Button> (), gameManager.ptActiveTable.Availabilities[cap].baseValues[0]));
-			AvailabilityInfoButtons[day].dayButton.GetComponentInChildren<Text>().text = day;
 			AvailabilityInfoButtons[day].timeButtons = new List<Button>(AvailabilityInfoButtons[day].dayButton.GetComponentsInChildren<Button>());
 			AvailabilityInfoButtons[day].timeButtons.RemoveAt(0);
 			for(int j = 0; j < AvailabilityInfoButtons[day].timeButtons.Count; j++) {
@@ -128,15 +117,7 @@ public class UIManager : Singleton<UIManager> {
 		for (int i = 0; i < tempbuttons.Length; i++){
 			ActivityButtons.Add(new ActivityButton(tempbuttons[i]));
 			ActivityButtons[i].activityButton.GetComponentInChildren<Text>().text = gameManager.ptActiveTable.Activities[i].GetAsString();
-//			int cap = i;
-//			ActivityButtons[i].activityButton.onClick.AddListener(() => ActivityButtonClick(ActivityButtons[cap],gameManager.ptActiveTable.Activities[cap].baseValues[0]));
 		}
-	}
-
-	void SetActivePlayerButton(Button pressed) {
-		activeButton.image.color = Color.white;
-		activeButton = pressed;
-		activeButton.image.color = Color.grey;
 	}
 
 	Button[] FindButtonsWithTag(string searchTag) {
@@ -181,48 +162,67 @@ public class UIManager : Singleton<UIManager> {
 				itemValue.timeButtons[j].onClick.AddListener(() => TimeButtonClick(itemValue,capj, time));
 			}
 		}
-//		EndScreen.SetActive (true);
-		//ensure that the time buttons are all hidden away when opening the end screen
+		for (int i = 0; i < ActivityButtons.Count; i++) {
+			int cap = i;
+			ActivityButtons[i].activityButton.onClick.AddListener(() => ActivityButtonClick(ActivityButtons[cap],gameManager.ptActiveTable.Activities[cap].baseValues[0]));
+		}
 
-//		foreach(KeyValuePair<string,DayAndTimeButton> entry in AvailabilityInfoButtons) {
-//			entry.Value.dayButton.onClick.AddListener(()=> DayButtonClick(entry,gameManager.ptActiveTable.Availabilities[cap].baseValues[0]));
-//		}
+		RulesTitle.text = "";
+		foreach(Text txt in Rules) {
+			txt.text = "";
+		}
+		Rules[0].text = "<b>Time is Up</b>\nWithout talking to your fellow players, select the Activity, Day and Time you will try and meet with everyone at.\nOnce all three are selected, a button to submit your answer will appear.";
 	}
-	#region Main Menu Button Functions
-	public void MainMenuPlay() {
+	#region Menues Button Functions
+
+	void MainMenuConnect() {
 		MainMenu.SetActive(false);
+		AttemptToJoin();
+		UpdateTimeLimit();
+		UpdateDifficulty();
+	}
+
+	public void StartGameplay() {
+		ConnectedMenu.SetActive(false);
 		GameScreen.SetActive(true);
 //		EndScreen.SetActive (true);
 		gameManager.SetUpPlayerInformation();
-		SetAvailabilityDisplay ();
+		SetInfoScreenDisplay ();
 //		EndScreen.SetActive (false);
 		ShowNextRule();
 	}
 
-	public void Quit() {
-		Application.Quit();
-	}
-
 	void AttemptToJoin() {
 		TCPClientManager.Instance.AttempToJoin();
-		JoinButton.gameObject.SetActive(false);
+		ReconnectButton.gameObject.SetActive(false);
+		StatusDisplay.text = "Attempting to connect to Conversity game";
 	}
 
 	public void ConnectionSuccess() {
-		JoinButton.gameObject.SetActive(false);
-
-		PlayButton.gameObject.SetActive(true);
+		ReconnectButton.gameObject.SetActive(false);
+		StatusDisplay.text = "<b>Connection Success!</b>\nPress Play Button on Node Device to begin!";
 	}
 
 	public void ConnectionFailed(bool b) {
-		JoinButton.gameObject.SetActive(true);
+		ReconnectButton.gameObject.SetActive(true);
 		if(b) {
-			StatusDisplay.text = "Connection Failed!\nCould not connect to the Node Device";
+			StatusDisplay.text = "<b>Connection Failed!</b>\nPlease ensure that you are connected to the Conversity WiFi.";
 		}
 		else {
-			StatusDisplay.text = "Connection Failed!\n4 Maximum Players ";
+			StatusDisplay.text = "<b>Connection Failed!</b>\nMaximum of 4 players reached!";
 		}
 	}
+
+	public void UpdateTimeLimit() {
+		int minutes = Mathf.FloorToInt( gameManager.gameTime / 60);
+		int seconds = Mathf.FloorToInt (gameManager.gameTime % 60);
+		TimeLimitDisplay.text = string.Format ("{0:00}:{1:00}", minutes, seconds);
+	}
+
+	public void UpdateDifficulty() {
+		DifficultyImage.sprite = DifficultySprites[gameManager.Difficulty];
+	}
+
 	#endregion
 	#region Answer Screen Button Functions
 	void ActivityButtonClick(ActivityButton ab, int actID) {
@@ -286,10 +286,6 @@ public class UIManager : Singleton<UIManager> {
 
 
 	public void ShowEndResult(int numPlayers) {
-		//read from gamemanager.answerIDs
-		//compare answerIDs[0] to the strings stored on the xml, perform a switch on that statement(eg. case "ThemePark": prefab.image = ThemePark.jpg
-		//for(inti=0;i<numplayers;i++) {person[i].gameobject.enabled  }
-		//resultsscreen.setactive(true)
 		GameScreen.SetActive (false);
 		ResultsScreen.SetActive (true);
 //		EndScreen.SetActive (false);
@@ -323,12 +319,27 @@ public class UIManager : Singleton<UIManager> {
 			break;
 		}
 
-		Image[] people = ResultsImage.GetComponentsInChildren<Image>();
-
 		for (int i = 0; i < numPlayers; i++) 
 		{
-			int randomIndex = Random.Range(0,PlayerSilhouettes.Length);
-			people[i+1].sprite = PlayerSilhouettes[randomIndex];
+			int randomSilhouetteIndex = Random.Range(0,PlayerSilhouettes.Length);
+			ResultsPeople[i].GetComponent<Image>().sprite = PlayerSilhouettes[randomSilhouetteIndex];
+		}
+
+		switch (numPlayers) {
+		case 1:
+			ResultsText.text = ("Dear Diary,\nToday I went to meet up with my friends at the " + answerActivity + "but I think I went to the wrong place or something because I couldn't find anyone there.");
+			break;
+		case 2:
+			ResultsText.text = ("Dear Diary,\nToday I went to the " + answerActivity + "to meet up with some friends. Only one other person was there at the same time, maybe the others went to the wrong place?");
+			break;
+		case 3:
+			ResultsText.text = ("Dear Diary,\nToday I went to the " + answerActivity + "to meet up with some friends. Two of them made it there at the same time as me and we had a pretty good time. I wonder what happened to th eother guy?");
+			break;
+		case 4:
+			ResultsText.text = ("Dear Diary,\nToday I went to the " + answerActivity + "with my best mates. We all made it there without a hitch and had a ball of a day!");
+			break;
+		default:
+			break;
 		}
 
 		//gameManager.AnswerIDs [0] = xmlManager.actsFromXML [0];
@@ -336,7 +347,12 @@ public class UIManager : Singleton<UIManager> {
 
 
 	public void OpenMainMenu() {
+		TCPClientManager.Instance.Disconnect();
 		Application.LoadLevel(0);
+	}
+
+	public void Quit() {
+		Application.Quit();
 	}
 
 
