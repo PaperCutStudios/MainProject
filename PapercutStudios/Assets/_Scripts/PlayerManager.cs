@@ -7,25 +7,56 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour {
 
 	public PlayerTable ptActiveTable;
+	private List<Rule> l_rRules = new List<Rule>();
+	private int iPlayerNum =0;
 
-	List<Rule> l_rRules = new List<Rule>();
+	private int difficulty = 1;
+	private float gametime = 270;
+	private int randomseed;
 
-	int iPlayerNum =0;
 	public int iTotalRules;
-
 	public int iBracketTime = 3;
-	public int randomSeed { get; set; }
-	public int Difficulty { get; set; }
-	public float gameTime { get; set; }
+	public int RandomSeed {
+		get
+		{
+			return randomseed;
+		}
+		set
+		{
+			randomseed = value;
+			Random.seed = randomseed;
+		}
+	}
+	public int Difficulty {
+		get
+		{
+			return difficulty;
+		}
+		set 
+		{
+			difficulty = value;
+			UIManager.Instance.UpdateDifficulty(); 
+		} 
+	}
+	public float GameTime { 
+		get
+		{
+			return gametime;
+		}
+		set 
+		{
+			gametime = value;
+			UIManager.Instance.UpdateTimeLimit();
+		}
+	}
 	private int[] AnswerIDs = new int[3];
+	public Activity AnsweredActivity;
 
 	// Use this for initialization
 	void Start () {
 //		Debug.Log( XmlManager.Instance.name);
-		Random.seed = 33456;
-		Debug.Log("Started with seed: " + randomSeed.ToString() + " " + Random.seed);
-		if(gameTime == 0f) {
-			gameTime = 270f;
+		if(GameTime == 0f) {
+			GameTime = 270f;
 		}
 	}
 
@@ -120,15 +151,16 @@ public class PlayerManager : MonoBehaviour {
 		return AnswerIDs;
 	}
 
-	public bool SetAnswerActivity(int actID) {
-		AnswerIDs[0] = actID+1;
-		Debug.Log("Set AnsActivity ID to: " + actID + "\nThis ID correlates to: " + XmlManager.Instance.GetActivityPiece(actID));
+	public bool SetAnswerActivity(Activity act) {
+		AnswerIDs[0] = act.baseValues[0]+1;
+		AnsweredActivity = act;
+		Debug.Log("Set AnsActivity ID to: " + (AnswerIDs[0]-1) + "\nThis ID correlates to: " + XmlManager.Instance.GetActivityPiece((AnswerIDs[0]-1)));
 		return CheckForAllAnswers();
 	}
 
 	public bool SetAnswerDay(int dayID) {
 		AnswerIDs[1] = dayID+1;
-		Debug.Log("Set AnsDay ID to: " + dayID + "\nThis ID correlates to: " + XmlManager.Instance.GetDayPiece(dayID));
+		Debug.Log("Set AnsDay ID to: " + (dayID) + "\nThis ID correlates to: " + XmlManager.Instance.GetDayPiece(dayID));
 		return CheckForAllAnswers();
 	}
 
@@ -158,22 +190,15 @@ public class PlayerManager : MonoBehaviour {
 
 	Rule GetNewRule (List<Rule> currentRules) {
 		Rule newRule;
-		//if we have no rules yet, grab simple rule
-		if(currentRules == null) {
-			newRule = XmlManager.Instance.GetNextRule();
-			return newRule;
-		}
-		//if we have rules, build a list of current clashes to send to the XmlEditor
-		else {
-			List<int> ruleClashes = new List<int>();
-			for(int i = 0; i<currentRules.Count; i++) {
-				for(int j = 0; j<currentRules[i].l_ClashIDs.Count; j++) {
-					ruleClashes.Add(currentRules[i].l_ClashIDs[j]);
-				}
+		List<int> ruleClashes = new List<int>();
+		for(int i = 0; i<currentRules.Count; i++) {
+			for(int j = 0; j<currentRules[i].l_ClashIDs.Count; j++) {
+				ruleClashes.Add(currentRules[i].l_ClashIDs[j]);
 			}
-			newRule = XmlManager.Instance.GetNextRule(ruleClashes);
-			return newRule;
 		}
+		newRule = XmlManager.Instance.GetNextRule(ruleClashes,Difficulty);
+		return newRule;
+
 	}
 
 

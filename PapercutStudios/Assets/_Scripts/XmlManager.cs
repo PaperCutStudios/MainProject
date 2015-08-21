@@ -60,10 +60,14 @@ public class XmlManager : Singleton<XmlManager> {
 			ShuffledActs += (i.ToString() + " " + daysFromXML [i] + "\n");
 		}
 		Debug.Log (ShuffledActs);
-//		shuffleNodeList(dayNodes);
-//		shuffleNodeList(actNodes);
-//		shuffleNodeList(timeNodes);
-//		shuffleNodeList(ruleNodes);
+
+		//once we've shuffled the data we've read from the xml, re-seed the random so that each device can get different availablility times, rule etc.
+		if(SystemInfo.deviceType == DeviceType.Handheld) {
+			Random.seed = Mathf.FloorToInt(Input.acceleration.x);
+		}
+		if(SystemInfo.deviceType == DeviceType.Desktop) {
+			Random.seed = (int)System.DateTime.Now.Ticks;
+		}
 	}
 
 	string[] shuffleStrings(string[] toBeShuffled) {
@@ -123,49 +127,29 @@ public class XmlManager : Singleton<XmlManager> {
 
 	//Here we want to check the player's current rules against a random potential next rule fromt he XML
 	//By passing
-	public Rule GetNextRule(List<int> clashes) {
+	public Rule GetNextRule(List<int> clashes, int difficulty) {
 		bool foundRule  = false;
 		int ruleID = 0;
-		if(SystemInfo.deviceType == DeviceType.Handheld) {
-			Random.seed = Mathf.FloorToInt(Input.acceleration.x);
-		}
-		if(SystemInfo.deviceType == DeviceType.Desktop) {
-			Random.seed = (int)System.DateTime.Now.Ticks;
-		}
 		while (!foundRule) {
 			bool passRuleTest = true;
 			int randRule = Random.Range(0,ruleNodes.Count);
-			ruleID = int.Parse(ruleNodes.Item(randRule).Attributes["id"].Value.ToString());
-			for(int i = 0; i < clashes.Count; i++) {
-				if( clashes[i] == ruleID) {
-					passRuleTest = false;
-					break;
+			XmlNode rule = ruleNodes.Item(randRule);
+			int ruleWeight = int.Parse(rule.Attributes["weight"].Value.ToString());
+			ruleID = int.Parse(rule.Attributes["id"].Value.ToString());
+			if(ruleWeight == difficulty || ruleWeight == (difficulty-1))
+			{
+				for(int i = 0; i < clashes.Count; i++) {
+					if( clashes[i] == ruleID) {
+						passRuleTest = false;
+						break;
+					}
 				}
-			}
-			if(passRuleTest) {
-				foundRule = true;
+				if(passRuleTest) {
+					foundRule = true;
+				}
 			}
 		}
 		return XmlNodeToRule(ruleNodes.Item(ruleID), clashes);
-	}
-
-	//if we don't have any rules to check against yet, simply return a random rule
-	public Rule GetNextRule() {
-		int randRule = Random.Range(0, ruleNodes.Count);
-
-		return XmlNodeToRule(ruleNodes.Item(randRule));
-	}
-
-	private Rule XmlNodeToRule (XmlNode node) {
-		Rule returnRule = new Rule();
-		returnRule.RuleText = node.Attributes["text"].Value.ToString() + " (" + node.Attributes["id"].Value.ToString() + ")";
-		for (int i = 0; i < node.ChildNodes[1].ChildNodes.Count; i++) {
-			returnRule.l_ClashIDs.Add(int.Parse(node.ChildNodes.Item(1).ChildNodes.Item(i).Attributes["id"].Value.ToString()));
-		}
-
-		//			Also, add this rule's ID to its clashes so it won't get added to the player's rules a second time
-		returnRule.l_ClashIDs.Add(int.Parse(node.Attributes["id"].Value.ToString()));
-		return returnRule;
 	}
 
 	private Rule XmlNodeToRule (XmlNode node, List<int> clashes) {
@@ -173,11 +157,11 @@ public class XmlManager : Singleton<XmlManager> {
 		returnRule.RuleText = node.Attributes["text"].Value.ToString() + " (" + node.Attributes["id"].Value.ToString() + ")";
 //			this can be confusing; as the node we're passing is <rule> and the clashes are stored as individual elements und <clashes> (ie. <rule><clashes><clash id=""><clash id = ""><clas... etc.) 
 //			we need to get the children of <clashes> to iterate through
-		for (int i = 0; i < node.ChildNodes[1].ChildNodes.Count; i++) {
-			if(clashes.Contains(int.Parse(node.ChildNodes.Item(1).ChildNodes.Item(i).Attributes["id"].Value.ToString()))) {
+		for (int i = 0; i < node.ChildNodes[0].ChildNodes.Count; i++) {
+			if(clashes.Contains(int.Parse(node.ChildNodes.Item(0).ChildNodes.Item(i).Attributes["id"].Value.ToString()))) {
 				//If our player's clashes already contains the clash ID of this new rule, don't add the ID to its clashes
 			} else {
-				returnRule.l_ClashIDs.Add(int.Parse(node.ChildNodes.Item(1).ChildNodes.Item(i).Attributes["id"].Value.ToString()));
+				returnRule.l_ClashIDs.Add(int.Parse(node.ChildNodes.Item(0).ChildNodes.Item(i).Attributes["id"].Value.ToString()));
 			}
 		}
 //			Also, add this rule's ID to its clashes so it won't get added to the player's rules a second time

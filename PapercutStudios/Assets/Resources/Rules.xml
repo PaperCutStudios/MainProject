@@ -1,648 +1,572 @@
-<?xml version='1.0' encoding='us-ascii'?> 
+<?xml version="1.0" encoding="us-ascii"?>
 <Rules>
-	<Rule 	id = "0"
-			text = "You can only speak when someone else is speaking">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "2"/>
-			<Clash id = "6"/>
-			<Clash id = "10"/>
-			<Clash id = "12"/>
-			<Clash id = "16"/>
-			<Clash id = "19"/>
-			<Clash id = "21"/>
-			<Clash id = "22"/>
-			<Clash id = "25"/>
-			<Clash id = "30"/>
-			<Clash id = "31"/>
-			<Clash id = "33"/>
-			<Clash id = "37"/>
-			<Clash id = "40"/>
-			<Clash id = "44"/>
-		</Clashes>
-	</Rule>
-	<Rule 	id = "1"
-			text = "You must smile and giggle whenever you speak">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "16"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "2"
-				text = "You must mimic anybody who speaks to you directly, before replying">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "3"/>
-			<Clash id = "4"/>
-			<Clash id = "5"/>
-			<Clash id = "7"/>
-			<Clash id = "10"/>
-			<Clash id = "11"/>
-			<Clash id = "12"/>
-			<Clash id = "13"/>
-			<Clash id = "14"/>
-			<Clash id = "16"/>
-			<Clash id = "21"/>
-			<Clash id = "22"/>
-			<Clash id = "24"/>
-			<Clash id = "25"/>
-			<Clash id = "28"/>
-			<Clash id = "30"/>
-			<Clash id = "33"/>
-			<Clash id = "35"/>
-			<Clash id = "37"/>
-			<Clash id = "39"/>
-			<Clash id = "40"/>
-			<Clash id = "42"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "3"
-			text = "You can never respond to any questions directed at you">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "2"/>
-			<Clash id = "6"/>
-			<Clash id = "8"/>
-			<Clash id = "9"/>
-			<Clash id = "10"/>
-			<Clash id = "21"/>
-			<Clash id = "22"/>
-			<Clash id = "31"/>
-			<Clash id = "33"/>
-			<Clash id = "37"/>
-			<Clash id = "39"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "4"
-			text = "You can only ask question whenever you speak">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "2"/>
-			<Clash id = "5"/>
-			<Clash id = "6"/>
-			<Clash id = "7"/>
-			<Clash id = "8"/>
-			<Clash id = "9"/>
-			<Clash id = "10"/>
-			<Clash id = "11"/>
-			<Clash id = "13"/>
-			<Clash id = "16"/>
-			<Clash id = "30"/>
-			<Clash id = "31"/>
-			<Clash id = "33"/>
-			<Clash id = "37"/>
-			<Clash id = "39"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "5"
-			text = "You can never ask questions">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "4"/>
-			<Clash id = "38"/>
-			<Clash id = "40"/>
-			<Clash id = "44"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "6"
-			text = "Any time you are asked a question you must read through your entire list of information">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "3"/>
-			<Clash id = "4"/>
-			<Clash id = "7"/>
-			<Clash id = "8"/>
-			<Clash id = "9"/>
-			<Clash id = "11"/>
-			<Clash id = "12"/>
-			<Clash id = "13"/>
-			<Clash id = "16"/>
-			<Clash id = "22"/>
-			<Clash id = "25"/>
-			<Clash id = "31"/>
-			<Clash id = "35"/>
-			<Clash id = "36"/>
-			<Clash id = "37"/>
-			<Clash id = "39"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "7"
-			text = "You must interrupt anybody who tries to speak">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "2"/>
-			<Clash id = "4"/>
-			<Clash id = "6"/>
-			<Clash id = "10"/>
-			<Clash id = "12"/>
-			<Clash id = "14"/>
-			<Clash id = "16"/>
-			<Clash id = "21"/>
-			<Clash id = "22"/>
-			<Clash id = "25"/>
-			<Clash id = "31"/>
-			<Clash id = "33"/>
-			<Clash id = "37"/>
-			<Clash id = "38"/>
-			<Clash id = "40"/>
-			<Clash id = "44"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "8"
-			text = "You must always respond in the affirmative">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "3"/>
-			<Clash id = "4"/>
-			<Clash id = "6"/>
-			<Clash id = "9"/>
-			<Clash id = "11"/>
-			<Clash id = "13"/>
-			<Clash id = "16"/>
-			<Clash id = "37"/>
-			<Clash id = "39"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "9"
-			text = "You always must respond in the negative">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "3"/>
-			<Clash id = "4"/>
-			<Clash id = "6"/>
-			<Clash id = "8"/>
-			<Clash id = "11"/>
-			<Clash id = "13"/>
-			<Clash id = "16"/>
-			<Clash id = "37"/>
-			<Clash id = "39"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "10"
-			text = "You must wait 5 seconds before responding to any question">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "2"/>
-			<Clash id = "3"/>
-			<Clash id = "4"/>
-			<Clash id = "11"/>
-			<Clash id = "15"/>
-			<Clash id = "25"/>
-			<Clash id = "30"/>
-			<Clash id = "33"/>
-			<Clash id = "37"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "11"
-			text = "You must only speak in commands">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "2"/>
-			<Clash id = "4"/>
-			<Clash id = "5"/>
-			<Clash id = "6"/>
-			<Clash id = "8"/>
-			<Clash id = "9"/>
-			<Clash id = "13"/>
-			<Clash id = "16"/>
-			<Clash id = "22"/>
-			<Clash id = "40"/>
-			<Clash id = "44"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "12"
-			text = "You must NOT let anyone else speak while you're speaking">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "2"/>
-			<Clash id = "7"/>
-			<Clash id = "14"/>
-			<Clash id = "16"/>
-			<Clash id = "18"/>
-			<Clash id = "21"/>
-			<Clash id = "22"/>
-			<Clash id = "25"/>
-			<Clash id = "30"/>
-			<Clash id = "37"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "13"
-			text = "You cannot say anything but 'yes' and 'not'">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "2"/>
-			<Clash id = "4"/>
-			<Clash id = "6"/>
-			<Clash id = "8"/>
-			<Clash id = "9"/>
-			<Clash id = "11"/>
-			<Clash id = "16"/>
-			<Clash id = "22"/>
-			<Clash id = "24"/>
-			<Clash id = "28"/>
-			<Clash id = "30"/>
-			<Clash id = "32"/>
-			<Clash id = "33"/>
-			<Clash id = "35"/>
-			<Clash id = "37"/>
-			<Clash id = "38"/>
-			<Clash id = "39"/>
-			<Clash id = "40"/>
-			<Clash id = "41"/>
-			<Clash id = "43"/>
-			<Clash id = "44"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "14"
-			text = "You can only speak to one person at a time">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "2"/>
-			<Clash id = "7"/>
-			<Clash id = "12"/>
-			<Clash id = "16"/>
-			<Clash id = "30"/>
-			<Clash id = "37"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "15"
-			text = "When speaking, you must talk as fast as possible">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "2"/>
-			<Clash id = "6"/>
-			<Clash id = "13"/>
-			<Clash id = "16"/>
-			<Clash id = "29"/>
-			<Clash id = "30"/>
-			<Clash id = "32"/>
-			<Clash id = "42"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "16"
-			text = "You must NOT speak but you may communicate through gestures">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "1"/>
-			<Clash id = "2"/>
-			<Clash id = "4"/>
-			<Clash id = "5"/>
-			<Clash id = "7"/>
-			<Clash id = "8"/>
-			<Clash id = "9"/>
-			<Clash id = "11"/>
-			<Clash id = "12"/>
-			<Clash id = "13"/>
-			<Clash id = "14"/>
-			<Clash id = "15"/>
-			<Clash id = "18"/>
-			<Clash id = "19"/>
-			<Clash id = "20"/>
-			<Clash id = "21"/>
-			<Clash id = "22"/>
-			<Clash id = "24"/>
-			<Clash id = "25"/>
-			<Clash id = "27"/>
-			<Clash id = "28"/>
-			<Clash id = "29"/>
-			<Clash id = "32"/>
-			<Clash id = "33"/>
-			<Clash id = "34"/>
-			<Clash id = "35"/>
-			<Clash id = "37"/>
-			<Clash id = "39"/>
-			<Clash id = "40"/>
-			<Clash id = "41"/>
-			<Clash id = "42"/>
-			<Clash id = "43"/>
-			<Clash id = "44"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "17"
-			text = "You must turn yourself around and face away from the other players">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "1"/>
-			<Clash id = "16"/>
-			<Clash id = "26"/>
-			<Clash id = "37"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "18"
-			text = "You must repeat everything you say twice">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "2"/>
-			<Clash id = "7"/>
-			<Clash id = "16"/>
-			<Clash id = "30"/>
-			<Clash id = "32"/>
-			<Clash id = "35"/>
-			<Clash id = "40"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "19"
-			text = "You must speak in a high pitched voice">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "20"/>
-			<Clash id = "16"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "20"
-			text = "You must speak in a low pitched voice">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "19"/>
-			<Clash id = "16"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "21"
-			text = "You must only speak when spoken to">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "2"/>
-			<Clash id = "3"/>
-			<Clash id = "7"/>
-			<Clash id = "16"/>
-			<Clash id = "37"/>
-			<Clash id = "38"/>
-			<Clash id = "40"/>
-			<Clash id = "44"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "22"
-			text = "You must only give single word responses">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "2"/>
-			<Clash id = "5"/>
-			<Clash id = "6"/>
-			<Clash id = "7"/>
-			<Clash id = "11"/>
-			<Clash id = "16"/>
-			<Clash id = "30"/>
-			<Clash id = "32"/>
-			<Clash id = "44"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "23"
-			text = "You must NOT respond to shouting or swearing">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "12"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "24"
-			text = "You must swear every time you speak">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "16"/>
-			<Clash id = "28"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "25"
-			text = "You must NOT speak if anyone else is speaking">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "7"/>
-			<Clash id = "12"/>
-			<Clash id = "16"/>
-			<Clash id = "37"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "26"
-			text = "You must always look down at the ground">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "45"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "27"
-			text = "You must always whisper">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "16"/>
-			<Clash id = "29"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "28"
-			text = "You must never swear">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "16"/>
-			<Clash id = "24"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "29"
-			text = "You must always shout when speaking">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "6"/>
-			<Clash id = "16"/>
-			<Clash id = "27"/>
-			<Clash id = "30"/>
-			<Clash id = "42"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "30"
-			text = "You must NOT stop speaking">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "2"/>
-			<Clash id = "4"/>
-			<Clash id = "10"/>
-			<Clash id = "12"/>
-			<Clash id = "13"/>
-			<Clash id = "14"/>
-			<Clash id = "15"/>
-			<Clash id = "18"/>
-			<Clash id = "22"/>
-			<Clash id = "29"/>
-			<Clash id = "35"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "31"
-			text = "You must NOT answer follow up questions">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "3"/>
-			<Clash id = "4"/>
-			<Clash id = "6"/>
-			<Clash id = "7"/>
-			<Clash id = "35"/>
-			<Clash id = "40"/>
-			<Clash id = "44"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "32"
-			text = "When speaking, you must take a breath between each word">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "13"/>
-			<Clash id = "15"/>
-			<Clash id = "16"/>
-			<Clash id = "18"/>
-			<Clash id = "22"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "33"
-			text = "You must always ask people to repeat their question before answering">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "2"/>
-			<Clash id = "3"/>
-			<Clash id = "4"/>
-			<Clash id = "7"/>
-			<Clash id = "10"/>
-			<Clash id = "13"/>
-			<Clash id = "16"/>
-			<Clash id = "35"/>
-			<Clash id = "40"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "34"
-			text = "You must always stutter when speaking">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "16"/>
-			</Clashes>
-	</Rule>
-		<Rule 	id = "35"
-			text = "You must NOT answer questions you've already answered">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "40"/>
-			<Clash id = "39"/>
-			<Clash id = "33"/>
-			<Clash id = "31"/>
-			<Clash id = "30"/>
-			<Clash id = "18"/>
-			<Clash id = "16"/>
-			<Clash id = "6"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "36"
-			text = "You must cover your ears any time someone tries to speak to you">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "16"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "37"
-			text = "Using your information, interrupt and answer any questions directed to the person on your left on their behalf">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "0"/>
-			<Clash id = "2"/>
-			<Clash id = "3"/>
-			<Clash id = "7"/>
-			<Clash id = "11"/>
-			<Clash id = "12"/>
-			<Clash id = "13"/>
-			<Clash id = "16"/>
-			<Clash id = "17"/>
-			<Clash id = "21"/>
-			<Clash id = "22"/>
-			<Clash id = "25"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "38"
-			text = "You must get someone adjacent to you to ask questions for you">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "4"/>
-			<Clash id = "5"/>
-			<Clash id = "10"/>
-			<Clash id = "13"/>
-			<Clash id = "37"/>
-			<Clash id = "40"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "39"
-				text = "You must pick a single activity AND day pair and ALWAYS suggest both as a preference">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "2"/>
-			<Clash id = "3"/>
-			<Clash id = "6"/>
-			<Clash id = "11"/>
-			<Clash id = "13"/>
-			<Clash id = "16"/>
-			<Clash id = "17"/>
-			<Clash id = "22"/>
-			<Clash id = "43"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "40"
-			text = "You must continue to repeat one question until you receive irrelevant information">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "44"/>
-			<Clash id = "38"/>
-			<Clash id = "37"/>
-			<Clash id = "33"/>
-			<Clash id = "31"/>
-			<Clash id = "22"/>
-			<Clash id = "18"/>
-			<Clash id = "16"/>
-			<Clash id = "13"/>
-			<Clash id = "11"/>
-			<Clash id = "0"/>
-			<Clash id = "2"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "41"
-			text = "When speaking to another player, use the name of the player on your left">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "16"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "42"
-			text = "You must speak in song">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "16"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "43"
-			text = "When referring to any of your information, you must replace that information with the word 'blank'">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "39"/>
-			<Clash id = "16"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "44"
-			text = "Anytime you receive an answer you must ask 'Are you sure?'">
-		<Conjoined id = "5"/>
-		<Clashes>
-			<Clash id = "40"/>
-			<Clash id = "31"/>
-			<Clash id = "22"/>
-			<Clash id = "16"/>
-			<Clash id = "13"/>
-			<Clash id = "11"/>
-			<Clash id = "5"/>
-		</Clashes>
-	</Rule>
-		<Rule 	id = "45"
-			text = "You must always maintain eye contact with somebody">
-		<Conjoined id = "5"/>
-		<Clashes>
-		</Clashes>
-	</Rule>
+  <Rule text="You can only speak while someone else is speaking" id="0" weight="1">
+    <Clashes>
+      <Clash id="2" />
+      <Clash id="6" />
+      <Clash id="10" />
+      <Clash id="12" />
+      <Clash id="16" />
+      <Clash id="19" />
+      <Clash id="21" />
+      <Clash id="22" />
+      <Clash id="25" />
+      <Clash id="30" />
+      <Clash id="31" />
+      <Clash id="33" />
+      <Clash id="37" />
+      <Clash id="40" />
+      <Clash id="44" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must smile and giggle whenever you speak" id="1" weight="0">
+    <Clashes>
+      <Clash id="16" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must mimic anybody who speaks to you directly, before replying" id="2" weight="2">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="3" />
+      <Clash id="4" />
+      <Clash id="5" />
+      <Clash id="7" />
+      <Clash id="10" />
+      <Clash id="11" />
+      <Clash id="12" />
+      <Clash id="13" />
+      <Clash id="14" />
+      <Clash id="16" />
+      <Clash id="21" />
+      <Clash id="22" />
+      <Clash id="24" />
+      <Clash id="25" />
+      <Clash id="28" />
+      <Clash id="30" />
+      <Clash id="33" />
+      <Clash id="35" />
+      <Clash id="37" />
+      <Clash id="39" />
+      <Clash id="40" />
+      <Clash id="42 " />
+    </Clashes>
+  </Rule>
+  <Rule text="You can never respond to any questions directed at you" id="3" weight="2">
+    <Clashes>
+      <Clash id="2" />
+      <Clash id="6" />
+      <Clash id="8" />
+      <Clash id="9" />
+      <Clash id="10" />
+      <Clash id="21" />
+      <Clash id="22" />
+      <Clash id="31" />
+      <Clash id="33" />
+      <Clash id="37" />
+      <Clash id="39" />
+    </Clashes>
+  </Rule>
+  <Rule text="You can only ask questions when you speak" id="4" weight="2">
+    <Clashes>
+      <Clash id="2" />
+      <Clash id="5" />
+      <Clash id="6" />
+      <Clash id="7" />
+      <Clash id="8" />
+      <Clash id="9" />
+      <Clash id="10" />
+      <Clash id="11" />
+      <Clash id="13" />
+      <Clash id="16" />
+      <Clash id="30" />
+      <Clash id="31" />
+      <Clash id="33" />
+      <Clash id="37" />
+      <Clash id="39" />
+    </Clashes>
+  </Rule>
+  <Rule text="You can never ask questions" id="5" weight="1">
+    <Clashes>
+      <Clash id="4" />
+      <Clash id="38" />
+      <Clash id="40" />
+      <Clash id="44" />
+    </Clashes>
+  </Rule>
+  <Rule text="Any time you are asked a question you must respond with your entire list of information" id="6" weight="2">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="3" />
+      <Clash id="4" />
+      <Clash id="7" />
+      <Clash id="8" />
+      <Clash id="9" />
+      <Clash id="11" />
+      <Clash id="12" />
+      <Clash id="13" />
+      <Clash id="16" />
+      <Clash id="22" />
+      <Clash id="25" />
+      <Clash id="31" />
+      <Clash id="35" />
+      <Clash id="36" />
+      <Clash id="37" />
+      <Clash id="39" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must interrupt anybody who tries to speak" id="7" weight="2">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="2" />
+      <Clash id="4" />
+      <Clash id="6" />
+      <Clash id="10" />
+      <Clash id="12" />
+      <Clash id="14" />
+      <Clash id="16" />
+      <Clash id="21" />
+      <Clash id="22" />
+      <Clash id="25" />
+      <Clash id="31" />
+      <Clash id="33" />
+      <Clash id="37" />
+      <Clash id="38" />
+      <Clash id="40" />
+      <Clash id="44" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must always respond to questions in the affirmative" id="8" weight="2">
+    <Clashes>
+      <Clash id="3" />
+      <Clash id="4" />
+      <Clash id="6" />
+      <Clash id="9" />
+      <Clash id="11" />
+      <Clash id="13" />
+      <Clash id="16" />
+      <Clash id="37" />
+      <Clash id="39" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must always respond to questions in the negative" id="9" weight="2">
+    <Clashes>
+      <Clash id="3" />
+      <Clash id="4" />
+      <Clash id="6" />
+      <Clash id="8" />
+      <Clash id="11" />
+      <Clash id="13" />
+      <Clash id="16" />
+      <Clash id="37" />
+      <Clash id="39" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must wait 5 seconds before responding to any question" id="10" weight="0">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="2" />
+      <Clash id="3" />
+      <Clash id="4" />
+      <Clash id="11" />
+      <Clash id="15" />
+      <Clash id="25" />
+      <Clash id="30" />
+      <Clash id="33" />
+      <Clash id="37" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must only speak in commands" id="11" weight="0">
+    <Clashes>
+      <Clash id="2" />
+      <Clash id="4" />
+      <Clash id="5" />
+      <Clash id="6" />
+      <Clash id="8" />
+      <Clash id="9" />
+      <Clash id="13" />
+      <Clash id="16" />
+      <Clash id="22" />
+      <Clash id="40" />
+      <Clash id="44" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must NOT let anyone else speak while you're speaking" id="12" weight="1">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="2" />
+      <Clash id="7" />
+      <Clash id="14" />
+      <Clash id="16" />
+      <Clash id="18" />
+      <Clash id="21" />
+      <Clash id="22" />
+      <Clash id="25" />
+      <Clash id="30" />
+      <Clash id="37" />
+    </Clashes>
+  </Rule>
+  <Rule text="You can NOT say anything other than 'yes' and 'no' " id="13" weight="2">
+    <Clashes>
+      <Clash id="2" />
+      <Clash id="4" />
+      <Clash id="6" />
+      <Clash id="8" />
+      <Clash id="9" />
+      <Clash id="11" />
+      <Clash id="16" />
+      <Clash id="22" />
+      <Clash id="24" />
+      <Clash id="28" />
+      <Clash id="30" />
+      <Clash id="32" />
+      <Clash id="33" />
+      <Clash id="35" />
+      <Clash id="37" />
+      <Clash id="38" />
+      <Clash id="39" />
+      <Clash id="40" />
+      <Clash id="41" />
+      <Clash id="43" />
+      <Clash id="44 " />
+    </Clashes>
+  </Rule>
+  <Rule text="You can only speak to one person at a time" id="14" weight="0">
+    <Clashes>
+      <Clash id="2" />
+      <Clash id="7" />
+      <Clash id="12" />
+      <Clash id="16" />
+      <Clash id="30" />
+      <Clash id="37" />
+    </Clashes>
+  </Rule>
+  <Rule text="When speaking, you must talk as fast as possible" id="15" weight="0">
+    <Clashes>
+      <Clash id="2" />
+      <Clash id="6" />
+      <Clash id="13" />
+      <Clash id="16" />
+      <Clash id="29" />
+      <Clash id="30" />
+      <Clash id="32" />
+      <Clash id="42" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must NOT speak, but you may communicate through gestures" id="16" weight="2">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="1" />
+      <Clash id="2" />
+      <Clash id="4" />
+      <Clash id="5" />
+      <Clash id="7" />
+      <Clash id="8" />
+      <Clash id="9" />
+      <Clash id="11" />
+      <Clash id="12" />
+      <Clash id="13" />
+      <Clash id="14" />
+      <Clash id="15" />
+      <Clash id="18" />
+      <Clash id="19" />
+      <Clash id="20" />
+      <Clash id="21" />
+      <Clash id="22" />
+      <Clash id="24" />
+      <Clash id="25" />
+      <Clash id="27" />
+      <Clash id="28" />
+      <Clash id="29" />
+      <Clash id="30" />
+      <Clash id="32" />
+      <Clash id="33" />
+      <Clash id="34" />
+      <Clash id="35" />
+      <Clash id="37" />
+      <Clash id="39" />
+      <Clash id="40" />
+      <Clash id="41" />
+      <Clash id="42" />
+      <Clash id="43" />
+      <Clash id="44" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must turn yourself around and face away from the other players" id="17" weight="1">
+    <Clashes>
+      <Clash id="1" />
+      <Clash id="16" />
+      <Clash id="26" />
+      <Clash id="37" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must repeat everything you say twice" id="18" weight="2">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="2" />
+      <Clash id="7" />
+      <Clash id="16" />
+      <Clash id="30" />
+      <Clash id="32" />
+      <Clash id="35" />
+      <Clash id="40" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must speak in a high pitched voice" id="19" weight="0">
+    <Clashes>
+      <Clash id="20" />
+      <Clash id="16" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must speak in a low pitched voice" id="20" weight="0">
+    <Clashes>
+      <Clash id="19" />
+      <Clash id="16" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must only speak when spoken to" id="21" weight="1">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="2" />
+      <Clash id="3" />
+      <Clash id="7" />
+      <Clash id="16" />
+      <Clash id="37" />
+      <Clash id="38" />
+      <Clash id="40" />
+      <Clash id="44" />
+    </Clashes>
+  </Rule>
+  <Rule text="You can only give single word responses" id="22" weight="1">
+    <Clashes>
+      <Clash id="2" />
+      <Clash id="5" />
+      <Clash id="6" />
+      <Clash id="7" />
+      <Clash id="11" />
+      <Clash id="16" />
+      <Clash id="30" />
+      <Clash id="32" />
+      <Clash id="44" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must NOT respond to shouting or swearing" id="23" weight="0">
+    <Clashes>
+      <Clash id="12" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must swear every time you speak" id="24" weight="0">
+    <Clashes>
+      <Clash id="16" />
+      <Clash id="28" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must NOT speak if anyone else is speaking" id="25" weight="1">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="7" />
+      <Clash id="12" />
+      <Clash id="16" />
+      <Clash id="37" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must always look down at the ground" id="26" weight="0">
+    <Clashes>
+      <Clash id="45" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must always whisper" id="27" weight="0">
+    <Clashes>
+      <Clash id="16" />
+      <Clash id="29" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must never swear" id="28" weight="0">
+    <Clashes>
+      <Clash id="16" />
+      <Clash id="24" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must always shout when speaking" id="29" weight="2">
+    <Clashes>
+      <Clash id="6" />
+      <Clash id="16" />
+      <Clash id="27" />
+      <Clash id="30" />
+      <Clash id="42" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must NOT stop speaking" id="30" weight="2">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="2" />
+      <Clash id="4" />
+      <Clash id="10" />
+      <Clash id="12" />
+      <Clash id="13" />
+      <Clash id="14" />
+      <Clash id="15" />
+      <Clash id="16" />
+      <Clash id="18" />
+      <Clash id="22" />
+      <Clash id="29" />
+      <Clash id="35" />
+      
+    </Clashes>
+  </Rule>
+  <Rule text="You must NOT answer follow up questions" id="31" weight="0">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="3" />
+      <Clash id="4" />
+      <Clash id="6" />
+      <Clash id="7" />
+      <Clash id="35" />
+      <Clash id="40" />
+      <Clash id="44" />
+    </Clashes>
+  </Rule>
+  <Rule text="When speaking, you must take a breath between each word" id="32" weight="0">
+    <Clashes>
+      <Clash id="13" />
+      <Clash id="15" />
+      <Clash id="16" />
+      <Clash id="18" />
+      <Clash id="22" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must always ask people to repeat their questions before answering" id="33" weight="1">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="2" />
+      <Clash id="3" />
+      <Clash id="4" />
+      <Clash id="7" />
+      <Clash id="10" />
+      <Clash id="13" />
+      <Clash id="16" />
+      <Clash id="35" />
+      <Clash id="40" />
+    </Clashes>
+  </Rule>
+  <Rule text="When speaking, you must always stutter" id="34" weight="0">
+    <Clashes>
+      <Clash id="16" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must NOT answer questions you've already answered" id="35" weight="2">
+    <Clashes>
+      <Clash id="40" />
+      <Clash id="39" />
+      <Clash id="33" />
+      <Clash id="31" />
+      <Clash id="30" />
+      <Clash id="18" />
+      <Clash id="16" />
+      <Clash id="6" />
+      
+    </Clashes>
+  </Rule>
+  <Rule text="You must cover your ears any time someone tries to speak to you" id="36" weight="1">
+    <Clashes>
+      <Clash id="16" />
+    </Clashes>
+  </Rule>
+  <Rule text="Using your information, interrupt and answer any questions directed to the person on your left on their behalf" id="37" weight="2">
+    <Clashes>
+      <Clash id="0" />
+      <Clash id="2" />
+      <Clash id="3" />
+      <Clash id="7" />
+      <Clash id="11" />
+      <Clash id="12" />
+      <Clash id="13" />
+      <Clash id="16" />
+      <Clash id="17" />
+      <Clash id="21" />
+      <Clash id="22" />
+      <Clash id="25" />
+      
+    </Clashes>
+  </Rule>
+  <Rule text="You must get someone adjacent to you to ask questions for you" id="38" weight="1">
+    <Clashes>
+      <Clash id="4" />
+      <Clash id="5" />
+      <Clash id="10" />
+      <Clash id="13" />
+      <Clash id="37" />
+      <Clash id="40" />
+      
+    </Clashes>
+  </Rule>
+  <Rule text="You must pick a single activity AND day pair and ALWAYS suggest both as a preference" id="39" weight="2">
+    <Clashes>
+      <Clash id="2" />
+      <Clash id="3" />
+      <Clash id="6" />
+      <Clash id="11" />
+      <Clash id="13" />
+      <Clash id="16" />
+      <Clash id="17" />
+      <Clash id="22" />
+      <Clash id="43" />
+      
+    </Clashes>
+  </Rule>
+  <Rule text="You must continue to repeat one question until you irrelevant information" id="40" weight="2">
+    <Clashes>
+      <Clash id="44" />
+      <Clash id="38" />
+      <Clash id="37" />
+      <Clash id="33" />
+      <Clash id="31" />
+      <Clash id="22" />
+      <Clash id="18" />
+      <Clash id="16" />
+      <Clash id="13" />
+      <Clash id="11" />
+      <Clash id="0" />
+      <Clash id="2" />
+    </Clashes>
+  </Rule>
+  <Rule text="When speaking to another player, use the name of the player to your left." id="41" weight="1">
+    <Clashes>
+      <Clash id="16" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must speak in song" id="42" weight="0">
+    <Clashes>
+      <Clash id="16" />
+    </Clashes>
+  </Rule>
+  <Rule text="When referring to any of your information, you must replace that information with the word &quot;blank&quot;" id="43" weight="2">
+    <Clashes>
+      <Clash id="39" />
+      <Clash id="16" />
+    </Clashes>
+  </Rule>
+  <Rule text="Any time you receive an answer you must ask 'Are you sure?'" id="44" weight="0">
+    <Clashes>
+      <Clash id="40" />
+      <Clash id="31" />
+      <Clash id="22" />
+      <Clash id="16" />
+      <Clash id="13" />
+      <Clash id="11" />
+      <Clash id="5" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must always maintain eye contact with somebody" id="45" weight="0">
+    <Clashes>
+      <Clash id="17" />
+      <Clash id="26" />
+    </Clashes>
+  </Rule>
+  <Rule text="You must always wink after speaking" id="46" weight="0">
+    <Clashes>
+      <Clash id="16" />
+      <Clash id="17" />
+      <Clash id="26" />
+    </Clashes>
+  </Rule>
 </Rules>

@@ -32,11 +32,9 @@ public class Activity {
 
 	void SetInterpretedValues (int bracket) {
 		EventName =XmlManager.Instance.GetActivityPiece(baseValues[0]);
-		ClosedDay1 = XmlManager.Instance.GetDayPiece(baseValues[1]);
-		Debug.Log ("Closed day 1: " + ClosedDay1);
-		ClosedDay2 = XmlManager.Instance.GetDayPiece(baseValues[2]);
-		Debug.Log ("Closed day 2: " + ClosedDay2);
-		OpenHours = CalcOpeningHours(XmlManager.Instance.GetTimePiece(baseValues[3]),isAnswer,bracket);
+		ClosedDay1 = XmlManager.Instance.GetDayPiece(baseValues[2]);
+		ClosedDay2 = XmlManager.Instance.GetDayPiece(baseValues[3]);
+		OpenHours = CalcOpeningHours(XmlManager.Instance.GetTimePiece(baseValues[4]),isAnswer,bracket);
 	}
 
 	public string GetAsString() 
@@ -55,6 +53,14 @@ public class Activity {
 
 
 		return returnString;
+	}
+
+	public bool IsOpenOnDay (int DayID) {
+		if(DayID == baseValues[2] || DayID == baseValues[3]) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	public bool IsOpenAtTime (int CheckTime) {

@@ -22,12 +22,5 @@ public class PlayerTable {
 //			Activities[i] = Activities[randomIndex];
 //			Activities[randomIndex] = temp;
 //		}
-//
-//		for (int i = 0; i < Activities.Count; i++) {
-//			Availability temp = Availabilities[i];
-//			int randomIndex = Random.Range(i, Availabilities.Count);
-//			Availabilities[i] = Availabilities[randomIndex];
-//			Availabilities[randomIndex] = temp;
-//		}
 	}
 }

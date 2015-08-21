@@ -164,7 +164,7 @@ public class UIManager : Singleton<UIManager> {
 		}
 		for (int i = 0; i < ActivityButtons.Count; i++) {
 			int cap = i;
-			ActivityButtons[i].activityButton.onClick.AddListener(() => ActivityButtonClick(ActivityButtons[cap],gameManager.ptActiveTable.Activities[cap].baseValues[0]));
+			ActivityButtons[i].activityButton.onClick.AddListener(() => ActivityButtonClick(ActivityButtons[cap],gameManager.ptActiveTable.Activities[cap]));
 		}
 
 		RulesTitle.text = "";
@@ -214,8 +214,8 @@ public class UIManager : Singleton<UIManager> {
 	}
 
 	public void UpdateTimeLimit() {
-		int minutes = Mathf.FloorToInt( gameManager.gameTime / 60);
-		int seconds = Mathf.FloorToInt (gameManager.gameTime % 60);
+		int minutes = Mathf.FloorToInt( gameManager.GameTime / 60);
+		int seconds = Mathf.FloorToInt (gameManager.GameTime % 60);
 		TimeLimitDisplay.text = string.Format ("{0:00}:{1:00}", minutes, seconds);
 	}
 
@@ -225,22 +225,16 @@ public class UIManager : Singleton<UIManager> {
 
 	#endregion
 	#region Answer Screen Button Functions
-	void ActivityButtonClick(ActivityButton ab, int actID) {
+	void ActivityButtonClick(ActivityButton ab, Activity act) {
 		foreach(ActivityButton abb in ActivityButtons) {
 			abb.SetSelected(false);
 //			SelectedImage.gameObject.SetActive(false);
 		}
 		ab.SetSelected(true);
-		bool showSubmit = gameManager.SetAnswerActivity(actID);
+		bool showSubmit = gameManager.SetAnswerActivity(act);
 		if(showSubmit){
 			submitAnswersButton.gameObject.SetActive(true);
 		}
-
-//		Image Selected = Instantiate (SelectedImage, new Vector2 (ab.activityButton.transform.position.x, ab.activityButton.transform.position.y), Quaternion.Euler(Vector3.zero)) as Image;
-//		Selected.transform.SetParent(GameObject.Find("Canvas").transform, true);
-		
-//		Selected.transform.position = ab.activityButton.transform.position;
-//		Selected.transform.SetParent (ab.activityButton.gameObject.transform);
 	}
 
 	//Set any previously selected button to unselected, then select the passed through button
@@ -254,9 +248,6 @@ public class UIManager : Singleton<UIManager> {
 		if(showSubmit){
 			submitAnswersButton.gameObject.SetActive(true);
 		}
-
-//		Image Selected = Instantiate (SelectedImage, new Vector2 (dtb.dayButton.transform.position.x, dtb.dayButton.transform.position.y), Quaternion.Euler(Vector3.zero)) as Image;
-//		Selected.transform.SetParent(GameObject.Find("Canvas").transform, true);
 	}
 
 	void TimeButtonClick(DayAndTimeButton dtb, int buttonIndex, int timeID) {
@@ -270,13 +261,11 @@ public class UIManager : Singleton<UIManager> {
 		if(showSubmit){
 			submitAnswersButton.gameObject.SetActive(true);
 		}
-//
-//		Image Selected = Instantiate (SelectedImage, new Vector2 (dtb.dayButton.transform.position.x, dtb.dayButton.transform.position.y), Quaternion.Euler(Vector3.zero)) as Image;
-//		Selected.transform.SetParent(GameObject.Find("Canvas").transform, true);
 	}
 
 	void SubmitAnswersButtonClick() {
 		gameManager.SendAnswer();
+		submitAnswersButton.gameObject.SetActive(false);
 	}
 
 	public void WaitingOnAnswers() {
@@ -291,6 +280,9 @@ public class UIManager : Singleton<UIManager> {
 //		EndScreen.SetActive (false);
 
 		ResultsImage = GameObject.FindWithTag ("ResultsImage").GetComponent<Image>();
+		if (gameManager.AnsweredActivity.IsOpenOnDay(gameManager.GetAnswers()[1])) {
+
+		}
 		string answerActivity = XmlManager.Instance.GetActivityPiece (gameManager.GetAnswers()[0]);
 		switch (answerActivity) {
 		case "Arcade":

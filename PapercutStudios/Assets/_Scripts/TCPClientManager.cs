@@ -24,8 +24,6 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 		if(gameManager == null) {
 			gameManager = FindObjectOfType<PlayerManager>();
 		}
-		Debug.Log(gameManager.GetPlayerNum().ToString());
-
 		tcpClient = new TcpClient();
 	}
 
@@ -80,13 +78,12 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 		{
 			//if the first character is a '1' it means we have sucessfully connected and the node has sent us our player number as the second character
 			//so we must save this number as our player number for the game
-			Debug.Log ("connectionrwacieved");
 			UIManager.Instance.ConnectionSuccess();
 			gameManager.SetPlayerNum(ParseChar(dataAsString[1]));
 			gameManager.Difficulty = ParseChar(dataAsString[2]);
 			char[] timeChars = {dataAsString[3], dataAsString[4],dataAsString[5]};
 			string timeString = new string(timeChars);
-			gameManager.gameTime = int.Parse(timeString);
+			gameManager.GameTime = int.Parse(timeString);
 
 			//once we've received the default game values (player number, difficulty and time) request the seed for the randomiser
 			byte[] ba;
@@ -100,7 +97,7 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 				seedAsString.Append(dataAsString[2+i]);;
 			}
 			int seed = int.Parse(seedAsString.ToString());
-			gameManager.randomSeed = seed;
+			gameManager.RandomSeed = seed;
 			break;
 		case '3':
 			//Begin playing the game
@@ -116,7 +113,7 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 		{
 			char[] timeChars = {dataAsString[1], dataAsString[2],dataAsString[3]};
 			string timeString = new string(timeChars);
-			gameManager.gameTime = int.Parse(timeString);
+			gameManager.GameTime = int.Parse(timeString);
 			break;
 		}
 		case '7':

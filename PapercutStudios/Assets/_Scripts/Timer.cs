@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour {
 	private bool ShownRule3;
 
 	void Start () { 
-		fCountDownTimer = GameObject.FindObjectOfType<PlayerManager>().gameTime;
+		fCountDownTimer = GameObject.FindObjectOfType<PlayerManager>().GameTime;
 		fInterval = fCountDownTimer/3;
 		bTimerRunning = true;
 		ShownRule2 = false;
