@@ -181,6 +181,12 @@ public class UIManager : Singleton<UIManager> {
 				itemValue.timeButtons[j].onClick.AddListener(() => TimeButtonClick(itemValue,capj, time));
 			}
 		}
+
+		Button[] tempbuttons = FindButtonsWithTag ("ActivityButton");
+		for (int i = 0; i < tempbuttons.Length; i++) {
+			int cap = i;
+			ActivityButtons[i].activityButton.onClick.AddListener(() => ActivityButtonClick(ActivityButtons[cap],gameManager.ptActiveTable.Activities[cap].baseValues[0]));
+		}
 //		EndScreen.SetActive (true);
 		//ensure that the time buttons are all hidden away when opening the end screen
 
