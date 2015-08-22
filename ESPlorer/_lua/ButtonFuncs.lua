@@ -58,16 +58,22 @@ end
 function ButtonFuncs.GameStartEnd(level)
     local pinnum = 8
     local gameprefs = require("gamePrefs")
-    for key,value in pairs(gameprefs.Players) do
-        local player = require("player"..value)
-        if(gameprefs.GameStarted == true) then
-            player.Socket:send("3");
-            print ("GameStart sent to player: "..value)
-        else 
-            player.Socket:send("4");
-            print("GameEnd sent to player: "..value)
+    if(gameprefs.GameStarted == false) then
+        for key,value in pairs(gameprefs.Players) do
+            local player = require("player"..value)
+            player.Socket:send("3")
+            print ("GameStart sent to player: "..player.ID)
         end
+        gameprefs.GameStarted = true
+    else 
+        for key,value in pairs(gameprefs.Players) do
+            local player = require("player"..value)
+            player.Socket:send("4");
+            print ("GameEnd sent to player: "..player.ID)
+        end
+        gameprefs.GameStarted = false
     end
+    
 end
 function ButtonFuncs.SetButtonTrigs()
     gpio.trig(5,"down", ButtonFuncs.debounce(ButtonFuncs.Difficulty))

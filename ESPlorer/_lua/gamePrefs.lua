@@ -30,6 +30,7 @@ function gamePrefs.GetAvailablePlayer()
             end    
             --if we havent found any of num 'i' in the table, this function will return
             if(found == false) then
+                
                 return i
             end
         end
@@ -55,9 +56,11 @@ print("Answer Added")
         local playeranswers = {}
         for key,value in pairs(gamePrefs.Players) do 
             player = require("player"..value)
+            print("Added player "..value.."'s answer to the table!")
             table.insert(playeranswers, player.AnswerIDs)
         end
         for pkey,pvalue in pairs(gamePrefs.Players) do
+            print("Calc Player "..pvalue.."numresult")
             local player = require("player"..pvalue)
             local numresult = 0
             for akey,avalue in pairs(playeranswers) do

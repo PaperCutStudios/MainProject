@@ -125,6 +125,7 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 			break;
 		}
 		default:
+			UIManager.Instance.ConnectionFailed(true);
 			Debug.LogWarning("Trying to act on empty data!",this);
 			break;
 		}

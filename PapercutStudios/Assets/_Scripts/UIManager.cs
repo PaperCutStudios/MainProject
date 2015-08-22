@@ -152,6 +152,11 @@ public class UIManager : Singleton<UIManager> {
 
 	public void EndGame() {
 //		PlayerInfo.SetActive(false);
+		if(SystemInfo.deviceType == DeviceType.Handheld) {
+			Handheld.Vibrate();
+			Handheld.Vibrate();
+			Handheld.Vibrate();
+		}
 		GameObject timer = GameScreen.transform.FindChild("timer/Timer").gameObject;
 		timer.GetComponent<Timer>().StopTimer();
 		for (int i = 0; i < AvailabilityInfoButtons.Count; i++) {
@@ -169,11 +174,12 @@ public class UIManager : Singleton<UIManager> {
 			ActivityButtons[i].activityButton.onClick.AddListener(() => ActivityButtonClick(ActivityButtons[cap],gameManager.ptActiveTable.Activities[cap]));
 		}
 
-		RulesTitle.text = "";
+		RulesTitle.text = "<b>Time is up!</b>";
+		RulesTitle.alignment = TextAnchor.UpperCenter;
 		foreach(Text txt in Rules) {
 			txt.text = "";
 		}
-		Rules[0].text = "<b>Time is Up</b>\nWithout talking to your fellow players, select the Activity, Day and Time you will try and meet with everyone at.\nOnce all three are selected, a button to submit your answer will appear.";
+		Rules[0].text = "Without talking to your fellow players, select the Activity, Day and Time you will try and meet with everyone at.\nOnce all three are selected, a button to submit your answer will appear.";
 	}
 	#region Menues Button Functions
 
@@ -187,10 +193,8 @@ public class UIManager : Singleton<UIManager> {
 	public void StartGameplay() {
 		ConnectedMenu.SetActive(false);
 		GameScreen.SetActive(true);
-//		EndScreen.SetActive (true);
 		gameManager.SetUpPlayerInformation();
 		SetInfoScreenDisplay ();
-//		EndScreen.SetActive (false);
 		ShowNextRule();
 	}
 
@@ -279,72 +283,14 @@ public class UIManager : Singleton<UIManager> {
 	public void ShowEndResult(int numPlayers, string answerActivity, string diaryText) {
 		GameScreen.SetActive (false);
 		ResultsScreen.SetActive (true);
-//		EndScreen.SetActive (false);
-//		string answerActivity = gameManager.AnsweredActivity.EventName;
-//		ResultsImage = GameObject.FindWithTag ("ResultsImage").GetComponent<Image>();
-//		if (gameManager.AnsweredActivity.IsOpenOnDay(gameManager.GetAnswers()[1])) {
-//			if(gameManager.AnsweredActivity.IsOpenAtTime(gameManager.GetAnswers()[2])) {
-//				ResultsImage.sprite = Resources.Load <Sprite>(("ActivitySprites/"+answerActivity));
-//				switch (answerActivity) {
-//				case "Arcade":
-//					ResultsImage.sprite = ActivitySprites[0];
-//					break;
-//				case "Aquarium":
-//					ResultsImage.sprite = ActivitySprites[1];
-//					break;
-//				case "Beach":
-//					ResultsImage.sprite = ActivitySprites[2];
-//					break;
-//				case "Cinema":
-//					ResultsImage.sprite = ActivitySprites[3];
-//					break;
-//				case "Pub":
-//					ResultsImage.sprite = ActivitySprites[4];
-//					break;
-//				case "Theme Park":
-//					ResultsImage.sprite = ActivitySprites[5];
-//					break;
-//				case "The Zoo":
-//					ResultsImage.sprite = ActivitySprites[6];
-//					break;
-//				default:
-//					Debug.Log("Default Case: you broke it....");
-//					break;
-//				}
-//				switch (numPlayers) {
-//				case 1:
-//					ResultsText.text = ("Dear Diary,\nToday I went to meet up with my friends at the " + answerActivity + "but I think I went to the wrong place or something because I couldn't find anyone there.");
-//					break;
-//				case 2:
-//					ResultsText.text = ("Dear Diary,\nToday I went to the " + answerActivity + "to meet up with some friends. Only one other person was there at the same time, maybe the others went to the wrong place?");
-//					break;
-//				case 3:
-//					ResultsText.text = ("Dear Diary,\nToday I went to the " + answerActivity + "to meet up with some friends. Two of them made it there at the same time as me and we had a pretty good time. I wonder what happened to th eother guy?");
-//					break;
-//				case 4:
-//					ResultsText.text = ("Dear Diary,\nToday I went to the " + answerActivity + "with my best mates. We all made it there without a hitch and had a ball of a day!");
-//					break;
-//				default:
-//					break;
-//				}
-//			} 
-//			else {
-//				ResultsText.text = ("Dear Diary,\n
-//			}
-//		}
-
 		ResultsImage.sprite = Resources.Load <Sprite> (("ActivitySprites/"+answerActivity));
 		ResultsText.text = diaryText;
-
 		for (int i = 0; i < numPlayers; i++) 
 		{
 			int randomSilhouetteIndex = Random.Range(0,PlayerSilhouettes.Length);
 			ResultsPeople[i].GetComponent<Image>().sprite = PlayerSilhouettes[randomSilhouetteIndex];
 		}
 	}
-
-
-
 
 	public void OpenMainMenu() {
 		TCPClientManager.Instance.Disconnect();

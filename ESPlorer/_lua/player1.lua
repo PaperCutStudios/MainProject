@@ -17,7 +17,6 @@ end
 function player.setAnswer(answer)
     print("Setting Player "..player.ID.."'s Answer to: ".. answer)
     player.AnswerIDs = answer
-    player.Socket:send("7")
     local gameprefs = require("gamePrefs")
     gameprefs.AnswerAdded()
 end
