@@ -19,7 +19,7 @@ public class Activity {
 		baseValues[3] = Day2ID;
 		baseValues[4] = RootTimeID;
 
-		if(baseValues[2] == 0 && baseValues[0] == 0) {
+		if(baseValues[2] == 1 && baseValues[0] == 0) {
 			isAnswer = true;
 		}
 		else {
@@ -27,6 +27,10 @@ public class Activity {
 		}
 
 		SetInterpretedValues(bracket);
+
+		if(isAnswer) {
+			Debug.Log(EventName + " is the answer!");
+		}
 
 	}
 
