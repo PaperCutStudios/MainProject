@@ -54,7 +54,8 @@ public class Timer : MonoBehaviour {
 	}
 
 	public void StopTimer () {
-		bTimerRunning = false;
-		timerLabel.gameObject.SetActive(false);
+		if(bTimerRunning) {
+			bTimerRunning = false;
+		}
 	}
 }

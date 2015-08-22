@@ -128,10 +128,8 @@ public class PlayerManager : MonoBehaviour {
 
 	public void SetPlayerNum (int playerNum ) {
 		iPlayerNum = playerNum;
-		Debug.Log(iPlayerNum.ToString());
 	}
 	public int GetPlayerNum () {
-		Debug.Log (iPlayerNum.ToString ());
 		return iPlayerNum;
 	}
 
@@ -186,6 +184,44 @@ public class PlayerManager : MonoBehaviour {
 			answerstring += (i-1).ToString();
 		}
 		TCPClientManager.Instance.SendAnswerToNode(answerstring);
+	}
+
+	public void ReceiveAnswer(int playersAtLocation) {
+		string answerActivity;
+		string resultsText;
+
+		if(AnsweredActivity.IsOpenOnDay(AnswerIDs[1])) {
+			if(AnsweredActivity.IsOpenAtTime(AnswerIDs[2])) {
+				answerActivity = AnsweredActivity.EventName;
+				switch (playersAtLocation) {
+				case 1:
+					resultsText = ("Dear Diary,\nToday I went to meet up with my friends at the " + answerActivity + "but I think I went to the wrong place or something because I couldn't find anyone there.");
+					break;
+				case 2:
+					resultsText = ("Dear Diary,\nToday I went to the " + answerActivity + "to meet up with some friends. Only one other person was there at the same time, maybe the others went to the wrong place?");
+					break;
+				case 3:
+					resultsText = ("Dear Diary,\nToday I went to the " + answerActivity + "to meet up with some friends. Two of them made it there at the same time as me and we had a pretty good time. I wonder what happened to th eother guy?");
+					break;
+				case 4:
+					resultsText = ("Dear Diary,\nToday I went to the " + answerActivity + "with my best mates. We all made it there without a hitch and had a ball of a day!");
+					break;
+				default:
+					resultsText = ("Broken Text");
+					break;
+				}
+			} 
+			else {
+				answerActivity = "Closed";
+				resultsText = "Dear Diary,\nToday " + playersAtLocation.ToString() + " of us went to  " + AnsweredActivity.EventName + " but apparently its closed from " + AnsweredActivity.GetAsString();
+			}
+		} 
+		else {
+			answerActivity = "Closed";
+			resultsText = "Dear Diary,\nToday " + playersAtLocation.ToString() + " of us went to  " + AnsweredActivity.EventName + " but apparently its closed on " + XmlManager.Instance.GetDayPiece(AnswerIDs[1]);
+		}
+
+		UIManager.Instance.ShowEndResult(playersAtLocation,answerActivity,resultsText);
 	}
 
 	Rule GetNewRule (List<Rule> currentRules) {

@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='us-ascii'?> 
 <Information>
 	<Activities>
-		<Activity>Arcade</Activity>
-		<Activity>Aquarium</Activity>
-		<Activity>Beach</Activity>
-		<Activity>Cinema</Activity>
-		<Activity>Pub</Activity>
-		<Activity>Theme Park</Activity>
+		<Activity>The Arcade</Activity>
+		<Activity>The Aquarium</Activity>
+		<Activity>The Beach</Activity>
+		<Activity>The Cinema</Activity>
+		<Activity>The Pub</Activity>
+		<Activity>The Theme Park</Activity>
 		<Activity>The Zoo</Activity>
 	</Activities>
 	<Days>

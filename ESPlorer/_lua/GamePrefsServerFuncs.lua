@@ -4,6 +4,7 @@ function serverFuncs.SendGameStart()
     for key,value in pairs(gameprefs.Players) do
         local player = require("player"..value)
         player.Socket:send("3");
+        print ("GameStart sent to player: "..value)
     end
 end
 function serverFuncs.SendDifficulty() 

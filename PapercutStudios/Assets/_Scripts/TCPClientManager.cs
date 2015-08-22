@@ -63,8 +63,6 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 		byte[] ba;
 		ba = asciiEncoding.GetBytes(gameManager.GetPlayerNum().ToString() + "0");
 		stm.Write(ba,0,ba.Length);
-		tcpClient.GetStream().Close();
-		tcpClient.Close();
 	}
 
 	void ActOnDataString(string dataAsString) {
@@ -118,12 +116,12 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 		}
 		case '7':
 		{
-			//uimanger.waitingonanswer
+			UIManager.Instance.WaitingOnAnswers();
 			break;
 		}
 		case '8':
 		{
-			//uimanager.answerreceived
+			gameManager.ReceiveAnswer(ParseChar(dataAsString[1]));
 			break;
 		}
 		default:
@@ -151,7 +149,7 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 
 	public void SendAnswerToNode(string answer) {
 		byte[] ba;
-		ba = asciiEncoding.GetBytes(gameManager.GetPlayerNum().ToString() + answer);
+		ba = asciiEncoding.GetBytes(gameManager.GetPlayerNum().ToString() +"2"+ answer);
 		stm.Write(ba,0,ba.Length);
 	}
 

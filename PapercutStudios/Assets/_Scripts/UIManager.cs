@@ -152,6 +152,8 @@ public class UIManager : Singleton<UIManager> {
 
 	public void EndGame() {
 //		PlayerInfo.SetActive(false);
+		GameObject timer = GameScreen.transform.FindChild("timer/Timer").gameObject;
+		timer.GetComponent<Timer>().StopTimer();
 		for (int i = 0; i < AvailabilityInfoButtons.Count; i++) {
 			var item = AvailabilityInfoButtons.ElementAt(i);
 			var itemValue = item.Value;
@@ -269,73 +271,79 @@ public class UIManager : Singleton<UIManager> {
 	}
 
 	public void WaitingOnAnswers() {
-		submitAnswersButton.GetComponentInChildren<Text>().text = "waiting...";
+		Rules[0].text = "Answer has been sent!\nWaiting on all answers to be entered!";
 	}
 	#endregion
 
 
-	public void ShowEndResult(int numPlayers) {
+	public void ShowEndResult(int numPlayers, string answerActivity, string diaryText) {
 		GameScreen.SetActive (false);
 		ResultsScreen.SetActive (true);
 //		EndScreen.SetActive (false);
+//		string answerActivity = gameManager.AnsweredActivity.EventName;
+//		ResultsImage = GameObject.FindWithTag ("ResultsImage").GetComponent<Image>();
+//		if (gameManager.AnsweredActivity.IsOpenOnDay(gameManager.GetAnswers()[1])) {
+//			if(gameManager.AnsweredActivity.IsOpenAtTime(gameManager.GetAnswers()[2])) {
+//				ResultsImage.sprite = Resources.Load <Sprite>(("ActivitySprites/"+answerActivity));
+//				switch (answerActivity) {
+//				case "Arcade":
+//					ResultsImage.sprite = ActivitySprites[0];
+//					break;
+//				case "Aquarium":
+//					ResultsImage.sprite = ActivitySprites[1];
+//					break;
+//				case "Beach":
+//					ResultsImage.sprite = ActivitySprites[2];
+//					break;
+//				case "Cinema":
+//					ResultsImage.sprite = ActivitySprites[3];
+//					break;
+//				case "Pub":
+//					ResultsImage.sprite = ActivitySprites[4];
+//					break;
+//				case "Theme Park":
+//					ResultsImage.sprite = ActivitySprites[5];
+//					break;
+//				case "The Zoo":
+//					ResultsImage.sprite = ActivitySprites[6];
+//					break;
+//				default:
+//					Debug.Log("Default Case: you broke it....");
+//					break;
+//				}
+//				switch (numPlayers) {
+//				case 1:
+//					ResultsText.text = ("Dear Diary,\nToday I went to meet up with my friends at the " + answerActivity + "but I think I went to the wrong place or something because I couldn't find anyone there.");
+//					break;
+//				case 2:
+//					ResultsText.text = ("Dear Diary,\nToday I went to the " + answerActivity + "to meet up with some friends. Only one other person was there at the same time, maybe the others went to the wrong place?");
+//					break;
+//				case 3:
+//					ResultsText.text = ("Dear Diary,\nToday I went to the " + answerActivity + "to meet up with some friends. Two of them made it there at the same time as me and we had a pretty good time. I wonder what happened to th eother guy?");
+//					break;
+//				case 4:
+//					ResultsText.text = ("Dear Diary,\nToday I went to the " + answerActivity + "with my best mates. We all made it there without a hitch and had a ball of a day!");
+//					break;
+//				default:
+//					break;
+//				}
+//			} 
+//			else {
+//				ResultsText.text = ("Dear Diary,\n
+//			}
+//		}
 
-		ResultsImage = GameObject.FindWithTag ("ResultsImage").GetComponent<Image>();
-		if (gameManager.AnsweredActivity.IsOpenOnDay(gameManager.GetAnswers()[1])) {
-
-		}
-		string answerActivity = XmlManager.Instance.GetActivityPiece (gameManager.GetAnswers()[0]);
-		switch (answerActivity) {
-		case "Arcade":
-			ResultsImage.sprite = ActivitySprites[0];
-			break;
-		case "Aquarium":
-			ResultsImage.sprite = ActivitySprites[1];
-			break;
-		case "Beach":
-			ResultsImage.sprite = ActivitySprites[2];
-			break;
-		case "Cinema":
-			ResultsImage.sprite = ActivitySprites[3];
-			break;
-		case "Pub":
-			ResultsImage.sprite = ActivitySprites[4];
-			break;
-		case "Theme Park":
-			ResultsImage.sprite = ActivitySprites[5];
-			break;
-		case "The Zoo":
-			ResultsImage.sprite = ActivitySprites[6];
-			break;
-		default:
-			Debug.Log("Default Case: you broke it....");
-			break;
-		}
+		ResultsImage.sprite = Resources.Load <Sprite> (("ActivitySprites/"+answerActivity));
+		ResultsText.text = diaryText;
 
 		for (int i = 0; i < numPlayers; i++) 
 		{
 			int randomSilhouetteIndex = Random.Range(0,PlayerSilhouettes.Length);
 			ResultsPeople[i].GetComponent<Image>().sprite = PlayerSilhouettes[randomSilhouetteIndex];
 		}
-
-		switch (numPlayers) {
-		case 1:
-			ResultsText.text = ("Dear Diary,\nToday I went to meet up with my friends at the " + answerActivity + "but I think I went to the wrong place or something because I couldn't find anyone there.");
-			break;
-		case 2:
-			ResultsText.text = ("Dear Diary,\nToday I went to the " + answerActivity + "to meet up with some friends. Only one other person was there at the same time, maybe the others went to the wrong place?");
-			break;
-		case 3:
-			ResultsText.text = ("Dear Diary,\nToday I went to the " + answerActivity + "to meet up with some friends. Two of them made it there at the same time as me and we had a pretty good time. I wonder what happened to th eother guy?");
-			break;
-		case 4:
-			ResultsText.text = ("Dear Diary,\nToday I went to the " + answerActivity + "with my best mates. We all made it there without a hitch and had a ball of a day!");
-			break;
-		default:
-			break;
-		}
-
-		//gameManager.AnswerIDs [0] = xmlManager.actsFromXML [0];
 	}
+
+
 
 
 	public void OpenMainMenu() {

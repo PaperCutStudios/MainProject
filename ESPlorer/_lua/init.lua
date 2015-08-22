@@ -14,6 +14,6 @@ ipcfg = {
 }
 wifi.ap.setip(ipcfg)
 ipcfg = nil
-Server = net.createServer(net.TCP, 300)
+Server = net.createServer(net.TCP, 1200)
 gpiofunctions.LightOn("blue")
 tmr.alarm(0,3000,0, function() dofile("Main.lua")end)
