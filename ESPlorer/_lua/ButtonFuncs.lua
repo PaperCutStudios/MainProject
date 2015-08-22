@@ -22,7 +22,7 @@ function ButtonFuncs.Difficulty(level)
         print ("New difficulty is "..gameprefs.Difficulty)
         for key,value in pairs(gameprefs.Players) do
             local player = require("player"..value)
-            player.Socket:send("5"..GamePrefs.Difficulty);
+            player.Socket:send("5"..gameprefs.Difficulty);
         end
     end
 end
@@ -35,7 +35,7 @@ function ButtonFuncs.TimerUp(level)
             print(gameprefs.Time)
             for key,value in pairs(gameprefs.Players) do
                 local player = require("player"..value)
-                player.Socket:send("6"..GamePrefs.Time);
+                player.Socket:send("6"..gameprefs.Time);
             end
         end
     end
@@ -50,7 +50,7 @@ function ButtonFuncs.TimerDown(level)
             print(gameprefs.Time)
             for key,value in pairs(gameprefs.Players) do
                 local player = require("player"..value)
-                player.Socket:send("6"..GamePrefs.Time);
+                player.Socket:send("6"..gameprefs.Time);
             end
         end
     end
@@ -71,7 +71,6 @@ function ButtonFuncs.GameStartEnd(level)
             player.Socket:send("4");
             print ("GameEnd sent to player: "..player.ID)
         end
-        gameprefs.GameStarted = false
     end
     
 end

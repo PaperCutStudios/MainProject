@@ -51,8 +51,7 @@ function gamePrefs.AnswerAdded()
 print("Answer Added")
     gamePrefs.AnswersEntered = gamePrefs.AnswersEntered +1
     if (gamePrefs.AnswersEntered == table.getn(gamePrefs.Players) ) then
-    print("TOTAL ANSWERS RECEIVED")
-        --create a table of each of the connected player's answers
+        print("TOTAL ANSWERS RECEIVED")
         local playeranswers = {}
         for key,value in pairs(gamePrefs.Players) do 
             player = require("player"..value)
@@ -70,6 +69,8 @@ print("Answer Added")
             end
             player.Socket:send("8"..numresult)
         end
+        gamePrefs.AnswersEntered = 0
+        gamePrefs.GameStart = false
     end
 end
 return gamePrefs
