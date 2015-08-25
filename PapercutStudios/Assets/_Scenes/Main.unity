@@ -4945,9 +4945,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  PlayerSilhouettes:
-  - {fileID: 21300000, guid: 2747b2730a2c4e34788cf76d7fa7e404, type: 3}
+  HappyResultsPeople:
   - {fileID: 21300000, guid: eb36a15f63b96934785d960b354a683d, type: 3}
+  SadResultsPeople:
+  - {fileID: 21300000, guid: 2747b2730a2c4e34788cf76d7fa7e404, type: 3}
   DifficultySprites:
   - {fileID: 21300000, guid: e8e632ff7be5df0429dac8204807e56e, type: 3}
   - {fileID: 21300000, guid: 0c97f12d58db13e43ac0420e3d3550de, type: 3}

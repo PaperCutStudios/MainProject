@@ -34,8 +34,8 @@ public class UIManager : Singleton<UIManager> {
 
 	public Sprite SelectedImage;
 	public Sprite DeSelecectedImage;
-	public Sprite[] ActivitySprites;
-	public Sprite[] PlayerSilhouettes;
+	public Sprite[] HappyResultsPeople;
+	public Sprite[] SadResultsPeople;
 	public Sprite[] DifficultySprites;
 
 	public int iCurrentDisplayedRules = 0;
@@ -280,15 +280,26 @@ public class UIManager : Singleton<UIManager> {
 	#endregion
 
 
-	public void ShowEndResult(int numPlayers, string answerActivity, string diaryText) {
+	public void ShowEndResult(int numPlayers, string answerActivity, string diaryText, bool happy) {
 		GameScreen.SetActive (false);
 		ResultsScreen.SetActive (true);
 		ResultsImage.sprite = Resources.Load <Sprite> (("ActivitySprites/"+answerActivity));
 		ResultsText.text = diaryText;
-		for (int i = 0; i < numPlayers; i++) 
-		{
-			int randomSilhouetteIndex = Random.Range(0,PlayerSilhouettes.Length);
-			ResultsPeople[i].GetComponent<Image>().sprite = PlayerSilhouettes[randomSilhouetteIndex];
+		if( answerActivity != "Closed") {
+			if(happy) {
+				for (int i = 0; i < numPlayers; i++) 
+				{
+					int randomSilhouetteIndex = Random.Range(0,HappyResultsPeople.Length);
+					ResultsPeople[i].GetComponent<Image>().sprite = HappyResultsPeople[randomSilhouetteIndex];
+				}
+			}
+			else {
+				for (int i = 0; i < numPlayers; i++) 
+				{
+					int randomSilhouetteIndex = Random.Range(0,HappyResultsPeople.Length);
+					ResultsPeople[i].GetComponent<Image>().sprite = SadResultsPeople[randomSilhouetteIndex];
+				}
+			}
 		}
 	}
 

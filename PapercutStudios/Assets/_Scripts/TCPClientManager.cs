@@ -60,9 +60,11 @@ public class TCPClientManager : Singleton<TCPClientManager> {
 	}
 
 	public void Disconnect() {
-		byte[] ba;
-		ba = asciiEncoding.GetBytes(gameManager.GetPlayerNum().ToString() + "0");
-		stm.Write(ba,0,ba.Length);
+		if(gameManager.GetPlayerNum() != 0) {
+			byte[] ba;
+			ba = asciiEncoding.GetBytes(gameManager.GetPlayerNum().ToString() + "0");
+			stm.Write(ba,0,ba.Length);
+		}
 	}
 
 	void ActOnDataString(string dataAsString) {

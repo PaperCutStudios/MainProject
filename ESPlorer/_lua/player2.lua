@@ -9,7 +9,7 @@ function player.connect(Socket)
     gpio.LightOn("green")
 end
 function player.disconnect()
-    player.Socket:close()
+    --player.Socket:close()
     print("Player "..player.ID.." has Disconnected")
     local gpio = require("gpiofunctions")
     gpio.LightOff("green") 

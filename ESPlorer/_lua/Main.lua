@@ -39,7 +39,7 @@ print("Receiving data: "..DataStream)
 end
 function OnConnection(Socket)
     Socket:on("receive", HandleSocketData)
-
+    Socket:on("disconnection", function(sck, c) print("Disconnect") end)
 end
 
 local buttonInit = require("ButtonFuncs")

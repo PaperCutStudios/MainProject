@@ -3,8 +3,8 @@ local gpiofunctions = require("gpiofunctions");
 gpiofunctions.InitAllLights()
 gpiofunctions.InitAllButtons()
 apcfg = {}
-apcfg.ssid = "PapercutGame"
-apcfg.password = "password"
+apcfg.ssid = "Conversity"
+apcfg.pwd = "Conversity"
 wifi.ap.config(apcfg)
 apcfg = nil
 ipcfg = {
