@@ -1,18 +1,18 @@
 function HandleSocketData (Socket,DataStream)
 print("Receiving data: "..DataStream)
     if(DataStream:sub(1,1) == "0") then
-        print("A player is requesting to join")
         local gamePrefs = require("gamePrefs")
         local playernum = gamePrefs.GetAvailablePlayer()
-        print("GamePrefs is returning: "..playernum)
         if(playernum == 0) then
-            print("Sending 0 as playernum")
             SocketPass:send("0")
         else
             print("Attemping to give player number")
-            local player = require("player"..playernum)
+            local playerfile = "player"..playernum
+            local player = require(playerfile)
             player.connect(Socket)
-            player.Socket:send("1"..player.ID..gamePrefs.Difficulty..gamePrefs.Time)
+            playerfile = "1"..player.ID..gamePrefs.Difficulty..gamePrefs.Time
+            player.Socket:send(playerfile)
+            print(playerfile)
             table.insert(gamePrefs.Players, player.ID)
         end
     elseif(tonumber(DataStream:sub(1,1)) <= 4) then
@@ -44,6 +44,8 @@ end
 
 local buttonInit = require("ButtonFuncs")
 buttonInit.SetButtonTrigs()
+buttonInit = nil
 Server:listen(80,OnConnection)
 local gpio = require("gpiofunctions")
 gpio.LightOff("blue")
+gpio = nil
