@@ -19,7 +19,6 @@ public class Availability{
 
 	int[] CalculateAvailabilityHours(int root, int bracket) {
 		int[] Availabilities = new int[4];
-		
 		Availabilities[0] = Random.Range(root - bracket, root+1);
 		Availabilities[3] = Availabilities[0] + bracket;
 		Availabilities[1] = Availabilities[0] + 1;

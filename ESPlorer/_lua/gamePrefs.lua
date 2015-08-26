@@ -1,6 +1,6 @@
 local gamePrefs = {}
-gamePrefs.Difficulty = 1
-gamePrefs.Time = 270
+gamePrefs.Difficulty = 2
+gamePrefs.Time = 300
 gamePrefs.Players = {}
 gamePrefs.Seed = 0
 gamePrefs.AnswersEntered = 0
