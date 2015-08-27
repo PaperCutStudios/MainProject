@@ -3,6 +3,7 @@ return function(socket, data)
 	print("Receiving data: "..data)
 	if(data:sub(1,1) == "0") then
 		print("Getting playernum")
+        print(node.heap())
 		local pnum = require("getavailplayer").getavailplayer()
 		print(pnum)
 		if(pnum~=0) then

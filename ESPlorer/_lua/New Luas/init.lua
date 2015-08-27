@@ -9,5 +9,3 @@ end
 end
 require("lights").on("blue")
 tmr.alarm(0,3000,0,function()dofile("main.lua")end)
-
-	

@@ -1,11 +1,10 @@
 local player={}
-player.id=2
+player.id=1
 player.answer=""
 player.socket=""
 function player.connect(skt)
-	player.socket=skt
-	print("11"..require("prefs").getallstart())
-	print("Player 1 Connected")
+    print(1 .. 1)
+   	print("Player 1 Connected")
 	require("lights").on("blue")
 end
 function player.disconnect()
