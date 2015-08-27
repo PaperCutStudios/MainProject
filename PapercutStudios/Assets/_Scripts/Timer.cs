@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour {
 	public float StartingCountDownTime;
 	public float fCountDownTimer;
 	public float fFlashTime;
+	public AudioClip ringing;
 	private float fCurrentFlashTimer;
 	private float fInterval;
 	private bool bTimerRunning;
@@ -37,6 +38,7 @@ public class Timer : MonoBehaviour {
 			{
 				fCountDownTimer = 0.0f;
 				UIManager.Instance.EndGame();
+				AudioSource.PlayClipAtPoint(ringing,transform.position);
 				StopTimer();
 			}			
 			int minutes = Mathf.FloorToInt( fCountDownTimer / 60);

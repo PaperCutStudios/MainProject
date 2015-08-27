@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class FadeIn : MonoBehaviour {		
 
 	public float FadeInTime;
+	public AudioClip clip;
 
 	private bool bFadingIn = false;
 	private Image thisImage;
@@ -12,6 +13,7 @@ public class FadeIn : MonoBehaviour {
 	void Start () {
 		bFadingIn = true;
 		thisImage = gameObject.GetComponent<Image>();
+		AudioSource.PlayClipAtPoint(clip,transform.position);
 	}
 	// Update is called once per frame
 	void Update () {
