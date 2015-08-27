@@ -23,7 +23,7 @@ function prefs.addanswer()
 end
 function prefs.getallstart()
     print("getallstart")
-    local startprefs = "hello"..prefs.diff..prefs.time
+    local startprefs = "hello"
     print(startprefs)
 	return startprefs
 end
