@@ -31,5 +31,5 @@ wifi.ap.setip(cfg)
 cfg=nil
 require("startbutton").settrig()
 local s=net.createServer(net.TCP,1200)
-s:listen(80,function(c) c:on("receive", handledata) c:on("disconnection", function(skt,c)print("disconnect")end) end)
+s:listen(80,function(c) c:on("receive", handledata) c:on("disconnection", function(skt)require("disconnect").disconnect(skt)end) end)
 require("lights").off("blue")

@@ -10,14 +10,16 @@ public class Timer : MonoBehaviour {
 	public float fFlashTime;
 	public AudioClip ringing;
 	private float fCurrentFlashTimer;
-	private float fInterval;
+	public float fInterval1;
+	public float fInterval2;
 	private bool bTimerRunning;
 	private bool ShownRule2;
 	private bool ShownRule3;
 
 	void Start () { 
 		fCountDownTimer = GameObject.FindObjectOfType<PlayerManager>().GameTime;
-		fInterval = Mathf.Round((((fCountDownTimer/(3+Random.Range(-0.25f,0.25f)))*100f)/100f));
+		fInterval1 = ((fCountDownTimer/3)+Random.Range(-10,10));
+		fInterval2 = ((fCountDownTimer/1.5f) +Random.Range(-10,10));
 		bTimerRunning = true;
 		ShownRule2 = false;
 		ShownRule3 = false;
@@ -26,11 +28,11 @@ public class Timer : MonoBehaviour {
 	void Update () {
 		if(bTimerRunning) {
 			fCountDownTimer -= Time.deltaTime;
-			if (fCountDownTimer <= StartingCountDownTime - fInterval && !ShownRule2) {
+			if (fCountDownTimer <= StartingCountDownTime - fInterval1 && !ShownRule2) {
 				UIManager.Instance.ShowNextRule();
 				ShownRule2 = true;
 			}
-			if(fCountDownTimer <= StartingCountDownTime - (2*fInterval) && !ShownRule3) {
+			if(fCountDownTimer <= StartingCountDownTime - fInterval2 && !ShownRule3) {
 				UIManager.Instance.ShowNextRule();
 				ShownRule3 = true;
 			}
@@ -38,7 +40,6 @@ public class Timer : MonoBehaviour {
 			{
 				fCountDownTimer = 0.0f;
 				UIManager.Instance.EndGame();
-				AudioSource.PlayClipAtPoint(ringing,transform.position);
 				StopTimer();
 			}			
 			int minutes = Mathf.FloorToInt( fCountDownTimer / 60);
@@ -47,21 +48,12 @@ public class Timer : MonoBehaviour {
 		}
 		if(!bTimerRunning) {
 			timerLabel.color = new Color(((Mathf.Sin(Time.time * fFlashTime) + 1.0f)/2.0f), 0f,0f,1f);
-//			if(fCurrentFlashTimer <= 0f) {
-//
-//				timerLabel.color = Color.red;
-//				fCurrentFlashTimer = fFlashTime;
-//			}
-//			if(fCurrentFlashTimer > 0f) {
-//				Debug.Log("Flash Black");
-//				timerLabel.color = Color.black;
-//				fCurrentFlashTimer -= Time.deltaTime;
-//			}
 		}
 	}
 
 	public void StopTimer () {
 		if(bTimerRunning) {
+			AudioSource.PlayClipAtPoint(ringing,transform.position);
 			bTimerRunning = false;
 		}
 	}

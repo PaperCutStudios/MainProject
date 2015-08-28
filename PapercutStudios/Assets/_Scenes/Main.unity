@@ -1039,7 +1039,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 125301599}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: RulesArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12153,6 +12153,8 @@ MonoBehaviour:
   fCountDownTimer: 0
   fFlashTime: 2
   ringing: {fileID: 8300000, guid: 7cd77ef6b073f484fa3c91a62e27cb0d, type: 3}
+  fInterval1: 0
+  fInterval2: 0
 --- !u!1 &1834643774
 GameObject:
   m_ObjectHideFlags: 0

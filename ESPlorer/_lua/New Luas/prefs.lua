@@ -21,10 +21,14 @@ function prefs.addanswer()
 		prefs.started=false
 	end	
 end
-function prefs.getallstart()
-    print("getallstart")
-    local startprefs = "hello"
-    print(startprefs)
-	return startprefs
+function prefs.removeplayer(num)
+    print("Attemping to remove player:",num)
+    for key,value in pairs(prefs.players) do
+        if(value == num) then
+            local removed = key
+            table.remove(prefs.players, removed)
+            break
+        end
+    end
 end
 return prefs

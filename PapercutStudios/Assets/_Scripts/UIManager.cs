@@ -69,7 +69,7 @@ public class UIManager : Singleton<UIManager> {
 		foreach(Text element in Rules) {
 			element.text = "";
 		}
-		RulesTitle = GameScreen.transform.FindChild("Rules").GetComponent<Text>();
+		RulesTitle = GameScreen.transform.FindChild("RulesArea/Rules").GetComponent<Text>();
 		submitAnswersButton = GameScreen.transform.FindChild("SubmitAnswers").GetComponent<Button>();
 		submitAnswersButton.onClick.AddListener(() => SubmitAnswersButtonClick());
 		submitAnswersButton.gameObject.SetActive(false);
