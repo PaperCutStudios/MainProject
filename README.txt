@@ -2,6 +2,8 @@ Just an extra quick note, the Node we have submitted doesn't have the absolute m
 
 If the changes cause the a panic loop, there is a safety timer installed that gives you 3 seconds to send to the device file.remove("init.lua"), which should interrupt the loop on its next iteration.
 
+Also, just to clarify, the LUA scripts that control the node device are stored in ESPlorer/_lua/New luas/. The /OldLuas folder contains files from before we went through and tried to change everything to be slightly less memory intensive (based on recommendations from: http://www.esp8266.com/wiki/doku.php?id=nodemcu-unofficial-faq). The old lua scripts were what we used for the IGDA playtesting session on Tuesday (but wouldn't allow more than 3 players to connect).
+
 ---	Prep	---
 
 1. Connect the Node device to a computer via micro-usb
