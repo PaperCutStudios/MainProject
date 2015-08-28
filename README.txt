@@ -63,3 +63,11 @@ In order to attempt to play the game again, a hard reset must be carried out upo
 #2. At a certain depth within the LUA code, the ".." operator with numbers causes the node to crash. This means that numbers cannot be concatenated to the strings being sent between the devices. The area this issues most greatly effects is the ability to change the setup settings, which were intended to cycle the difficulty number and add/minus 30seconds from the time limit in the node's settings when certain buttons were pressed on the node device.
 	- The code for this change can be found in the LUAs/Old Luas/ButtonFunctions file, from an early time where concatenation would work for numbers at all levels of code
 
+---	Tool	---
+The RulesReader takes the easily readable rules excel file and saves its values to an XML for use in the game. To use:
+
+1. Download the rules spreadsheet from Papercut Studios' Google drive
+2. Place this along-side the RulesReader.exe
+3. Run RulesReader.exe
+4. Copy Rules.xml to Assets/Resources
+5. Comeplete! the rules.xml has been successfully updated and added to the project.
